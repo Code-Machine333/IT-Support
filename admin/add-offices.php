@@ -111,8 +111,7 @@ if (strlen($_SESSION['adid'] == 0)) {
 
 
 
-                        <!-- end row -->
-
+               
 
 
 
