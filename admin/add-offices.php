@@ -130,10 +130,10 @@ if (strlen($_SESSION['adid'] == 0)) {
 
 
         </div>
-        <!-- END wrapper -->
+   
 
 
-
+  
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
