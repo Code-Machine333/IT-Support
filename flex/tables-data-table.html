@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: FlexAdmin - Bootstrap 5 Admin Template
+Version: 1.0.1
+Author: TEachProd.
+Website: https://teachprod.com
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Data Table - Table">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <meta property="og:image" content="https://www.teachprod.com/wp-content/uploads/2020/10/carrot.jpg">
+  <title>Data Table - Table - FlexAdmin</title>
+  <link href="assets/css/vendor~app.css" rel="stylesheet"><link href="assets/css/app.css" rel="stylesheet"><link href="assets/css/vendor~demo_datatable.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180917586-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180917586-1');
+  </script>
+</head>
+<!-- Possible Body Attributes
+    * data-theme-header-fixed = 'true'       - For fixed Header
+    * data-theme-header-fixed = 'false'      - For static Header
+    * data-theme-sidebar-fixed = 'true'      - For fixed Left Navigation
+    * data-theme-sidebar-fixed = 'false'     - For static Left Navigation
+    * data-theme-sidebar-shrinked = 'true'   - For shrinking Left Navigation
+    * data-theme-footer-fixed = 'true'       - For fixed Footer
+    * data-theme-footer-fixed = 'false'      - For static Footer
+    * data-theme-mode = 'dark-mode'          - For Dark Mode
+-->
+
+<body>
+    <!-- apply javascript before page content be loaded -->
+    <script>
+      'use strict';
+      var defaultConfig = {
+        fixedLeftSidebar: true,
+        fixedHeader: false,
+        fixedFooter: false,
+        isShrinked: false,
+        themeColor: 'app-theme-facebook',
+        themeMode: 'default-mode'
+      };
+      var globalConfigs = JSON.parse(localStorage.getItem('ABCADMIN_CONFIG')) || defaultConfig;
+      var appThemeMode = globalConfigs.themeMode;
+      var isShrinked = globalConfigs.isShrinked;
+      var body = document.getElementsByTagName("body")[0];
+      body.setAttribute("data-theme-mode", appThemeMode);
+      body.setAttribute("data-theme-sidebar-shrinked", isShrinked)
+    </script>
+    <nav id="left-sidebar" class="left-sidebar">
+      <!-- start sidebar-header -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <h3><a href="/">
+              <span class="fw-700">FlexAdmin</span>
+            </a></h3>
+        </div>
+        <a class="sidebar-toggle-btn">
+          <i class="far fa-bars"></i>
+        </a>
+      </div>
+      <!-- end sidebar-header -->
+      <div class="sidebar-wrapper">
+        <!-- start sidebar-body -->
+        <div class="sidebar-body">
+          <div class="nav-filter align-items-center justify-content-center flex-row mb-4 p-2">
+            <input type="text" placeholder="Quick search" class="w-100 form-control" tabindex="0">
+          </div>
+          <!-- end nav-profile -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">MAIN</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="homeSubmenu" data-parent="#left-sidebar">
+                  <li>
+                    <a href="dashboard-analytics.html">Analytics</a>
+                  </li>
+                  <li>
+                    <a href="index.html">Ecommerce</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a href="calendar.html">
+                  <i class="fal fa-calendar"></i>
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="chat.html">
+                  <i class="fal fa-comments-alt"></i>
+                  <span>Chat</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                 <a href="#pageSubmenuEcommerce" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-dumpster"></i>
+                  <span>Ecommerce</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenuEcommerce" data-parent="#left-sidebar">
+                  <li>
+                    <a href="ecommerce-products.html">All Products</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-product-detail.html">Product Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-add-product.html">Add Product</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-orders.html">Orders</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-order-detail.html">Order Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-customers.html">Customers</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-shopping-card.html">Shopping Card</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </li>
+              <li id="sidebar-pages" class="sidebar-item">
+                <a href="#pageSubmenu1" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-file"></i>
+                  <span>Pages</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenu1" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#pageAuthentication" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Authentication</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageAuthentication" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-authentication-login.html">Login</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-register.html">Register</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-forgot-password.html">Forgot Password</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-confirm-email.html">Confirm Email</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li authentication -->
+          
+                  <li>
+                    <a href="pages-contact.html">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#pageError" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Error</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageError" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-error-404.html">Error 404 </a>
+                      </li>
+                      <li>
+                        <a href="pages-error-500.html">Error 500</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li pageError -->
+                  <li>
+                    <a href="pages-faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="pages-invoice.html">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="pages-maintenance.html">Maintenance Page</a>
+                  </li>
+                  <li>
+                    <a href="pages-pricing.html">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="pages-profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="pages-starter.html">Starter Page</a>
+                  </li>
+                </ul> <!-- end sidebar-second-level -->
+              </li> <!-- end sidebar-item -->
+            </ul>
+          </div>      <!-- end sidebar-block -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">COMPONENT</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#ui-kit" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-layer-group"></i>
+                  <span>UI Kit</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="ui-kit" data-parent="#left-sidebar">
+                   <li>
+                    <a href="ui-kits-avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-breadcrumbs.html">Breadcrumbs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-dual-listbox.html">Dual Listbox</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-jstree.html">jsTree</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-image-cropper.html">Image cropper</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-notifications.html">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-spinners.html">Spinner</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-sweetalert.html">SweetAlert2</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-toastr.html">Toastr</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-widgets.html">Widgets</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#utilities" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-shield-alt"></i>
+                  <span>Utilities</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="utilities" data-parent="#left-sidebar">
+                  <li>
+                    <a href="utilities-borders.html">Borders</a>
+                  </li>
+                  <li>
+                    <a href="utilities-colors.html">Colors</a>
+                  </li>
+                  <li>
+                    <a href="utilities-display.html">Display</a>
+                  </li>
+                  <li>
+                    <a href="utilities-flex.html">Flex</a>
+                  </li>
+                  <li>
+                    <a href="utilities-float.html">Float</a>
+                  </li>
+                  <li>
+                    <a href="utilities-interactions.html">Interactions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-overflow.html">Overflow</a>
+                  </li>
+                  <li>
+                    <a href="utilities-positions.html">Positions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-shadows.html">Shadows</a>
+                  </li>
+                  <li>
+                    <a href="utilities-sizing.html">Sizing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-spacing.html">Spacing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-text.html">Text</a>
+                  </li>
+                  <li>
+                    <a href="utilities-typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="utilities-vertical-align.html">Vertical Align</a>
+                  </li>
+                  <li>
+                    <a href="utilities-visibility.html">Visibility</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fab fa-wpforms"></i>
+                  <span>Forms </span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="forms" data-parent="#left-sidebar">
+                  <li>
+                    <a href="forms-basic-elements.html">Basic Elements</a>
+                  </li>
+                  <li>
+                    <a href="forms-checkboxs.html">Checkbox</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-editors.html">Editors</a>
+                  </li> -->
+                  <li>
+                    <a href="forms-dropzonejs.html">DropzoneJS</a>
+                  </li>
+                  <li>
+                    <a href="forms-input-groups.html">Input Groups</a>
+                  </li>
+                  <li>
+                    <a href="forms-radios.html">Radio</a>
+                  </li>
+                  <li>
+                    <a href="forms-select2.html">Select2</a>
+                  </li>
+                  <li>
+                    <a href="forms-validations.html">Validations</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-wizard.html">Wizard</a>
+                  </li> -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#charts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="far fa-chart-bar"></i>
+                  <span>Charts</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="charts" data-parent="#left-sidebar">
+                  <li>
+                    <a href="charts-britecharts.html">Britecharts</a>
+                  </li>
+                  <li>
+                    <a href="charts-chartjs.html">Chartjs</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#tables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-table"></i>
+                  <span>Tables</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="tables" data-parent="#left-sidebar">
+                  <li>
+                    <a href="tables-basic-table.html">Basic Table</a>
+                  </li>
+                  <li>
+                    <a href="tables-data-table.html">Data Table</a>
+                  </li>
+                </ul>
+              </li>          <li id="sidebar-icons" class="sidebar-item">
+                <a  href="#icons" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-award"></i>
+                  <span>Icons</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="icons" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#font-awesome" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Font Awesome 5</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="font-awesome" data-parent="#sidebar-icons">
+                      <li>
+                        <a href="icon-fontawesome-solid.html">Solid</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-regular.html">Regular</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-light.html">Light</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-duotone.html">Duotone</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-brands.html">Brands</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li fontawesome -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#maps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-map-marked-alt"></i>
+                  <span>Maps</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="maps" data-parent="#left-sidebar">
+                  <li>
+                    <a href="maps-google-map.html">Google Map</a>
+                  </li>
+                  <li>
+                    <a href="maps-vector-map.html">Vector Map</a>
+                  </li>
+                </ul>
+              </li>        </ul>
+          </div>
+          <!-- end sidebar-block -->
+        </div>
+        <!-- end sidebar-body -->
+        <div class="align-items-center justify-content-center sidebar-footer">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li>
+              <a href="#">
+                <i class="fal fa-comments" data-bs-original-title="Chat History" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-life-ring" data-bs-original-title="Support" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-question-circle" data-bs-original-title="Helper" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end sidebar-footer -->
+      </div><!-- end sidebar-wrapper -->
+    </nav>    <div class="page-container">
+      <nav class="navbar topbar">
+        <div class="top-left-menu">
+          <div id="form-global-search" class="rounded">
+            <form>
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                <button type="submit">
+                  <i class="fal fa-search text-highlight"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div><ul class="list-unstyled top-right-menu">
+          <li class="nav-item topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="emailsDropdown">
+              <i class="fal fa-envelope"></i>
+              <span class="badge bg-success rounded-circle">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-animate dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="emailsDropdown">
+              <div class="dropdown-menu-header">
+                6 New Emails
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/avatar.png" class="user-avatar rounded-circle" alt="User">
+                    </div>
+                    <div class="col-10">
+                      <div>Sam Robert</div>
+                      <div class="text-muted small mt-1">Ability to select/create Modules</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Schirsten Vander</div>
+                      <div class="text-muted small mt-1">Add widgets descriptions</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Robert Nordic</div>
+                      <div class="text-muted small mt-1">Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Michael Branson</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Antonym Sladers</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Marcus</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item task-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="tasksDropdown">
+              <i class="fal fa-tasks"></i>
+              <span class="badge bg-danger rounded-circle">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="tasksDropdown">
+              <div class="dropdown-menu-header">
+                4 New Tasks
+              </div>
+              <div class="list-group">
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Design database</span>
+                    <span class="percent">74%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%">
+                      <span class="sr-only">74% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Testing</span>
+                    <span class="percent">30%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">30% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Document writting</span>
+                    <span class="percent">50%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      <span class="sr-only">50% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Development</span>
+                    <span class="percent">45%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                      <span class="sr-only">45% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">HTML slicing</span>
+                    <span class="percent">66%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                      <span class="sr-only">66% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="notificationsDropdown">
+              <i class="fal fa-bell"></i>
+              <span class="badge bg-info rounded-circle">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="notificationsDropdown">
+              <div class="dropdown-menu-header">
+                4 New Notifications
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-primary fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>New user registered</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-warning fas fa-fw fa-bell"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Update completed</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet.</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-info fas fa-fw fa-envelope-open"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet, consectetur adip</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-danger fas fa-fw fa-building"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Login from 192.168.1.1</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item user-setting-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-profile" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="assets/images/avatar.png" alt="user-image" class="rounded-circle">
+              <span class="ms-1 d-none d-lg-inline">
+                <span class="user-name">Hi, Admin</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown dropdown-animate">
+              <div class="dropdown-header">
+                <h6 class="text-center">Welcome !</h6>
+              </div>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-user-alt me-1"></i>
+                <span>My Account</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-cog me-1"></i>
+                <span>Settings</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-envelope me-1"></i>
+                <span>Inbox</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-calendar-alt me-1"></i>
+                <span>Calendar</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-tasks me-1"></i>
+                <span>Tasks</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-sign-out me-1"></i>
+                <span>Sign out</span>
+              </a>
+            </div>
+          </li>  <li class="nav-item">
+            <a href="#right-sidebar" class="nav-link" data-bs-toggle="modal"  id="modalSetting">
+              <i class="fal fa-cog rotate"></i>
+            </a>
+          </li></ul>      </nav>
+      <!-- end navbar -->
+      <div class="page-content">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb ps-0 fs-base">
+    <li class="breadcrumb-item"><a href="#">FlexAdmin</a></li>
+    <li class="breadcrumb-item"><span>Tables</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+  </ol>
+</nav>
+<div class="header mb-4">
+  <h1 class="header-title h3">
+    <i class="fal fa-table text-highlight"></i>
+    Data Table
+  </h1>
+  <p class="mt-2">
+      <a href="https://datatables.net/" class="text-highlight fw-700" target="_blank">DataTables</a> is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.
+    </p>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table id="demo-datatable" class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+              </tr>
+              <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+              </tr>
+              <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2012/03/29</td>
+                <td>$433,060</td>
+              </tr>
+              <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>33</td>
+                <td>2008/11/28</td>
+                <td>$162,700</td>
+              </tr>
+              <tr>
+                <td>Brielle Williamson</td>
+                <td>Integration Specialist</td>
+                <td>New York</td>
+                <td>61</td>
+                <td>2012/12/02</td>
+                <td>$372,000</td>
+              </tr>
+              <tr>
+                <td>Herrod Chandler</td>
+                <td>Sales Assistant</td>
+                <td>San Francisco</td>
+                <td>59</td>
+                <td>2012/08/06</td>
+                <td>$137,500</td>
+              </tr>
+              <tr>
+                <td>Rhona Davidson</td>
+                <td>Integration Specialist</td>
+                <td>Tokyo</td>
+                <td>55</td>
+                <td>2010/10/14</td>
+                <td>$327,900</td>
+              </tr>
+              <tr>
+                <td>Colleen Hurst</td>
+                <td>Javascript Developer</td>
+                <td>San Francisco</td>
+                <td>39</td>
+                <td>2009/09/15</td>
+                <td>$205,500</td>
+              </tr>
+              <tr>
+                <td>Sonya Frost</td>
+                <td>Software Engineer</td>
+                <td>Edinburgh</td>
+                <td>23</td>
+                <td>2008/12/13</td>
+                <td>$103,600</td>
+              </tr>
+              <tr>
+                <td>Jena Gaines</td>
+                <td>Office Manager</td>
+                <td>London</td>
+                <td>30</td>
+                <td>2008/12/19</td>
+                <td>$90,560</td>
+              </tr>
+              <tr>
+                <td>Quinn Flynn</td>
+                <td>Support Lead</td>
+                <td>Edinburgh</td>
+                <td>22</td>
+                <td>2013/03/03</td>
+                <td>$342,000</td>
+              </tr>
+              <tr>
+                <td>Charde Marshall</td>
+                <td>Regional Director</td>
+                <td>San Francisco</td>
+                <td>36</td>
+                <td>2008/10/16</td>
+                <td>$470,600</td>
+              </tr>
+              <tr>
+                <td>Haley Kennedy</td>
+                <td>Senior Marketing Designer</td>
+                <td>London</td>
+                <td>43</td>
+                <td>2012/12/18</td>
+                <td>$313,500</td>
+              </tr>
+              <tr>
+                <td>Tatyana Fitzpatrick</td>
+                <td>Regional Director</td>
+                <td>London</td>
+                <td>19</td>
+                <td>2010/03/17</td>
+                <td>$385,750</td>
+              </tr>
+              <tr>
+                <td>Michael Silva</td>
+                <td>Marketing Designer</td>
+                <td>London</td>
+                <td>66</td>
+                <td>2012/11/27</td>
+                <td>$198,500</td>
+              </tr>
+              <tr>
+                <td>Paul Byrd</td>
+                <td>Chief Financial Officer (CFO)</td>
+                <td>New York</td>
+                <td>64</td>
+                <td>2010/06/09</td>
+                <td>$725,000</td>
+              </tr>
+              <tr>
+                <td>Gloria Little</td>
+                <td>Systems Administrator</td>
+                <td>New York</td>
+                <td>59</td>
+                <td>2009/04/10</td>
+                <td>$237,500</td>
+              </tr>
+              <tr>
+                <td>Bradley Greer</td>
+                <td>Software Engineer</td>
+                <td>London</td>
+                <td>41</td>
+                <td>2012/10/13</td>
+                <td>$132,000</td>
+              </tr>
+              <tr>
+                <td>Dai Rios</td>
+                <td>Personnel Lead</td>
+                <td>Edinburgh</td>
+                <td>35</td>
+                <td>2012/09/26</td>
+                <td>$217,500</td>
+              </tr>
+              <tr>
+                <td>Jenette Caldwell</td>
+                <td>Development Lead</td>
+                <td>New York</td>
+                <td>30</td>
+                <td>2011/09/03</td>
+                <td>$345,000</td>
+              </tr>
+              <tr>
+                <td>Yuri Berry</td>
+                <td>Chief Marketing Officer (CMO)</td>
+                <td>New York</td>
+                <td>40</td>
+                <td>2009/06/25</td>
+                <td>$675,000</td>
+              </tr>
+              <tr>
+                <td>Caesar Vance</td>
+                <td>Pre-Sales Support</td>
+                <td>New York</td>
+                <td>21</td>
+                <td>2011/12/12</td>
+                <td>$106,450</td>
+              </tr>
+              <tr>
+                <td>Doris Wilder</td>
+                <td>Sales Assistant</td>
+                <td>Sydney</td>
+                <td>23</td>
+                <td>2010/09/20</td>
+                <td>$85,600</td>
+              </tr>
+              <tr>
+                <td>Angelica Ramos</td>
+                <td>Chief Executive Officer (CEO)</td>
+                <td>London</td>
+                <td>47</td>
+                <td>2009/10/09</td>
+                <td>$1,200,000</td>
+              </tr>
+              <tr>
+                <td>Gavin Joyce</td>
+                <td>Developer</td>
+                <td>Edinburgh</td>
+                <td>42</td>
+                <td>2010/12/22</td>
+                <td>$92,575</td>
+              </tr>
+              <tr>
+                <td>Jennifer Chang</td>
+                <td>Regional Director</td>
+                <td>Singapore</td>
+                <td>28</td>
+                <td>2010/11/14</td>
+                <td>$357,650</td>
+              </tr>
+              <tr>
+                <td>Brenden Wagner</td>
+                <td>Software Engineer</td>
+                <td>San Francisco</td>
+                <td>28</td>
+                <td>2011/06/07</td>
+                <td>$206,850</td>
+              </tr>
+              <tr>
+                <td>Fiona Green</td>
+                <td>Chief Operating Officer (COO)</td>
+                <td>San Francisco</td>
+                <td>48</td>
+                <td>2010/03/11</td>
+                <td>$850,000</td>
+              </tr>
+              <tr>
+                <td>Shou Itou</td>
+                <td>Regional Marketing</td>
+                <td>Tokyo</td>
+                <td>20</td>
+                <td>2011/08/14</td>
+                <td>$163,000</td>
+              </tr>
+              <tr>
+                <td>Michelle House</td>
+                <td>Integration Specialist</td>
+                <td>Sydney</td>
+                <td>37</td>
+                <td>2011/06/02</td>
+                <td>$95,400</td>
+              </tr>
+              <tr>
+                <td>Suki Burks</td>
+                <td>Developer</td>
+                <td>London</td>
+                <td>53</td>
+                <td>2009/10/22</td>
+                <td>$114,500</td>
+              </tr>
+              <tr>
+                <td>Prescott Bartlett</td>
+                <td>Technical Author</td>
+                <td>London</td>
+                <td>27</td>
+                <td>2011/05/07</td>
+                <td>$145,000</td>
+              </tr>
+              <tr>
+                <td>Gavin Cortez</td>
+                <td>Team Leader</td>
+                <td>San Francisco</td>
+                <td>22</td>
+                <td>2008/10/26</td>
+                <td>$235,500</td>
+              </tr>
+              <tr>
+                <td>Martena Mccray</td>
+                <td>Post-Sales support</td>
+                <td>Edinburgh</td>
+                <td>46</td>
+                <td>2011/03/09</td>
+                <td>$324,050</td>
+              </tr>
+              <tr>
+                <td>Unity Butler</td>
+                <td>Marketing Designer</td>
+                <td>San Francisco</td>
+                <td>47</td>
+                <td>2009/12/09</td>
+                <td>$85,675</td>
+              </tr>
+              <tr>
+                <td>Howard Hatfield</td>
+                <td>Office Manager</td>
+                <td>San Francisco</td>
+                <td>51</td>
+                <td>2008/12/16</td>
+                <td>$164,500</td>
+              </tr>
+              <tr>
+                <td>Hope Fuentes</td>
+                <td>Secretary</td>
+                <td>San Francisco</td>
+                <td>41</td>
+                <td>2010/02/12</td>
+                <td>$109,850</td>
+              </tr>
+              <tr>
+                <td>Vivian Harrell</td>
+                <td>Financial Controller</td>
+                <td>San Francisco</td>
+                <td>62</td>
+                <td>2009/02/14</td>
+                <td>$452,500</td>
+              </tr>
+              <tr>
+                <td>Timothy Mooney</td>
+                <td>Office Manager</td>
+                <td>London</td>
+                <td>37</td>
+                <td>2008/12/11</td>
+                <td>$136,200</td>
+              </tr>
+              <tr>
+                <td>Jackson Bradshaw</td>
+                <td>Director</td>
+                <td>New York</td>
+                <td>65</td>
+                <td>2008/09/26</td>
+                <td>$645,750</td>
+              </tr>
+              <tr>
+                <td>Olivia Liang</td>
+                <td>Support Engineer</td>
+                <td>Singapore</td>
+                <td>64</td>
+                <td>2011/02/03</td>
+                <td>$234,500</td>
+              </tr>
+              <tr>
+                <td>Bruno Nash</td>
+                <td>Software Engineer</td>
+                <td>London</td>
+                <td>38</td>
+                <td>2011/05/03</td>
+                <td>$163,500</td>
+              </tr>
+              <tr>
+                <td>Sakura Yamamoto</td>
+                <td>Support Engineer</td>
+                <td>Tokyo</td>
+                <td>37</td>
+                <td>2009/08/19</td>
+                <td>$139,575</td>
+              </tr>
+              <tr>
+                <td>Thor Walton</td>
+                <td>Developer</td>
+                <td>New York</td>
+                <td>61</td>
+                <td>2013/08/11</td>
+                <td>$98,540</td>
+              </tr>
+              <tr>
+                <td>Finn Camacho</td>
+                <td>Support Engineer</td>
+                <td>San Francisco</td>
+                <td>47</td>
+                <td>2009/07/07</td>
+                <td>$87,500</td>
+              </tr>
+              <tr>
+                <td>Serge Baldwin</td>
+                <td>Data Coordinator</td>
+                <td>Singapore</td>
+                <td>64</td>
+                <td>2012/04/09</td>
+                <td>$138,575</td>
+              </tr>
+              <tr>
+                <td>Zenaida Frank</td>
+                <td>Software Engineer</td>
+                <td>New York</td>
+                <td>63</td>
+                <td>2010/01/04</td>
+                <td>$125,250</td>
+              </tr>
+              <tr>
+                <td>Zorita Serrano</td>
+                <td>Software Engineer</td>
+                <td>San Francisco</td>
+                <td>56</td>
+                <td>2012/06/01</td>
+                <td>$115,000</td>
+              </tr>
+              <tr>
+                <td>Jennifer Acosta</td>
+                <td>Junior Javascript Developer</td>
+                <td>Edinburgh</td>
+                <td>43</td>
+                <td>2013/02/01</td>
+                <td>$75,650</td>
+              </tr>
+              <tr>
+                <td>Cara Stevens</td>
+                <td>Sales Assistant</td>
+                <td>New York</td>
+                <td>46</td>
+                <td>2011/12/06</td>
+                <td>$145,600</td>
+              </tr>
+              <tr>
+                <td>Hermione Butler</td>
+                <td>Regional Director</td>
+                <td>London</td>
+                <td>47</td>
+                <td>2011/03/21</td>
+                <td>$356,250</td>
+              </tr>
+              <tr>
+                <td>Lael Greer</td>
+                <td>Systems Administrator</td>
+                <td>London</td>
+                <td>21</td>
+                <td>2009/02/27</td>
+                <td>$103,500</td>
+              </tr>
+              <tr>
+                <td>Jonas Alexander</td>
+                <td>Developer</td>
+                <td>San Francisco</td>
+                <td>30</td>
+                <td>2010/07/14</td>
+                <td>$86,500</td>
+              </tr>
+              <tr>
+                <td>Shad Decker</td>
+                <td>Regional Director</td>
+                <td>Edinburgh</td>
+                <td>51</td>
+                <td>2008/11/13</td>
+                <td>$183,000</td>
+              </tr>
+              <tr>
+                <td>Michael Bruce</td>
+                <td>Javascript Developer</td>
+                <td>Singapore</td>
+                <td>29</td>
+                <td>2011/06/27</td>
+                <td>$183,000</td>
+              </tr>
+              <tr>
+                <td>Donna Snider</td>
+                <td>Customer Support</td>
+                <td>New York</td>
+                <td>27</td>
+                <td>2011/01/25</td>
+                <td>$112,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  </div>
+</div>
+      </div>
+      <!-- end page-content -->
+      <div id="footer" class="d-flex align-items-center">
+        <div class="row w-100">
+          <div class="footer-nav col-md-8 col-sm-6">
+            <a href="#" target="_blank" class="footer-nav-item">About</a>
+            <a href="#" target="_blank" class="footer-nav-item">Support</a>
+            <a href="#" target="_blank" class="footer-nav-item">Contact</a>
+          </div>
+          <div class="copyright text-end col-md-4 col-sm-6">
+            2020&nbsp;©&nbsp;<a href="#" target="_blank">TEachProd</a>
+          </div>
+        </div>
+      </div>    </div>
+    <!-- end page-container -->
+  <div class="modal right fade" id="right-sidebar" tabindex="-1" aria-labelledby="modalSetting" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-scroll" style="max-height: 100%">
+        <div class="align-items-center bg-trans-gradient justify-content-center modal-header rounded-0 w-100">
+          <h4 class="m-0 text-center text-white fw-700">
+            Settings
+            <small class="mb-0 opacity-80">User Interface Settings</small>
+          </h4>
+          <a href="#" class="pos-top-right text-white p-2 m-1 me-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mx-3 mt-2">
+              <p class="text-muted fs-base">Customize layout, left sidebar menu, etc. FlexAdmin stores the preferences in local storage.</p>
+            </div>
+            <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                Layout Options
+              </h5>
+            </div>
+            <div class="ps-3 pe-2">
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-shrinking-left-sidebar" id="app-shrinking-left-sidebar">
+                  <label for="app-shrinking-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-shrinking-left-sidebar">Shrinking Left Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-header" id="app-fixed-header" value=true>
+                  <label for="app-fixed-header"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-header">Fixed Header</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-left-sidebar" id="app-fixed-left-sidebar">
+                  <label for="app-fixed-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-left-sidebar">Fixed Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-footer" id="app-fixed-footer">
+                  <label for="app-fixed-footer"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-footer">Fixed Footer</label></div>
+              </div>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Colors
+              </h5>
+            </div>
+            <div class="theme-colors ps-3 pe-2">
+              <ul class="m-0 p-0">
+                <li>
+                  <a href="#" class="bg-anchor" data-theme-color="app-theme-anchor" data-bs-toggle="tooltip" data-bs-original-title="Anchor"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-maroon" data-theme-color="app-theme-maroon" data-bs-toggle="tooltip" data-bs-original-title="Maroon"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-carrot" data-theme-color="app-theme-carrot" data-bs-toggle="tooltip" data-bs-original-title="Carrot"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-lollipop" data-theme-color="app-theme-lollipop" data-bs-toggle="tooltip" data-bs-original-title="Lollipop"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-gold" data-theme-color="app-theme-gold" data-bs-toggle="tooltip" data-bs-original-title="Gold"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-forest" data-theme-color="app-theme-forest" data-bs-toggle="tooltip" data-bs-original-title="Forest"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-hoki" data-theme-color="app-theme-hoki" data-bs-toggle="tooltip" data-bs-original-title="Hoki"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-facebook" data-theme-color="app-theme-facebook" data-bs-toggle="tooltip" data-bs-original-title="Facebook"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-purple" data-theme-color="app-theme-purple" data-bs-toggle="tooltip" data-bs-original-title="Purple"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-indigo" data-theme-color="app-theme-indigo" data-bs-toggle="tooltip" data-bs-original-title="Indigo"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-cafe" data-theme-color="app-theme-cafe" data-bs-toggle="tooltip" data-bs-original-title="Cafe"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-charcoal" data-theme-color="app-theme-charcoal" data-bs-toggle="tooltip" data-bs-original-title="Charcoal"></a>
+                </li>
+              </ul>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Modes
+              </h5>
+            </div>
+            <div class="theme-modes ps-3 pe-2">
+              <div class="row">
+                <div class="col-6 pe-2 text-center">
+                  <div data-theme-mode="default-mode" class="theme-mode-config d-flex bg-white border border-secondary rounded overflow-hidden text-success" style="height: 100px">
+                    <div class="map-left-sidebar px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="bg-white border-bottom py-1"></div>
+                      <div class="bg-white h-100 flex-1 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100" style="background:url('assets/images/website-layout.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Default
+                </div>
+                <div class="col-6 ps-2 text-center">
+                  <div data-theme-mode="dark-mode" class="theme-mode-config d-flex border border-white rounded overflow-hidden text-success bg-dark" style="height: 100px">
+                    <div class="px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="border-bottom py-1"></div>
+                      <div class="flex-1 h-100 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100 " style="background:url('assets/images/website-layout-dark.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Dark
+                </div>
+              </div>
+            </div>          <div class="d-flex justify-content-center mt-4 pt-4">
+              <button id="reset-setting" type="button" class="btn btn-warning btn-rounded d-block w-75">Reset</button>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <a class="btn btn-rose btn-rounded d-block w-75" href="https://codecanyon.net/item/flexadmin-bootstrap-5-admin-template/29011667" target="_blank">Buy Now</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end right-sidebar -->  <script src="assets/js/vendor~app~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_calendar~demo_datatable~dem~cf3c0e0d.js"></script><script src="assets/js/vendor~app.js"></script><script src="assets/js/app.js"></script><script src="assets/js/vendor~demo_datatable.js"></script><script src="assets/js/demo_datatable.js"></script>
+</body>
+</html>

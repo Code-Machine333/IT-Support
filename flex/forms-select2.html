@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: FlexAdmin - Bootstrap 5 Admin Template
+Version: 1.0.1
+Author: TEachProd.
+Website: https://teachprod.com
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Select2 - Form">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <meta property="og:image" content="https://www.teachprod.com/wp-content/uploads/2020/10/carrot.jpg">
+  <title>Select2 - Form - FlexAdmin</title>
+  <link href="assets/css/vendor~app.css" rel="stylesheet"><link href="assets/css/app.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180917586-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180917586-1');
+  </script>
+</head>
+<!-- Possible Body Attributes
+    * data-theme-header-fixed = 'true'       - For fixed Header
+    * data-theme-header-fixed = 'false'      - For static Header
+    * data-theme-sidebar-fixed = 'true'      - For fixed Left Navigation
+    * data-theme-sidebar-fixed = 'false'     - For static Left Navigation
+    * data-theme-sidebar-shrinked = 'true'   - For shrinking Left Navigation
+    * data-theme-footer-fixed = 'true'       - For fixed Footer
+    * data-theme-footer-fixed = 'false'      - For static Footer
+    * data-theme-mode = 'dark-mode'          - For Dark Mode
+-->
+
+<body>
+    <!-- apply javascript before page content be loaded -->
+    <script>
+      'use strict';
+      var defaultConfig = {
+        fixedLeftSidebar: true,
+        fixedHeader: false,
+        fixedFooter: false,
+        isShrinked: false,
+        themeColor: 'app-theme-facebook',
+        themeMode: 'default-mode'
+      };
+      var globalConfigs = JSON.parse(localStorage.getItem('ABCADMIN_CONFIG')) || defaultConfig;
+      var appThemeMode = globalConfigs.themeMode;
+      var isShrinked = globalConfigs.isShrinked;
+      var body = document.getElementsByTagName("body")[0];
+      body.setAttribute("data-theme-mode", appThemeMode);
+      body.setAttribute("data-theme-sidebar-shrinked", isShrinked)
+    </script>
+    <nav id="left-sidebar" class="left-sidebar">
+      <!-- start sidebar-header -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <h3><a href="/">
+              <span class="fw-700">FlexAdmin</span>
+            </a></h3>
+        </div>
+        <a class="sidebar-toggle-btn">
+          <i class="far fa-bars"></i>
+        </a>
+      </div>
+      <!-- end sidebar-header -->
+      <div class="sidebar-wrapper">
+        <!-- start sidebar-body -->
+        <div class="sidebar-body">
+          <div class="nav-filter align-items-center justify-content-center flex-row mb-4 p-2">
+            <input type="text" placeholder="Quick search" class="w-100 form-control" tabindex="0">
+          </div>
+          <!-- end nav-profile -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">MAIN</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="homeSubmenu" data-parent="#left-sidebar">
+                  <li>
+                    <a href="dashboard-analytics.html">Analytics</a>
+                  </li>
+                  <li>
+                    <a href="index.html">Ecommerce</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a href="calendar.html">
+                  <i class="fal fa-calendar"></i>
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="chat.html">
+                  <i class="fal fa-comments-alt"></i>
+                  <span>Chat</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                 <a href="#pageSubmenuEcommerce" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-dumpster"></i>
+                  <span>Ecommerce</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenuEcommerce" data-parent="#left-sidebar">
+                  <li>
+                    <a href="ecommerce-products.html">All Products</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-product-detail.html">Product Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-add-product.html">Add Product</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-orders.html">Orders</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-order-detail.html">Order Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-customers.html">Customers</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-shopping-card.html">Shopping Card</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </li>
+              <li id="sidebar-pages" class="sidebar-item">
+                <a href="#pageSubmenu1" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-file"></i>
+                  <span>Pages</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenu1" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#pageAuthentication" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Authentication</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageAuthentication" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-authentication-login.html">Login</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-register.html">Register</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-forgot-password.html">Forgot Password</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-confirm-email.html">Confirm Email</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li authentication -->
+          
+                  <li>
+                    <a href="pages-contact.html">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#pageError" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Error</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageError" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-error-404.html">Error 404 </a>
+                      </li>
+                      <li>
+                        <a href="pages-error-500.html">Error 500</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li pageError -->
+                  <li>
+                    <a href="pages-faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="pages-invoice.html">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="pages-maintenance.html">Maintenance Page</a>
+                  </li>
+                  <li>
+                    <a href="pages-pricing.html">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="pages-profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="pages-starter.html">Starter Page</a>
+                  </li>
+                </ul> <!-- end sidebar-second-level -->
+              </li> <!-- end sidebar-item -->
+            </ul>
+          </div>      <!-- end sidebar-block -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">COMPONENT</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#ui-kit" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-layer-group"></i>
+                  <span>UI Kit</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="ui-kit" data-parent="#left-sidebar">
+                   <li>
+                    <a href="ui-kits-avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-breadcrumbs.html">Breadcrumbs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-dual-listbox.html">Dual Listbox</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-jstree.html">jsTree</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-image-cropper.html">Image cropper</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-notifications.html">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-spinners.html">Spinner</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-sweetalert.html">SweetAlert2</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-toastr.html">Toastr</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-widgets.html">Widgets</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#utilities" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-shield-alt"></i>
+                  <span>Utilities</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="utilities" data-parent="#left-sidebar">
+                  <li>
+                    <a href="utilities-borders.html">Borders</a>
+                  </li>
+                  <li>
+                    <a href="utilities-colors.html">Colors</a>
+                  </li>
+                  <li>
+                    <a href="utilities-display.html">Display</a>
+                  </li>
+                  <li>
+                    <a href="utilities-flex.html">Flex</a>
+                  </li>
+                  <li>
+                    <a href="utilities-float.html">Float</a>
+                  </li>
+                  <li>
+                    <a href="utilities-interactions.html">Interactions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-overflow.html">Overflow</a>
+                  </li>
+                  <li>
+                    <a href="utilities-positions.html">Positions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-shadows.html">Shadows</a>
+                  </li>
+                  <li>
+                    <a href="utilities-sizing.html">Sizing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-spacing.html">Spacing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-text.html">Text</a>
+                  </li>
+                  <li>
+                    <a href="utilities-typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="utilities-vertical-align.html">Vertical Align</a>
+                  </li>
+                  <li>
+                    <a href="utilities-visibility.html">Visibility</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fab fa-wpforms"></i>
+                  <span>Forms </span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="forms" data-parent="#left-sidebar">
+                  <li>
+                    <a href="forms-basic-elements.html">Basic Elements</a>
+                  </li>
+                  <li>
+                    <a href="forms-checkboxs.html">Checkbox</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-editors.html">Editors</a>
+                  </li> -->
+                  <li>
+                    <a href="forms-dropzonejs.html">DropzoneJS</a>
+                  </li>
+                  <li>
+                    <a href="forms-input-groups.html">Input Groups</a>
+                  </li>
+                  <li>
+                    <a href="forms-radios.html">Radio</a>
+                  </li>
+                  <li>
+                    <a href="forms-select2.html">Select2</a>
+                  </li>
+                  <li>
+                    <a href="forms-validations.html">Validations</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-wizard.html">Wizard</a>
+                  </li> -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#charts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="far fa-chart-bar"></i>
+                  <span>Charts</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="charts" data-parent="#left-sidebar">
+                  <li>
+                    <a href="charts-britecharts.html">Britecharts</a>
+                  </li>
+                  <li>
+                    <a href="charts-chartjs.html">Chartjs</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#tables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-table"></i>
+                  <span>Tables</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="tables" data-parent="#left-sidebar">
+                  <li>
+                    <a href="tables-basic-table.html">Basic Table</a>
+                  </li>
+                  <li>
+                    <a href="tables-data-table.html">Data Table</a>
+                  </li>
+                </ul>
+              </li>          <li id="sidebar-icons" class="sidebar-item">
+                <a  href="#icons" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-award"></i>
+                  <span>Icons</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="icons" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#font-awesome" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Font Awesome 5</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="font-awesome" data-parent="#sidebar-icons">
+                      <li>
+                        <a href="icon-fontawesome-solid.html">Solid</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-regular.html">Regular</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-light.html">Light</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-duotone.html">Duotone</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-brands.html">Brands</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li fontawesome -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#maps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-map-marked-alt"></i>
+                  <span>Maps</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="maps" data-parent="#left-sidebar">
+                  <li>
+                    <a href="maps-google-map.html">Google Map</a>
+                  </li>
+                  <li>
+                    <a href="maps-vector-map.html">Vector Map</a>
+                  </li>
+                </ul>
+              </li>        </ul>
+          </div>
+          <!-- end sidebar-block -->
+        </div>
+        <!-- end sidebar-body -->
+        <div class="align-items-center justify-content-center sidebar-footer">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li>
+              <a href="#">
+                <i class="fal fa-comments" data-bs-original-title="Chat History" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-life-ring" data-bs-original-title="Support" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-question-circle" data-bs-original-title="Helper" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end sidebar-footer -->
+      </div><!-- end sidebar-wrapper -->
+    </nav>    <div class="page-container">
+      <nav class="navbar topbar">
+        <div class="top-left-menu">
+          <div id="form-global-search" class="rounded">
+            <form>
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                <button type="submit">
+                  <i class="fal fa-search text-highlight"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div><ul class="list-unstyled top-right-menu">
+          <li class="nav-item topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="emailsDropdown">
+              <i class="fal fa-envelope"></i>
+              <span class="badge bg-success rounded-circle">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-animate dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="emailsDropdown">
+              <div class="dropdown-menu-header">
+                6 New Emails
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/avatar.png" class="user-avatar rounded-circle" alt="User">
+                    </div>
+                    <div class="col-10">
+                      <div>Sam Robert</div>
+                      <div class="text-muted small mt-1">Ability to select/create Modules</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Schirsten Vander</div>
+                      <div class="text-muted small mt-1">Add widgets descriptions</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Robert Nordic</div>
+                      <div class="text-muted small mt-1">Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Michael Branson</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Antonym Sladers</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Marcus</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item task-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="tasksDropdown">
+              <i class="fal fa-tasks"></i>
+              <span class="badge bg-danger rounded-circle">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="tasksDropdown">
+              <div class="dropdown-menu-header">
+                4 New Tasks
+              </div>
+              <div class="list-group">
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Design database</span>
+                    <span class="percent">74%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%">
+                      <span class="sr-only">74% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Testing</span>
+                    <span class="percent">30%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">30% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Document writting</span>
+                    <span class="percent">50%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      <span class="sr-only">50% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Development</span>
+                    <span class="percent">45%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                      <span class="sr-only">45% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">HTML slicing</span>
+                    <span class="percent">66%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                      <span class="sr-only">66% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="notificationsDropdown">
+              <i class="fal fa-bell"></i>
+              <span class="badge bg-info rounded-circle">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="notificationsDropdown">
+              <div class="dropdown-menu-header">
+                4 New Notifications
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-primary fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>New user registered</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-warning fas fa-fw fa-bell"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Update completed</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet.</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-info fas fa-fw fa-envelope-open"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet, consectetur adip</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-danger fas fa-fw fa-building"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Login from 192.168.1.1</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item user-setting-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-profile" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="assets/images/avatar.png" alt="user-image" class="rounded-circle">
+              <span class="ms-1 d-none d-lg-inline">
+                <span class="user-name">Hi, Admin</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown dropdown-animate">
+              <div class="dropdown-header">
+                <h6 class="text-center">Welcome !</h6>
+              </div>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-user-alt me-1"></i>
+                <span>My Account</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-cog me-1"></i>
+                <span>Settings</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-envelope me-1"></i>
+                <span>Inbox</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-calendar-alt me-1"></i>
+                <span>Calendar</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-tasks me-1"></i>
+                <span>Tasks</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-sign-out me-1"></i>
+                <span>Sign out</span>
+              </a>
+            </div>
+          </li>  <li class="nav-item">
+            <a href="#right-sidebar" class="nav-link" data-bs-toggle="modal"  id="modalSetting">
+              <i class="fal fa-cog rotate"></i>
+            </a>
+          </li></ul>      </nav>
+      <!-- end navbar -->
+      <div class="page-content">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb ps-0 fs-base">
+    <li class="breadcrumb-item"><a href="#">FlexAdmin</a></li>
+    <li class="breadcrumb-item"><span>UI Kit</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Select2</li>
+  </ol>
+</nav>
+<div class="header mb-2">
+  <h1 class="header-title h3">
+    <i class="fab fa-wpforms text-highlight"></i>
+    Select2
+  </h1>
+  <p class="mt-2">
+    Select2 is the jQuery replacement for select boxes
+  </p>
+</div>
+<div class="bd-callout bd-callout-highlight bg-highlight-100 d-flex align-items-center" role="alert">
+  <div class="alert-icon"><i class="fal fa-info-circle text-highlight fs-xxl me-3"></i></div>
+  <div class="alert-text">
+    <h4>About</h4>
+    <p>Select2 gives you a customizable select box with support for searching, tagging, remote data sets, infinite scrolling, and many other highly used options.</p>
+    <p>
+      Guidelines, tutorials and more on Select2's <a href="https://select2.org/" target="_blank" class="text-highlight fw-700">Official Documentation</a>
+    </p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Single select boxes <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2SigleSelectBox" role="button" aria-expanded="false" aria-controls="cardSelect2SigleSelectBox"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2SigleSelectBox" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>Adding <code>.select2</code> class to the select element.</p>
+    </div>
+    <form>
+      <select class="select2" name="country" data-placeholder="Please select a country">
+        <option></option>
+        <option value="1">Afghanistan</option>
+        <option value="2">Albania</option>
+        <option value="3">Algeria</option>
+        <option value="4">India</option>
+        <option value="5">Singapore</option>
+        <option value="6">Zimbabwe</option>
+      </select>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Multi-select boxes <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2MultiSelectBox" role="button" aria-expanded="false" aria-controls="cardSelect2MultiSelectBox"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2MultiSelectBox" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>Adding <code>.select2</code> class and <code>multiple</code> attribute to the select element.</p>
+    </div>
+    <form>
+      <select class="select2" multiple="multiple">
+        <option value="1" selected>Afghanistan</option>
+        <option value="2" selected>Albania</option>
+        <option value="3" selected>Algeria</option>
+        <option value="4">India</option>
+        <option value="5">Singapore</option>
+        <option value="6">Zimbabwe</option>
+      </select>
+    </form>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Templating <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2Templating" role="button" aria-expanded="false" aria-controls="cardSelect2Templating"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2Templating" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>By default, Select2 will display the <code>text</code> property of each data object within the list of results. The appearance of search results in the dropdown can be customized by using the <code>templateResult</code> option</p>
+    </div>
+    <select class="select2-templating-example">
+      <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+      </optgroup>
+      <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+      </optgroup>
+      <optgroup label="Eastern Time Zone">
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="IN">Indiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="OH">Ohio</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WV">West Virginia</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Limiting the number of selections <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2LimitingSelections" role="button" aria-expanded="false" aria-controls="cardSelect2LimitingSelections"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2LimitingSelections" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>Select2 multi-value select boxes can set restrictions regarding the maximum number of options that can be selected. The select below is declared with the <code>multiple</code> attribute with <code>maximumSelectionLength</code> in the select2 options.</p>
+    </div>
+    <select class="select2-basic-multiple-limit-example" multiple="multiple">
+      <optgroup label="Central Time Zone">
+        <option value="AL">Alabama</option>
+        <option value="AR">Arkansas</option>
+        <option value="IL">Illinois</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="OK">Oklahoma</option>
+        <option value="SD">South Dakota</option>
+        <option value="TX">Texas</option>
+        <option value="TN">Tennessee</option>
+        <option value="WI">Wisconsin</option>
+      </optgroup>
+      <optgroup label="Eastern Time Zone">
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="IN">Indiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="OH">Ohio</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WV">West Virginia</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Clearable selections <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2ClearableSelection" role="button" aria-expanded="false" aria-controls="cardSelect2ClearableSelection"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2ClearableSelection" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>When set to <code>true</code>, causes a clear button (`x` icon) to appear on the select box when a value is selected. Clicking the clear button will clear the selected value, effectively resetting the select box back to its placeholder value.</p>
+    </div>
+    <select class="select2-clearable-selection-example" multiple="multiple">
+      <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+      </optgroup>
+      <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+      </optgroup>
+      <optgroup label="Mountain Time Zone">
+        <option value="AZ">Arizona</option>
+        <option value="CO">Colorado</option>
+        <option value="ID">Idaho</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NM">New Mexico</option>
+        <option value="ND">North Dakota</option>
+        <option value="UT">Utah</option>
+        <option value="WY">Wyoming</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Hiding the search box <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2HidingSearchbox" role="button" aria-expanded="false" aria-controls="cardSelect2HidingSearchbox"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2HidingSearchbox" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <h4>Single select</h4>
+      <p>For single selects, Select2 allows you to hide the search box using the <code>minimumResultsForSearch</code> configuration option. In this example, we use the value <code>Infinity</code> to tell Select2 to never display the search box.</p>
+    </div>
+    <select class="select2-example-basic-hide-search">
+      <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+      </optgroup>
+      <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+      </optgroup>
+      <optgroup label="Mountain Time Zone">
+        <option value="AZ">Arizona</option>
+        <option value="CO">Colorado</option>
+        <option value="ID">Idaho</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NM">New Mexico</option>
+        <option value="ND">North Dakota</option>
+        <option value="UT">Utah</option>
+        <option value="WY">Wyoming</option>
+      </optgroup>
+    </select>
+    <div class="bd-callout bd-callout-highlight">
+      <h4>Multi-select</h4>
+      <p>For multi-select boxes, there is no distinct search control. So, to disable search for multi-select boxes, you will need to set the <code>disabled</code> property to true whenever the dropdown is opened or closed:</p>
+    </div>
+    <select class="select2-example-basic-hide-search-multi" multiple="multiple">
+      <optgroup label="Alaskan/Hawaiian Time Zone">
+        <option value="AK">Alaska</option>
+        <option value="HI">Hawaii</option>
+      </optgroup>
+      <optgroup label="Pacific Time Zone">
+        <option value="CA">California</option>
+        <option value="NV">Nevada</option>
+        <option value="OR">Oregon</option>
+        <option value="WA">Washington</option>
+      </optgroup>
+      <optgroup label="Mountain Time Zone">
+        <option value="AZ">Arizona</option>
+        <option value="CO">Colorado</option>
+        <option value="ID">Idaho</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NM">New Mexico</option>
+        <option value="ND">North Dakota</option>
+        <option value="UT">Utah</option>
+        <option value="WY">Wyoming</option>
+      </optgroup>
+    </select>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header justify-content-between">
+    <h4 class="fw-700 m-0 fs-base">Item with icon <span class="fw-300"><i>Select2</i></span></h4>
+    <div class="card-widgets">
+      <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+      <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2WithIcon" role="button" aria-expanded="false" aria-controls="cardSelect2WithIcon"><i class="fal fa-minus"></i></a>
+      <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+    </div>
+  </div>
+  <div id="cardSelect2WithIcon" class="card-body show">
+    <div class="bd-callout bd-callout-highlight">
+      <p>By default, Select2 will display the <code>text</code> property of each data object within the list of results, seletions. The appearance of search results in the dropdown and seletions can be customized by using the <code>templateResult</code>, <code>templateSelection</code> and <code>escapeMarkup</code>  options</p>
+      <p>
+        Use data attribute <code>data-icon</code> to add icon for each options. And use class <code>.select2-with-icon</code> to set icon with option.
+      </p>
+    </div>
+    <select class="select2-with-icon">
+      <option value="chrome" data-icon="fab fa-chrome text-warning">Chrome</option>
+      <option value="firefox" data-icon="fab fa-firefox text-maroon">Firefox</option>
+      <option value="IE" data-icon="fab fa-internet-explorer text-primary">IE</option>
+      <option value="opera" data-icon="fab fa-opera text-danger">Opera</option>
+      <option value="safari" data-icon="fab fa-safari text-primary">Safari</option>
+    </select>
+  </div>
+</div>
+<div class="card">
+    <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+            With Ajax
+            <span class="fw-300">
+                <i>
+                    Select2
+                </i>
+            </span>
+        </h4>
+        <div class="card-widgets">
+            <a class="btn btn-success" data-action="fullscreen" href="javascript:;">
+                <i class="far fa-expand">
+                </i>
+            </a>
+            <a aria-controls="cardSelect2WithAjax" aria-expanded="false" class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardSelect2WithAjax" role="button">
+                <i class="fal fa-minus">
+                </i>
+            </a>
+            <a class="btn btn-danger" data-bs-toggle="remove" href="#">
+                <i class="fal fa-times">
+                </i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body show" id="cardSelect2WithAjax">
+      <div class="bd-callout bd-callout-highlight">
+        <p>Select2 comes with AJAX support built in, using jQuery's AJAX methods.</p>
+      </div>
+        <select id="js-data-example-ajax"></select>
+    </div>
+</div>      </div>
+      <!-- end page-content -->
+      <div id="footer" class="d-flex align-items-center">
+        <div class="row w-100">
+          <div class="footer-nav col-md-8 col-sm-6">
+            <a href="#" target="_blank" class="footer-nav-item">About</a>
+            <a href="#" target="_blank" class="footer-nav-item">Support</a>
+            <a href="#" target="_blank" class="footer-nav-item">Contact</a>
+          </div>
+          <div class="copyright text-end col-md-4 col-sm-6">
+            2020&nbsp;©&nbsp;<a href="#" target="_blank">TEachProd</a>
+          </div>
+        </div>
+      </div>    </div>
+    <!-- end page-container -->
+  <div class="modal right fade" id="right-sidebar" tabindex="-1" aria-labelledby="modalSetting" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-scroll" style="max-height: 100%">
+        <div class="align-items-center bg-trans-gradient justify-content-center modal-header rounded-0 w-100">
+          <h4 class="m-0 text-center text-white fw-700">
+            Settings
+            <small class="mb-0 opacity-80">User Interface Settings</small>
+          </h4>
+          <a href="#" class="pos-top-right text-white p-2 m-1 me-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mx-3 mt-2">
+              <p class="text-muted fs-base">Customize layout, left sidebar menu, etc. FlexAdmin stores the preferences in local storage.</p>
+            </div>
+            <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                Layout Options
+              </h5>
+            </div>
+            <div class="ps-3 pe-2">
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-shrinking-left-sidebar" id="app-shrinking-left-sidebar">
+                  <label for="app-shrinking-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-shrinking-left-sidebar">Shrinking Left Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-header" id="app-fixed-header" value=true>
+                  <label for="app-fixed-header"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-header">Fixed Header</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-left-sidebar" id="app-fixed-left-sidebar">
+                  <label for="app-fixed-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-left-sidebar">Fixed Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-footer" id="app-fixed-footer">
+                  <label for="app-fixed-footer"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-footer">Fixed Footer</label></div>
+              </div>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Colors
+              </h5>
+            </div>
+            <div class="theme-colors ps-3 pe-2">
+              <ul class="m-0 p-0">
+                <li>
+                  <a href="#" class="bg-anchor" data-theme-color="app-theme-anchor" data-bs-toggle="tooltip" data-bs-original-title="Anchor"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-maroon" data-theme-color="app-theme-maroon" data-bs-toggle="tooltip" data-bs-original-title="Maroon"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-carrot" data-theme-color="app-theme-carrot" data-bs-toggle="tooltip" data-bs-original-title="Carrot"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-lollipop" data-theme-color="app-theme-lollipop" data-bs-toggle="tooltip" data-bs-original-title="Lollipop"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-gold" data-theme-color="app-theme-gold" data-bs-toggle="tooltip" data-bs-original-title="Gold"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-forest" data-theme-color="app-theme-forest" data-bs-toggle="tooltip" data-bs-original-title="Forest"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-hoki" data-theme-color="app-theme-hoki" data-bs-toggle="tooltip" data-bs-original-title="Hoki"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-facebook" data-theme-color="app-theme-facebook" data-bs-toggle="tooltip" data-bs-original-title="Facebook"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-purple" data-theme-color="app-theme-purple" data-bs-toggle="tooltip" data-bs-original-title="Purple"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-indigo" data-theme-color="app-theme-indigo" data-bs-toggle="tooltip" data-bs-original-title="Indigo"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-cafe" data-theme-color="app-theme-cafe" data-bs-toggle="tooltip" data-bs-original-title="Cafe"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-charcoal" data-theme-color="app-theme-charcoal" data-bs-toggle="tooltip" data-bs-original-title="Charcoal"></a>
+                </li>
+              </ul>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Modes
+              </h5>
+            </div>
+            <div class="theme-modes ps-3 pe-2">
+              <div class="row">
+                <div class="col-6 pe-2 text-center">
+                  <div data-theme-mode="default-mode" class="theme-mode-config d-flex bg-white border border-secondary rounded overflow-hidden text-success" style="height: 100px">
+                    <div class="map-left-sidebar px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="bg-white border-bottom py-1"></div>
+                      <div class="bg-white h-100 flex-1 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100" style="background:url('assets/images/website-layout.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Default
+                </div>
+                <div class="col-6 ps-2 text-center">
+                  <div data-theme-mode="dark-mode" class="theme-mode-config d-flex border border-white rounded overflow-hidden text-success bg-dark" style="height: 100px">
+                    <div class="px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="border-bottom py-1"></div>
+                      <div class="flex-1 h-100 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100 " style="background:url('assets/images/website-layout-dark.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Dark
+                </div>
+              </div>
+            </div>          <div class="d-flex justify-content-center mt-4 pt-4">
+              <button id="reset-setting" type="button" class="btn btn-warning btn-rounded d-block w-75">Reset</button>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <a class="btn btn-rose btn-rounded d-block w-75" href="https://codecanyon.net/item/flexadmin-bootstrap-5-admin-template/29011667" target="_blank">Buy Now</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end right-sidebar -->  <script src="assets/js/vendor~app~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_calendar~demo_datatable~dem~cf3c0e0d.js"></script><script src="assets/js/vendor~app.js"></script><script src="assets/js/app.js"></script>
+<script>
+function select2Templating() {
+  function formatState(state) {
+    if (!state.id) {
+      return state.text;
+    }
+    var baseUrl = "https://select2.org/user/pages/images/flags";
+    var $state = $(
+      '<span><img src="' + baseUrl + '/' + state.element.value.toLowerCase() + '.png" class="img-flag" /> ' + state.text + '</span>'
+    );
+    return $state;
+  };
+  $(".select2-templating-example").select2({
+    templateResult: formatState,
+    width: '100%'
+  });
+}
+
+function select2BasicMultipleLimit() {
+  $(".select2-basic-multiple-limit-example").select2({
+    maximumSelectionLength: 2,
+    width: '100%'
+  });
+}
+
+function select2ClearableSelections() {
+  $(".select2-clearable-selection-example").select2({
+    minimumResultsForSearch: Infinity,
+    width: '100%'
+  });
+}
+
+function select2BasicHideSearchBox() {
+  $(".select2-example-basic-hide-search").select2({
+    minimumResultsForSearch: Infinity,
+    width: '100%'
+  });
+}
+
+function select2MultiHideSearchBox() {
+  $('.select2-example-basic-hide-search-multi').select2({ width: '100%' });
+  $('.select2-example-basic-hide-search-multi').on('select2:opening select2:closing', function(event) {
+    var $searchfield = $(this).parent().find('.select2-search__field');
+    $searchfield.prop('disabled', true);
+  });
+}
+
+// --- Begin select 2 with Ajax --- // 
+function select2WithAjax() {
+  $("#js-data-example-ajax").select2({
+  ajax: {
+    url: "https://api.github.com/search/repositories",
+    dataType: 'json',
+    delay: 250,
+    data: function (params) {
+      return {
+        q: params.term, // search term
+        page: params.page
+      };
+    },
+    processResults: function (data, params) {
+      // parse the results into the format expected by Select2
+      // since we are using custom formatting functions we do not need to
+      // alter the remote JSON data, except to indicate that infinite
+      // scrolling can be used
+      params.page = params.page || 1;
+
+      return {
+        results: data.items,
+        pagination: {
+          more: (params.page * 30) < data.total_count
+        }
+      };
+    },
+    cache: true
+    },
+    placeholder: 'Search for a repository',
+    minimumInputLength: 1,
+    templateResult: formatRepo,
+    templateSelection: formatRepoSelection,
+    width: '100%'
+  });
+}
+
+function formatRepo (repo) {
+  if (repo.loading) {
+    return repo.text;
+  }
+
+  var $container = $(
+    "<div class='select2-result-repository clearfix'>" +
+        "<div class='select2-result-repository__title'></div>" +
+        "<div class='select2-result-repository__description'></div>" +
+      "</div>" +
+    "</div>"
+  );
+
+  $container.find(".select2-result-repository__title").text(repo.full_name);
+
+  return $container;
+}
+
+function formatRepoSelection (repo) {
+  return repo.full_name || repo.text;
+}
+
+// --- End select 2 with Ajax --- // 
+
+$(document).ready(function() {
+  select2Templating();
+  select2BasicMultipleLimit();
+  select2ClearableSelections();
+  select2BasicHideSearchBox();
+  select2MultiHideSearchBox();
+  select2WithAjax();
+});
+</script>
+</body>
+</html>

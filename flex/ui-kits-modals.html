@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: FlexAdmin - Bootstrap 5 Admin Template
+Version: 1.0.1
+Author: TEachProd.
+Website: https://teachprod.com
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Modal">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <meta property="og:image" content="https://www.teachprod.com/wp-content/uploads/2020/10/carrot.jpg">
+  <title>Modal - FlexAdmin</title>
+  <link href="assets/css/vendor~app.css" rel="stylesheet"><link href="assets/css/app.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180917586-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180917586-1');
+  </script>
+</head>
+<!-- Possible Body Attributes
+    * data-theme-header-fixed = 'true'       - For fixed Header
+    * data-theme-header-fixed = 'false'      - For static Header
+    * data-theme-sidebar-fixed = 'true'      - For fixed Left Navigation
+    * data-theme-sidebar-fixed = 'false'     - For static Left Navigation
+    * data-theme-sidebar-shrinked = 'true'   - For shrinking Left Navigation
+    * data-theme-footer-fixed = 'true'       - For fixed Footer
+    * data-theme-footer-fixed = 'false'      - For static Footer
+    * data-theme-mode = 'dark-mode'          - For Dark Mode
+-->
+
+<body>
+    <!-- apply javascript before page content be loaded -->
+    <script>
+      'use strict';
+      var defaultConfig = {
+        fixedLeftSidebar: true,
+        fixedHeader: false,
+        fixedFooter: false,
+        isShrinked: false,
+        themeColor: 'app-theme-facebook',
+        themeMode: 'default-mode'
+      };
+      var globalConfigs = JSON.parse(localStorage.getItem('ABCADMIN_CONFIG')) || defaultConfig;
+      var appThemeMode = globalConfigs.themeMode;
+      var isShrinked = globalConfigs.isShrinked;
+      var body = document.getElementsByTagName("body")[0];
+      body.setAttribute("data-theme-mode", appThemeMode);
+      body.setAttribute("data-theme-sidebar-shrinked", isShrinked)
+    </script>
+    <nav id="left-sidebar" class="left-sidebar">
+      <!-- start sidebar-header -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <h3><a href="/">
+              <span class="fw-700">FlexAdmin</span>
+            </a></h3>
+        </div>
+        <a class="sidebar-toggle-btn">
+          <i class="far fa-bars"></i>
+        </a>
+      </div>
+      <!-- end sidebar-header -->
+      <div class="sidebar-wrapper">
+        <!-- start sidebar-body -->
+        <div class="sidebar-body">
+          <div class="nav-filter align-items-center justify-content-center flex-row mb-4 p-2">
+            <input type="text" placeholder="Quick search" class="w-100 form-control" tabindex="0">
+          </div>
+          <!-- end nav-profile -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">MAIN</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="homeSubmenu" data-parent="#left-sidebar">
+                  <li>
+                    <a href="dashboard-analytics.html">Analytics</a>
+                  </li>
+                  <li>
+                    <a href="index.html">Ecommerce</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a href="calendar.html">
+                  <i class="fal fa-calendar"></i>
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="chat.html">
+                  <i class="fal fa-comments-alt"></i>
+                  <span>Chat</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                 <a href="#pageSubmenuEcommerce" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-dumpster"></i>
+                  <span>Ecommerce</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenuEcommerce" data-parent="#left-sidebar">
+                  <li>
+                    <a href="ecommerce-products.html">All Products</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-product-detail.html">Product Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-add-product.html">Add Product</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-orders.html">Orders</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-order-detail.html">Order Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-customers.html">Customers</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-shopping-card.html">Shopping Card</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </li>
+              <li id="sidebar-pages" class="sidebar-item">
+                <a href="#pageSubmenu1" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-file"></i>
+                  <span>Pages</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenu1" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#pageAuthentication" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Authentication</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageAuthentication" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-authentication-login.html">Login</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-register.html">Register</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-forgot-password.html">Forgot Password</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-confirm-email.html">Confirm Email</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li authentication -->
+          
+                  <li>
+                    <a href="pages-contact.html">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#pageError" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Error</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageError" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-error-404.html">Error 404 </a>
+                      </li>
+                      <li>
+                        <a href="pages-error-500.html">Error 500</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li pageError -->
+                  <li>
+                    <a href="pages-faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="pages-invoice.html">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="pages-maintenance.html">Maintenance Page</a>
+                  </li>
+                  <li>
+                    <a href="pages-pricing.html">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="pages-profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="pages-starter.html">Starter Page</a>
+                  </li>
+                </ul> <!-- end sidebar-second-level -->
+              </li> <!-- end sidebar-item -->
+            </ul>
+          </div>      <!-- end sidebar-block -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">COMPONENT</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#ui-kit" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-layer-group"></i>
+                  <span>UI Kit</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="ui-kit" data-parent="#left-sidebar">
+                   <li>
+                    <a href="ui-kits-avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-breadcrumbs.html">Breadcrumbs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-dual-listbox.html">Dual Listbox</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-jstree.html">jsTree</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-image-cropper.html">Image cropper</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-notifications.html">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-spinners.html">Spinner</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-sweetalert.html">SweetAlert2</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-toastr.html">Toastr</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-widgets.html">Widgets</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#utilities" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-shield-alt"></i>
+                  <span>Utilities</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="utilities" data-parent="#left-sidebar">
+                  <li>
+                    <a href="utilities-borders.html">Borders</a>
+                  </li>
+                  <li>
+                    <a href="utilities-colors.html">Colors</a>
+                  </li>
+                  <li>
+                    <a href="utilities-display.html">Display</a>
+                  </li>
+                  <li>
+                    <a href="utilities-flex.html">Flex</a>
+                  </li>
+                  <li>
+                    <a href="utilities-float.html">Float</a>
+                  </li>
+                  <li>
+                    <a href="utilities-interactions.html">Interactions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-overflow.html">Overflow</a>
+                  </li>
+                  <li>
+                    <a href="utilities-positions.html">Positions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-shadows.html">Shadows</a>
+                  </li>
+                  <li>
+                    <a href="utilities-sizing.html">Sizing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-spacing.html">Spacing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-text.html">Text</a>
+                  </li>
+                  <li>
+                    <a href="utilities-typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="utilities-vertical-align.html">Vertical Align</a>
+                  </li>
+                  <li>
+                    <a href="utilities-visibility.html">Visibility</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fab fa-wpforms"></i>
+                  <span>Forms </span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="forms" data-parent="#left-sidebar">
+                  <li>
+                    <a href="forms-basic-elements.html">Basic Elements</a>
+                  </li>
+                  <li>
+                    <a href="forms-checkboxs.html">Checkbox</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-editors.html">Editors</a>
+                  </li> -->
+                  <li>
+                    <a href="forms-dropzonejs.html">DropzoneJS</a>
+                  </li>
+                  <li>
+                    <a href="forms-input-groups.html">Input Groups</a>
+                  </li>
+                  <li>
+                    <a href="forms-radios.html">Radio</a>
+                  </li>
+                  <li>
+                    <a href="forms-select2.html">Select2</a>
+                  </li>
+                  <li>
+                    <a href="forms-validations.html">Validations</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-wizard.html">Wizard</a>
+                  </li> -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#charts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="far fa-chart-bar"></i>
+                  <span>Charts</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="charts" data-parent="#left-sidebar">
+                  <li>
+                    <a href="charts-britecharts.html">Britecharts</a>
+                  </li>
+                  <li>
+                    <a href="charts-chartjs.html">Chartjs</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#tables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-table"></i>
+                  <span>Tables</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="tables" data-parent="#left-sidebar">
+                  <li>
+                    <a href="tables-basic-table.html">Basic Table</a>
+                  </li>
+                  <li>
+                    <a href="tables-data-table.html">Data Table</a>
+                  </li>
+                </ul>
+              </li>          <li id="sidebar-icons" class="sidebar-item">
+                <a  href="#icons" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-award"></i>
+                  <span>Icons</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="icons" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#font-awesome" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Font Awesome 5</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="font-awesome" data-parent="#sidebar-icons">
+                      <li>
+                        <a href="icon-fontawesome-solid.html">Solid</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-regular.html">Regular</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-light.html">Light</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-duotone.html">Duotone</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-brands.html">Brands</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li fontawesome -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#maps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-map-marked-alt"></i>
+                  <span>Maps</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="maps" data-parent="#left-sidebar">
+                  <li>
+                    <a href="maps-google-map.html">Google Map</a>
+                  </li>
+                  <li>
+                    <a href="maps-vector-map.html">Vector Map</a>
+                  </li>
+                </ul>
+              </li>        </ul>
+          </div>
+          <!-- end sidebar-block -->
+        </div>
+        <!-- end sidebar-body -->
+        <div class="align-items-center justify-content-center sidebar-footer">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li>
+              <a href="#">
+                <i class="fal fa-comments" data-bs-original-title="Chat History" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-life-ring" data-bs-original-title="Support" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-question-circle" data-bs-original-title="Helper" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end sidebar-footer -->
+      </div><!-- end sidebar-wrapper -->
+    </nav>    <div class="page-container">
+      <nav class="navbar topbar">
+        <div class="top-left-menu">
+          <div id="form-global-search" class="rounded">
+            <form>
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                <button type="submit">
+                  <i class="fal fa-search text-highlight"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div><ul class="list-unstyled top-right-menu">
+          <li class="nav-item topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="emailsDropdown">
+              <i class="fal fa-envelope"></i>
+              <span class="badge bg-success rounded-circle">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-animate dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="emailsDropdown">
+              <div class="dropdown-menu-header">
+                6 New Emails
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/avatar.png" class="user-avatar rounded-circle" alt="User">
+                    </div>
+                    <div class="col-10">
+                      <div>Sam Robert</div>
+                      <div class="text-muted small mt-1">Ability to select/create Modules</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Schirsten Vander</div>
+                      <div class="text-muted small mt-1">Add widgets descriptions</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Robert Nordic</div>
+                      <div class="text-muted small mt-1">Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Michael Branson</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Antonym Sladers</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Marcus</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item task-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="tasksDropdown">
+              <i class="fal fa-tasks"></i>
+              <span class="badge bg-danger rounded-circle">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="tasksDropdown">
+              <div class="dropdown-menu-header">
+                4 New Tasks
+              </div>
+              <div class="list-group">
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Design database</span>
+                    <span class="percent">74%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%">
+                      <span class="sr-only">74% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Testing</span>
+                    <span class="percent">30%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">30% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Document writting</span>
+                    <span class="percent">50%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      <span class="sr-only">50% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Development</span>
+                    <span class="percent">45%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                      <span class="sr-only">45% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">HTML slicing</span>
+                    <span class="percent">66%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                      <span class="sr-only">66% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="notificationsDropdown">
+              <i class="fal fa-bell"></i>
+              <span class="badge bg-info rounded-circle">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="notificationsDropdown">
+              <div class="dropdown-menu-header">
+                4 New Notifications
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-primary fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>New user registered</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-warning fas fa-fw fa-bell"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Update completed</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet.</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-info fas fa-fw fa-envelope-open"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet, consectetur adip</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-danger fas fa-fw fa-building"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Login from 192.168.1.1</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item user-setting-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-profile" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="assets/images/avatar.png" alt="user-image" class="rounded-circle">
+              <span class="ms-1 d-none d-lg-inline">
+                <span class="user-name">Hi, Admin</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown dropdown-animate">
+              <div class="dropdown-header">
+                <h6 class="text-center">Welcome !</h6>
+              </div>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-user-alt me-1"></i>
+                <span>My Account</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-cog me-1"></i>
+                <span>Settings</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-envelope me-1"></i>
+                <span>Inbox</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-calendar-alt me-1"></i>
+                <span>Calendar</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-tasks me-1"></i>
+                <span>Tasks</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-sign-out me-1"></i>
+                <span>Sign out</span>
+              </a>
+            </div>
+          </li>  <li class="nav-item">
+            <a href="#right-sidebar" class="nav-link" data-bs-toggle="modal"  id="modalSetting">
+              <i class="fal fa-cog rotate"></i>
+            </a>
+          </li></ul>      </nav>
+      <!-- end navbar -->
+      <div class="page-content">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb ps-0 fs-base">
+    <li class="breadcrumb-item"><a href="#">FlexAdmin</a></li>
+    <li class="breadcrumb-item"><span>UI Kit</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Modals</li>
+  </ol>
+</nav>
+<div class="header mb-2">
+  <h1 class="header-title h3">
+    <i class="fal fa-sensor-on text-highlight"></i> Modals
+  </h1>
+</div>
+
+<div class="bd-callout bd-callout-highlight bg-highlight-100 d-flex align-items-center" role="alert">
+  <div class="alert-icon"><i class="fal fa-info-circle text-highlight fs-xxl me-3"></i></div>
+  <div class="alert-text">
+    <p class="mt-2">
+      Use Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Bootstrap modals</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch basic modal
+                </button>
+    
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Launch static backdrop modal
+                </button>
+    
+                <!-- Button Scrolling long content -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                    Launch Scrolling long content
+                </button>
+    
+                <!-- Button Scrolling long content - scroll modal body -->
+                <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                    data-bs-target="#exampleModalScrollable">
+                    Launch Scrolling long content - scroll modal body
+                </button>
+    
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                    Vertically centered modal
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Basic Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Backdrop Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Understood</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scrolling long content -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" aria-labelledby="exampleModalLongTitle" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>What follows is just some placeholder text for this modal dialog. Sipping on Rosé, Silver Lake sun,
+                        coming up all lazy. It’s in the palm of your hand now baby. So we hit the boulevard. So make a wish,
+                        I'll make it like your birthday everyday. Do you ever feel already buried deep six feet under? It's
+                        time to bring out the big balloons. You could've been the greatest. Passport stamps, she's
+                        cosmopolitan. Your kiss is cosmic, every move is magic.</p>
+                    <p>We're living the life. We're doing it right. Open up your heart. I was tryna hit it and quit it. Her
+                        love is like a drug. Always leaves a trail of stardust. The girl's a freak, she drive a jeep in
+                        Laguna Beach. Fine, fresh, fierce, we got it on lock. All my girls vintage Chanel baby.</p>
+                    <p>Before you met me I was alright but things were kinda heavy. Peach-pink lips, yeah, everybody stares.
+                        This is no big deal. Calling out my name. I could have rewrite your addiction. She's got that, je ne
+                        sais quoi, you know it. Heavy is the head that wears the crown. 'Cause, baby, you're a firework.
+                        Like thunder gonna shake the ground.</p>
+                    <p>Just own the night like the 4th of July! I’m gon’ put her in a coma. What you're waiting for, it's
+                        time for you to show it off. Can't replace you with a million rings. You open my eyes and I'm ready
+                        to go, lead me into the light. And here you are. I’m gon’ put her in a coma. Come on, let your
+                        colours burst. So cover your eyes, I have a surprise. As I march alone to a different beat. Glitter
+                        all over the room pink flamingos in the pool.</p>
+                    <p>You just gotta ignite the light and let it shine! Come just as you are to me. Just own the night like
+                        the 4th of July. Infect me with your love and fill me with your poison. Come just as you are to me.
+                        End of the rainbow looking treasure.</p>
+                    <p>I can't sleep let's run away and don't ever look back, don't ever look back. I can't sleep let's run
+                        away and don't ever look back, don't ever look back. Yes, we make angels cry, raining down on earth
+                        from up above. I'm walking on air (tonight). Let you put your hands on me in my skin-tight jeans.
+                        Stinging like a bee I earned my stripes. I went from zero, to my own hero. Even brighter than the
+                        moon, moon, moon. Make 'em go, 'Aah, aah, aah' as you shoot across the sky-y-y! Why don't you let me
+                        stop by?</p>
+                    <p>Boom, boom, boom. Never made me blink one time. Yeah, you're lucky if you're on her plane. Talk about
+                        our future like we had a clue. Oh my God no exaggeration. You're original, cannot be replaced. The
+                        girl's a freak, she drive a jeep in Laguna Beach. It's no big deal, it's no big deal, it's no big
+                        deal. In another life I would make you stay. I'm ma get your heart racing in my skin-tight jeans. I
+                        wanna walk on your wave length and be there when you vibrate Never made me blink one time.</p>
+                    <p>We'd keep all our promises be us against the world. If you get the chance you better keep her. It's
+                        time to bring out the big, big, big, big, big, big balloons. I hope you got a healthy appetite.
+                        Don't let the greatness get you down, oh, oh yeah. Yeah, she's footloose and so fancy free. I want
+                        the jaw droppin', eye poppin', head turnin', body shockin'. End of the rainbow looking treasure.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scrolling long content - scroll modal body -->
+    
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableTitle"
+        style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>What follows is just some placeholder text for this modal dialog. You just gotta ignite the light and
+                        let it shine! Come just as you are to me. Just own the night like the 4th of July. Infect me with
+                        your love and fill me with your poison. Come just as you are to me. End of the rainbow looking
+                        treasure.</p>
+                    <p>I can't sleep let's run away and don't ever look back, don't ever look back. I can't sleep let's run
+                        away and don't ever look back, don't ever look back. Yes, we make angels cry, raining down on earth
+                        from up above. I'm walking on air (tonight). Let you put your hands on me in my skin-tight jeans.
+                        Stinging like a bee I earned my stripes. I went from zero, to my own hero. Even brighter than the
+                        moon, moon, moon. Make 'em go, 'Aah, aah, aah' as you shoot across the sky-y-y! Why don't you let me
+                        stop by?</p>
+                    <p>Boom, boom, boom. Never made me blink one time. Yeah, you're lucky if you're on her plane. Talk about
+                        our future like we had a clue. Oh my God no exaggeration. You're original, cannot be replaced. The
+                        girl's a freak, she drive a jeep in Laguna Beach. It's no big deal, it's no big deal, it's no big
+                        deal. In another life I would make you stay. I'm ma get your heart racing in my skin-tight jeans. I
+                        wanna walk on your wave length and be there when you vibrate Never made me blink one time.</p>
+                    <p>We'd keep all our promises be us against the world. In another life I would be your girl. We can
+                        dance, until we die, you and I, will be young forever. And on my 18th Birthday we got matching
+                        tattoos. So open up your heart and just let it begin. 'Cause she's the muse and the artist. She eats
+                        your heart out. Like Jeffrey Dahmer (woo). Pop your confetti. (This is how we do) I know one spark
+                        will shock the world, yeah yeah. If you only knew what the future holds.</p>
+                    <p>Sipping on Rosé, Silver Lake sun, coming up all lazy. It’s in the palm of your hand now baby. So we
+                        hit the boulevard. So make a wish, I'll make it like your birthday everyday. Do you ever feel
+                        already buried deep six feet under? It's time to bring out the big balloons. You could've been the
+                        greatest. Passport stamps, she's cosmopolitan. Your kiss is cosmic, every move is magic.</p>
+                    <p>We're living the life. We're doing it right. Open up your heart. I was tryna hit it and quit it. Her
+                        love is like a drug. Always leaves a trail of stardust. The girl's a freak, she drive a jeep in
+                        Laguna Beach. Fine, fresh, fierce, we got it on lock. All my girls vintage Chanel baby.</p>
+                    <p>Before you met me I was alright but things were kinda heavy. Peach-pink lips, yeah, everybody stares.
+                        This is no big deal. Calling out my name. I could have rewrite your addiction. She's got that, je ne
+                        sais quoi, you know it. Heavy is the head that wears the crown. 'Cause, baby, you're a firework.
+                        Like thunder gonna shake the ground.</p>
+                    <p>Just own the night like the 4th of July! I’m gon’ put her in a coma. What you're waiting for, it's
+                        time for you to show it off. Can't replace you with a million rings. You open my eyes and I'm ready
+                        to go, lead me into the light. And here you are. I’m gon’ put her in a coma. Come on, let your
+                        colours burst. So cover your eyes, I have a surprise. As I march alone to a different beat. Glitter
+                        all over the room pink flamingos in the pool.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+        style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Placeholder text for this demonstration of a vertically centered modal dialog.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Bootstrap modals - Optional sizes</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+              <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#exampleModalXl">Extra large modal</button>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalLg">Large modal</button>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalSm">Small modal</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalXl" tabindex="-1" aria-labelledby="exampleModalXlLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalXlLabel">Extra large modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalLg" tabindex="-1" aria-labelledby="exampleModalLgLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalLgLabel">Large modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalSm" tabindex="-1" aria-labelledby="exampleModalSmLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalSmLabel">Small modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Bootstrap modals - Fullscreen Modal</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+                <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">Full screen</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreenSm">Full screen below sm</button>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreenMd">Full screen below md</button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreenLg">Full screen below lg</button>
+                <button type="button" class="btn btn-rose" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreenXl">Full screen below xl</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreenXxl">Full screen below xxl</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="modal fade" id="exampleModalFullscreen" tabindex="-1" aria-labelledby="exampleModalFullscreenLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenLabel">Full screen modal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>What follows is just some placeholder text for this modal dialog. I feel like I'm already there. I’m gon’ put her in a coma. Boom, boom, boom. You're reading me like erotica, boy, you make me feel exotic, yeah. Happy birthday. From Tokyo to Mexico, to Rio. I knew you were.</p>
+            <p>Last Friday night. Calling out my name. Kiss her, touch her, squeeze her buns. Heavy is the head that wears the crown. So open up your heart and just let it begin. Boy all this time was worth the waiting. You know that I'm the girl that you should call. End of the rainbow looking treasure. You're reading me like erotica, boy, you make me feel exotic, yeah. Do you know that there's still a chance for you 'Cause there's a spark in you? So I sat quietly, agreed politely. From Tokyo to Mexico, to Rio.</p>
+            <p>Don't be a shy kinda guy I'll bet it's beautiful. You fall asleep during foreplay, 'Cause the pills you take, are more your forte. Open up your heart. You're never gonna be unsatisfied. Know that you are worthy. This one goes out to the ladies at breakfast in last night's dress. You think you've seen her in a magazine. I should've told you what you meant to me 'Cause now I pay the price. Takes you miles high, so high, 'cause she’s got that one international smile.</p>
+            <p>Yo, shout out to all you kids, buying bottle service, with your rent money. So I sat quietly, agreed politely. They say, be afraid you're not like the others, futuristic lover. Boom, boom, boom. Don't need apologies. We can dance, until we die, you and I, will be young forever. If you choose to walk away, don’t walk away. You know that I'm the girl that you should call. This Friday night, do it all again.</p>
+            <p>I'm walking on air. But lil' mama so dope. It's time to bring out the big balloons. Are you ready for, ready for. The boys break their necks try'na to creep a little sneak peek. Summer after high school when we first met. If you want it all. (This is how we do) You open my eyes and I'm ready to go, lead me into the light.</p>
+            <p>Growing fast into a bolt of lightning. We freak in my jeep, Snoop Doggy Dogg on the stereo. Baby do you dare to do this? Open up your heart and just let it begin. Peach-pink lips, yeah, everybody stares. Be your teenage dream tonight. Are you brave enough to let me see your peacock? You think I'm funny when I tell the punchline wrong. Woo! I knew you were. All this money can't buy me a time machine. I can't sleep let's run away and don't ever look back, don't ever look back.</p>
+            <p>Make it like your birthday everyday. I'm not sticking around to watch you go down. Uh-huh, I see you. For you I'll risk it all, all. I’m gon’ put her in a coma. She ride me like a roller coaster. You hear my voice, you hear that sound. 'Cause I will love you unconditionally (oh yeah). They say, be afraid you're not like the others, futuristic lover. There is no fear now, let go and just be free, I will love you unconditionally.</p>
+            <p>We can dance, until we die, you and I, will be young forever. Pop your Pérignon. Last Friday night, yeah I think we broke the law, always say we're gonna stop. Don't need apologies. Give you something good to celebrate. But don’t make me your enemy, your enemy, your enemy. Flowers in her hair, she don't care. Tone, tan fit and ready, turn it up cause its gettin' heavy.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalFullscreenSm" tabindex="-1" aria-labelledby="exampleModalFullscreenSmLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenSmLabel">Full screen below sm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalFullscreenMd" tabindex="-1" aria-labelledby="exampleModalFullscreenMdLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-md-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenMdLabel">Full screen below md</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalFullscreenLg" tabindex="-1" aria-labelledby="exampleModalFullscreenLgLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-lg-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenLgLabel">Full screen below lg</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalFullscreenXl" tabindex="-1" aria-labelledby="exampleModalFullscreenXlLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-xl-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenXlLabel">Full screen below xl</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="exampleModalFullscreenXxl" tabindex="-1" aria-labelledby="exampleModalFullscreenXxlLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title h4" id="exampleModalFullscreenXxlLabel">Full screen below xxl</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Colored Header Modals</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+                <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#exampleHighlightHeader">
+                    Highlight Header
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#examplePrimaryHeader">
+                    Primary Header
+                </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleSuccessHeader">
+                    Success Header
+                </button>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleInfoHeader">
+                    Success Header
+                </button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleWarningHeader">
+                    Warning Header
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerHeader">
+                    Danger Header
+                </button>
+                <button type="button" class="btn btn-rose" data-bs-toggle="modal" data-bs-target="#exampleRoseHeader">
+                    Rose Header
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleHighlightHeader" tabindex="-1" aria-labelledby="exampleHighlightHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-highlight">
+                    <h5 class="modal-title" id="exampleHighlightHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="examplePrimaryHeader" tabindex="-1" aria-labelledby="examplePrimaryHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-primary">
+                    <h5 class="modal-title" id="examplePrimaryHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleSuccessHeader" tabindex="-1" aria-labelledby="exampleSuccessHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-success">
+                    <h5 class="modal-title" id="exampleSuccessHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-success">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleInfoHeader" tabindex="-1" aria-labelledby="exampleInfoHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-info">
+                    <h5 class="modal-title" id="exampleInfoHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-info">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleWarningHeader" tabindex="-1" aria-labelledby="exampleWarningHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-warning">
+                    <h5 class="modal-title" id="exampleWarningHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleDangerHeader" tabindex="-1" aria-labelledby="exampleDangerHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-danger">
+                    <h5 class="modal-title" id="exampleDangerHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-danger">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleRoseHeader" tabindex="-1" aria-labelledby="exampleRoseHeaderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-rose">
+                    <h5 class="modal-title" id="exampleRoseHeaderLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-rose">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Filled Modals</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+                <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#exampleHighlight">
+                    Highlight Filled
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#examplePrimaryFilled">
+                    Primary Filled
+                </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleSuccessFilled">
+                    Success Filled
+                </button>
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleInfoFilled">
+                    Success Filled
+                </button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleWarningFilled">
+                    Warning Filled
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerFilled">
+                    Danger Filled
+                </button>
+                <button type="button" class="btn btn-rose" data-bs-toggle="modal" data-bs-target="#exampleRoseFilled">
+                    Rose Filled
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleHighlight" tabindex="-1" aria-labelledby="exampleHighlightLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-highlight modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleHighlightLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="examplePrimaryFilled" tabindex="-1" aria-labelledby="examplePrimaryFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-primary modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="examplePrimaryFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleSuccessFilled" tabindex="-1" aria-labelledby="exampleSuccessFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-success modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleSuccessFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleInfoFilled" tabindex="-1" aria-labelledby="exampleInfoFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-info modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleInfoFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleWarningFilled" tabindex="-1" aria-labelledby="exampleWarningFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-warning modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleWarningFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleDangerFilled" tabindex="-1" aria-labelledby="exampleDangerFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-danger modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleDangerFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="exampleRoseFilled" tabindex="-1" aria-labelledby="exampleRoseFilledLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-rose modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleRoseFilledLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-light">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="fw-700 m-0 fs-base">Multiple modal</h4>
+        </div>
+        <div class="card-body">
+            <div class="bd-example">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-highlight" data-bs-toggle="modal" data-bs-target="#modal1">
+                    Launch multiple modal
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal1Label">Modal 1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modal2">Open other modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-success modal-filled">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal2Label">Modal 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque auctor malesuada quam a cursus. Donec ut orci sed erat euismod venenatis non vitae eros. Vivamus at gravida leo. Nam sodales nibh sit amet ex dignissim, vel scelerisque ante accumsan. Mauris rhoncus, elit vitae tempus blandit, magna turpis auctor dui, consequat sagittis mauris est a libero. Nullam et cursus orci. Etiam eleifend congue tortor, at maximus enim mattis quis. Praesent in augue tortor. Aenean interdum nunc magna, in malesuada ante vestibulum sed. Curabitur fringilla malesuada lobortis. Mauris in metus finibus, convallis neque a, condimentum felis. Fusce dictum consectetur risus dignissim gravida. Fusce pulvinar, leo at laoreet pellentesque, neque mauris sodales est, id vestibulum quam magna aliquet purus. Sed auctor fringilla massa non luctus. Nam pharetra lorem quis nisi maximus varius. Integer in nisl dolor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-highlight">Open other modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+      </div>
+      <!-- end page-content -->
+      <div id="footer" class="d-flex align-items-center">
+        <div class="row w-100">
+          <div class="footer-nav col-md-8 col-sm-6">
+            <a href="#" target="_blank" class="footer-nav-item">About</a>
+            <a href="#" target="_blank" class="footer-nav-item">Support</a>
+            <a href="#" target="_blank" class="footer-nav-item">Contact</a>
+          </div>
+          <div class="copyright text-end col-md-4 col-sm-6">
+            2020&nbsp;©&nbsp;<a href="#" target="_blank">TEachProd</a>
+          </div>
+        </div>
+      </div>    </div>
+    <!-- end page-container -->
+  <div class="modal right fade" id="right-sidebar" tabindex="-1" aria-labelledby="modalSetting" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-scroll" style="max-height: 100%">
+        <div class="align-items-center bg-trans-gradient justify-content-center modal-header rounded-0 w-100">
+          <h4 class="m-0 text-center text-white fw-700">
+            Settings
+            <small class="mb-0 opacity-80">User Interface Settings</small>
+          </h4>
+          <a href="#" class="pos-top-right text-white p-2 m-1 me-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mx-3 mt-2">
+              <p class="text-muted fs-base">Customize layout, left sidebar menu, etc. FlexAdmin stores the preferences in local storage.</p>
+            </div>
+            <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                Layout Options
+              </h5>
+            </div>
+            <div class="ps-3 pe-2">
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-shrinking-left-sidebar" id="app-shrinking-left-sidebar">
+                  <label for="app-shrinking-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-shrinking-left-sidebar">Shrinking Left Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-header" id="app-fixed-header" value=true>
+                  <label for="app-fixed-header"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-header">Fixed Header</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-left-sidebar" id="app-fixed-left-sidebar">
+                  <label for="app-fixed-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-left-sidebar">Fixed Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-footer" id="app-fixed-footer">
+                  <label for="app-fixed-footer"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-footer">Fixed Footer</label></div>
+              </div>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Colors
+              </h5>
+            </div>
+            <div class="theme-colors ps-3 pe-2">
+              <ul class="m-0 p-0">
+                <li>
+                  <a href="#" class="bg-anchor" data-theme-color="app-theme-anchor" data-bs-toggle="tooltip" data-bs-original-title="Anchor"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-maroon" data-theme-color="app-theme-maroon" data-bs-toggle="tooltip" data-bs-original-title="Maroon"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-carrot" data-theme-color="app-theme-carrot" data-bs-toggle="tooltip" data-bs-original-title="Carrot"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-lollipop" data-theme-color="app-theme-lollipop" data-bs-toggle="tooltip" data-bs-original-title="Lollipop"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-gold" data-theme-color="app-theme-gold" data-bs-toggle="tooltip" data-bs-original-title="Gold"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-forest" data-theme-color="app-theme-forest" data-bs-toggle="tooltip" data-bs-original-title="Forest"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-hoki" data-theme-color="app-theme-hoki" data-bs-toggle="tooltip" data-bs-original-title="Hoki"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-facebook" data-theme-color="app-theme-facebook" data-bs-toggle="tooltip" data-bs-original-title="Facebook"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-purple" data-theme-color="app-theme-purple" data-bs-toggle="tooltip" data-bs-original-title="Purple"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-indigo" data-theme-color="app-theme-indigo" data-bs-toggle="tooltip" data-bs-original-title="Indigo"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-cafe" data-theme-color="app-theme-cafe" data-bs-toggle="tooltip" data-bs-original-title="Cafe"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-charcoal" data-theme-color="app-theme-charcoal" data-bs-toggle="tooltip" data-bs-original-title="Charcoal"></a>
+                </li>
+              </ul>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Modes
+              </h5>
+            </div>
+            <div class="theme-modes ps-3 pe-2">
+              <div class="row">
+                <div class="col-6 pe-2 text-center">
+                  <div data-theme-mode="default-mode" class="theme-mode-config d-flex bg-white border border-secondary rounded overflow-hidden text-success" style="height: 100px">
+                    <div class="map-left-sidebar px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="bg-white border-bottom py-1"></div>
+                      <div class="bg-white h-100 flex-1 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100" style="background:url('assets/images/website-layout.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Default
+                </div>
+                <div class="col-6 ps-2 text-center">
+                  <div data-theme-mode="dark-mode" class="theme-mode-config d-flex border border-white rounded overflow-hidden text-success bg-dark" style="height: 100px">
+                    <div class="px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="border-bottom py-1"></div>
+                      <div class="flex-1 h-100 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100 " style="background:url('assets/images/website-layout-dark.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Dark
+                </div>
+              </div>
+            </div>          <div class="d-flex justify-content-center mt-4 pt-4">
+              <button id="reset-setting" type="button" class="btn btn-warning btn-rounded d-block w-75">Reset</button>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <a class="btn btn-rose btn-rounded d-block w-75" href="https://codecanyon.net/item/flexadmin-bootstrap-5-admin-template/29011667" target="_blank">Buy Now</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end right-sidebar -->  <script src="assets/js/vendor~app~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_calendar~demo_datatable~dem~cf3c0e0d.js"></script><script src="assets/js/vendor~app.js"></script><script src="assets/js/app.js"></script>
+</body>
+</html>

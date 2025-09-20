@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: FlexAdmin - Bootstrap 5 Admin Template
+Version: 1.0.1
+Author: TEachProd.
+Website: https://teachprod.com
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Flex - Utilities">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <meta property="og:image" content="https://www.teachprod.com/wp-content/uploads/2020/10/carrot.jpg">
+  <title>Flex - Utilities - FlexAdmin</title>
+  <link href="assets/css/vendor~app.css" rel="stylesheet"><link href="assets/css/app.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180917586-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180917586-1');
+  </script>
+</head>
+<!-- Possible Body Attributes
+    * data-theme-header-fixed = 'true'       - For fixed Header
+    * data-theme-header-fixed = 'false'      - For static Header
+    * data-theme-sidebar-fixed = 'true'      - For fixed Left Navigation
+    * data-theme-sidebar-fixed = 'false'     - For static Left Navigation
+    * data-theme-sidebar-shrinked = 'true'   - For shrinking Left Navigation
+    * data-theme-footer-fixed = 'true'       - For fixed Footer
+    * data-theme-footer-fixed = 'false'      - For static Footer
+    * data-theme-mode = 'dark-mode'          - For Dark Mode
+-->
+
+<body>
+    <!-- apply javascript before page content be loaded -->
+    <script>
+      'use strict';
+      var defaultConfig = {
+        fixedLeftSidebar: true,
+        fixedHeader: false,
+        fixedFooter: false,
+        isShrinked: false,
+        themeColor: 'app-theme-facebook',
+        themeMode: 'default-mode'
+      };
+      var globalConfigs = JSON.parse(localStorage.getItem('ABCADMIN_CONFIG')) || defaultConfig;
+      var appThemeMode = globalConfigs.themeMode;
+      var isShrinked = globalConfigs.isShrinked;
+      var body = document.getElementsByTagName("body")[0];
+      body.setAttribute("data-theme-mode", appThemeMode);
+      body.setAttribute("data-theme-sidebar-shrinked", isShrinked)
+    </script>
+    <nav id="left-sidebar" class="left-sidebar">
+      <!-- start sidebar-header -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <h3><a href="/">
+              <span class="fw-700">FlexAdmin</span>
+            </a></h3>
+        </div>
+        <a class="sidebar-toggle-btn">
+          <i class="far fa-bars"></i>
+        </a>
+      </div>
+      <!-- end sidebar-header -->
+      <div class="sidebar-wrapper">
+        <!-- start sidebar-body -->
+        <div class="sidebar-body">
+          <div class="nav-filter align-items-center justify-content-center flex-row mb-4 p-2">
+            <input type="text" placeholder="Quick search" class="w-100 form-control" tabindex="0">
+          </div>
+          <!-- end nav-profile -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">MAIN</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="homeSubmenu" data-parent="#left-sidebar">
+                  <li>
+                    <a href="dashboard-analytics.html">Analytics</a>
+                  </li>
+                  <li>
+                    <a href="index.html">Ecommerce</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a href="calendar.html">
+                  <i class="fal fa-calendar"></i>
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="chat.html">
+                  <i class="fal fa-comments-alt"></i>
+                  <span>Chat</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                 <a href="#pageSubmenuEcommerce" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-dumpster"></i>
+                  <span>Ecommerce</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenuEcommerce" data-parent="#left-sidebar">
+                  <li>
+                    <a href="ecommerce-products.html">All Products</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-product-detail.html">Product Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-add-product.html">Add Product</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-orders.html">Orders</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-order-detail.html">Order Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-customers.html">Customers</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-shopping-card.html">Shopping Card</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </li>
+              <li id="sidebar-pages" class="sidebar-item">
+                <a href="#pageSubmenu1" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-file"></i>
+                  <span>Pages</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenu1" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#pageAuthentication" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Authentication</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageAuthentication" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-authentication-login.html">Login</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-register.html">Register</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-forgot-password.html">Forgot Password</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-confirm-email.html">Confirm Email</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li authentication -->
+          
+                  <li>
+                    <a href="pages-contact.html">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#pageError" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Error</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageError" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-error-404.html">Error 404 </a>
+                      </li>
+                      <li>
+                        <a href="pages-error-500.html">Error 500</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li pageError -->
+                  <li>
+                    <a href="pages-faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="pages-invoice.html">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="pages-maintenance.html">Maintenance Page</a>
+                  </li>
+                  <li>
+                    <a href="pages-pricing.html">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="pages-profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="pages-starter.html">Starter Page</a>
+                  </li>
+                </ul> <!-- end sidebar-second-level -->
+              </li> <!-- end sidebar-item -->
+            </ul>
+          </div>      <!-- end sidebar-block -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">COMPONENT</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#ui-kit" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-layer-group"></i>
+                  <span>UI Kit</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="ui-kit" data-parent="#left-sidebar">
+                   <li>
+                    <a href="ui-kits-avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-breadcrumbs.html">Breadcrumbs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-dual-listbox.html">Dual Listbox</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-jstree.html">jsTree</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-image-cropper.html">Image cropper</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-notifications.html">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-spinners.html">Spinner</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-sweetalert.html">SweetAlert2</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-toastr.html">Toastr</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-widgets.html">Widgets</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#utilities" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-shield-alt"></i>
+                  <span>Utilities</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="utilities" data-parent="#left-sidebar">
+                  <li>
+                    <a href="utilities-borders.html">Borders</a>
+                  </li>
+                  <li>
+                    <a href="utilities-colors.html">Colors</a>
+                  </li>
+                  <li>
+                    <a href="utilities-display.html">Display</a>
+                  </li>
+                  <li>
+                    <a href="utilities-flex.html">Flex</a>
+                  </li>
+                  <li>
+                    <a href="utilities-float.html">Float</a>
+                  </li>
+                  <li>
+                    <a href="utilities-interactions.html">Interactions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-overflow.html">Overflow</a>
+                  </li>
+                  <li>
+                    <a href="utilities-positions.html">Positions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-shadows.html">Shadows</a>
+                  </li>
+                  <li>
+                    <a href="utilities-sizing.html">Sizing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-spacing.html">Spacing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-text.html">Text</a>
+                  </li>
+                  <li>
+                    <a href="utilities-typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="utilities-vertical-align.html">Vertical Align</a>
+                  </li>
+                  <li>
+                    <a href="utilities-visibility.html">Visibility</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fab fa-wpforms"></i>
+                  <span>Forms </span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="forms" data-parent="#left-sidebar">
+                  <li>
+                    <a href="forms-basic-elements.html">Basic Elements</a>
+                  </li>
+                  <li>
+                    <a href="forms-checkboxs.html">Checkbox</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-editors.html">Editors</a>
+                  </li> -->
+                  <li>
+                    <a href="forms-dropzonejs.html">DropzoneJS</a>
+                  </li>
+                  <li>
+                    <a href="forms-input-groups.html">Input Groups</a>
+                  </li>
+                  <li>
+                    <a href="forms-radios.html">Radio</a>
+                  </li>
+                  <li>
+                    <a href="forms-select2.html">Select2</a>
+                  </li>
+                  <li>
+                    <a href="forms-validations.html">Validations</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-wizard.html">Wizard</a>
+                  </li> -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#charts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="far fa-chart-bar"></i>
+                  <span>Charts</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="charts" data-parent="#left-sidebar">
+                  <li>
+                    <a href="charts-britecharts.html">Britecharts</a>
+                  </li>
+                  <li>
+                    <a href="charts-chartjs.html">Chartjs</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#tables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-table"></i>
+                  <span>Tables</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="tables" data-parent="#left-sidebar">
+                  <li>
+                    <a href="tables-basic-table.html">Basic Table</a>
+                  </li>
+                  <li>
+                    <a href="tables-data-table.html">Data Table</a>
+                  </li>
+                </ul>
+              </li>          <li id="sidebar-icons" class="sidebar-item">
+                <a  href="#icons" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-award"></i>
+                  <span>Icons</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="icons" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#font-awesome" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Font Awesome 5</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="font-awesome" data-parent="#sidebar-icons">
+                      <li>
+                        <a href="icon-fontawesome-solid.html">Solid</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-regular.html">Regular</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-light.html">Light</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-duotone.html">Duotone</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-brands.html">Brands</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li fontawesome -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#maps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-map-marked-alt"></i>
+                  <span>Maps</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="maps" data-parent="#left-sidebar">
+                  <li>
+                    <a href="maps-google-map.html">Google Map</a>
+                  </li>
+                  <li>
+                    <a href="maps-vector-map.html">Vector Map</a>
+                  </li>
+                </ul>
+              </li>        </ul>
+          </div>
+          <!-- end sidebar-block -->
+        </div>
+        <!-- end sidebar-body -->
+        <div class="align-items-center justify-content-center sidebar-footer">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li>
+              <a href="#">
+                <i class="fal fa-comments" data-bs-original-title="Chat History" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-life-ring" data-bs-original-title="Support" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-question-circle" data-bs-original-title="Helper" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end sidebar-footer -->
+      </div><!-- end sidebar-wrapper -->
+    </nav>    <div class="page-container">
+      <nav class="navbar topbar">
+        <div class="top-left-menu">
+          <div id="form-global-search" class="rounded">
+            <form>
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                <button type="submit">
+                  <i class="fal fa-search text-highlight"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div><ul class="list-unstyled top-right-menu">
+          <li class="nav-item topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="emailsDropdown">
+              <i class="fal fa-envelope"></i>
+              <span class="badge bg-success rounded-circle">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-animate dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="emailsDropdown">
+              <div class="dropdown-menu-header">
+                6 New Emails
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/avatar.png" class="user-avatar rounded-circle" alt="User">
+                    </div>
+                    <div class="col-10">
+                      <div>Sam Robert</div>
+                      <div class="text-muted small mt-1">Ability to select/create Modules</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Schirsten Vander</div>
+                      <div class="text-muted small mt-1">Add widgets descriptions</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Robert Nordic</div>
+                      <div class="text-muted small mt-1">Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Michael Branson</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Antonym Sladers</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Marcus</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item task-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="tasksDropdown">
+              <i class="fal fa-tasks"></i>
+              <span class="badge bg-danger rounded-circle">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="tasksDropdown">
+              <div class="dropdown-menu-header">
+                4 New Tasks
+              </div>
+              <div class="list-group">
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Design database</span>
+                    <span class="percent">74%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%">
+                      <span class="sr-only">74% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Testing</span>
+                    <span class="percent">30%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">30% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Document writting</span>
+                    <span class="percent">50%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      <span class="sr-only">50% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Development</span>
+                    <span class="percent">45%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                      <span class="sr-only">45% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">HTML slicing</span>
+                    <span class="percent">66%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                      <span class="sr-only">66% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="notificationsDropdown">
+              <i class="fal fa-bell"></i>
+              <span class="badge bg-info rounded-circle">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="notificationsDropdown">
+              <div class="dropdown-menu-header">
+                4 New Notifications
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-primary fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>New user registered</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-warning fas fa-fw fa-bell"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Update completed</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet.</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-info fas fa-fw fa-envelope-open"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet, consectetur adip</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-danger fas fa-fw fa-building"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Login from 192.168.1.1</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item user-setting-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-profile" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="assets/images/avatar.png" alt="user-image" class="rounded-circle">
+              <span class="ms-1 d-none d-lg-inline">
+                <span class="user-name">Hi, Admin</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown dropdown-animate">
+              <div class="dropdown-header">
+                <h6 class="text-center">Welcome !</h6>
+              </div>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-user-alt me-1"></i>
+                <span>My Account</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-cog me-1"></i>
+                <span>Settings</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-envelope me-1"></i>
+                <span>Inbox</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-calendar-alt me-1"></i>
+                <span>Calendar</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-tasks me-1"></i>
+                <span>Tasks</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-sign-out me-1"></i>
+                <span>Sign out</span>
+              </a>
+            </div>
+          </li>  <li class="nav-item">
+            <a href="#right-sidebar" class="nav-link" data-bs-toggle="modal"  id="modalSetting">
+              <i class="fal fa-cog rotate"></i>
+            </a>
+          </li></ul>      </nav>
+      <!-- end navbar -->
+      <div class="page-content">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb ps-0 fs-base">
+    <li class="breadcrumb-item"><a href="#">FlexAdmin</a></li>
+    <li class="breadcrumb-item"><span>Utilities</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Flex</li>
+  </ol>
+</nav>
+<div class="header mb-4">
+  <h1 class="header-title h3">
+    <i class="fad fa-star-christmas text-highlight"></i>
+    Flex
+  </h1>
+  <p class="mt-2">
+    Quickly manage the layout, alignment, and sizing of grid columns, navigation, components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.
+  </p>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Enable flex behaviors
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase1" role="button" aria-expanded="false" aria-controls="cardCollpase1"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase1" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Apply <code>display</code> utilities to create a flexbox container and transform <strong>direct children elements</strong> into flex items. Flex containers and items are able to be modified further with additional flex properties.</p>
+        </div>
+        <div class="d-flex p-2 bg-highlight mb-3 text-white">I'm a flexbox container!</div>
+        <div class="d-inline-flex p-2 bg-highlight mb-3 text-white">I'm a flexbox container!</div>
+        <p>Responsive variations also exist for <code>.d-flex</code> and <code>.d-inline-flex</code>.</p>
+        <ul>
+          <li><code>.d-flex</code></li>
+          <li><code>.d-inline-flex</code></li>
+          <li><code>.d-sm-flex</code></li>
+          <li><code>.d-sm-inline-flex</code></li>
+          <li><code>.d-md-flex</code></li>
+          <li><code>.d-md-inline-flex</code></li>
+          <li><code>.d-lg-flex</code></li>
+          <li><code>.d-lg-inline-flex</code></li>
+          <li><code>.d-xl-flex</code></li>
+          <li><code>.d-xl-inline-flex</code></li>
+          <li><code>.d-xxl-flex</code></li>
+          <li><code>.d-xxl-inline-flex</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Direction
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase2" role="button" aria-expanded="false" aria-controls="cardCollpase2"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase2" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Set the direction of flex items in a flex container with direction utilities. In most cases you can omit the horizontal class here as the browser default is <code>row</code>. However, you may encounter situations where you needed to explicitly set this value (like responsive layouts).</p>
+          <p>Use <code>.flex-row</code> to set a horizontal direction (the browser default), or <code>.flex-row-reverse</code> to start the horizontal direction from the opposite side.</p>
+        </div>
+        <div class="d-flex flex-row bg-highlight-100 mb-3 text-white">
+          <div class="p-2 bg-highlight border">Flex item 1</div>
+          <div class="p-2 bg-highlight border">Flex item 2</div>
+          <div class="p-2 bg-highlight border">Flex item 3</div>
+        </div>
+        <div class="d-flex flex-row-reverse bg-highlight-100 mb-3 text-white">
+          <div class="p-2 bg-highlight border">Flex item 1</div>
+          <div class="p-2 bg-highlight border">Flex item 2</div>
+          <div class="p-2 bg-highlight border">Flex item 3</div>
+        </div>
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>.flex-column</code> to set a vertical direction, or <code>.flex-column-reverse</code> to start the vertical direction from the opposite side.</p>
+        </div>
+        <div class="d-flex flex-column bg-highlight-100 mb-3 text-white">
+          <div class="p-2 bg-highlight border">Flex item 1</div>
+          <div class="p-2 bg-highlight border">Flex item 2</div>
+          <div class="p-2 bg-highlight border">Flex item 3</div>
+        </div>
+        <div class="d-flex flex-column-reverse bg-highlight-100 mb-3 text-white">
+          <div class="p-2 bg-highlight border">Flex item 1</div>
+          <div class="p-2 bg-highlight border">Flex item 2</div>
+          <div class="p-2 bg-highlight border">Flex item 3</div>
+        </div>
+        <p>Responsive variations also exist for <code>flex-direction</code>.</p>
+        <ul>
+          <li><code>.flex-row</code></li>
+          <li><code>.flex-row-reverse</code></li>
+          <li><code>.flex-column</code></li>
+          <li><code>.flex-column-reverse</code></li>
+          <li><code>.flex-sm-row</code></li>
+          <li><code>.flex-sm-row-reverse</code></li>
+          <li><code>.flex-sm-column</code></li>
+          <li><code>.flex-sm-column-reverse</code></li>
+          <li><code>.flex-md-row</code></li>
+          <li><code>.flex-md-row-reverse</code></li>
+          <li><code>.flex-md-column</code></li>
+          <li><code>.flex-md-column-reverse</code></li>
+          <li><code>.flex-lg-row</code></li>
+          <li><code>.flex-lg-row-reverse</code></li>
+          <li><code>.flex-lg-column</code></li>
+          <li><code>.flex-lg-column-reverse</code></li>
+          <li><code>.flex-xl-row</code></li>
+          <li><code>.flex-xl-row-reverse</code></li>
+          <li><code>.flex-xl-column</code></li>
+          <li><code>.flex-xl-column-reverse</code></li>
+          <li><code>.flex-xxl-row</code></li>
+          <li><code>.flex-xxl-row-reverse</code></li>
+          <li><code>.flex-xxl-column</code></li>
+          <li><code>.flex-xxl-column-reverse</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Justify content
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase3" role="button" aria-expanded="false" aria-controls="cardCollpase3"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase3" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>justify-content</code> utilities on flexbox containers to change the alignment of flex items on the main axis (the x-axis to start, y-axis if <code>flex-direction: column</code>). Choose from <code>start</code> (browser default), <code>end</code>, <code>center</code>, <code>between</code>, <code>around</code>, or <code>evenly</code>.</p>
+        </div>
+        <div class="bd-example mb-3 text-white">
+          <div class="d-flex justify-content-start bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex justify-content-end bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex justify-content-center bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex justify-content-between bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex justify-content-around bg-highlight-100">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex justify-content-evenly bg-highlight-100">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>justify-content</code>.</p>
+        <ul>
+          <li><code>.justify-content-start</code></li>
+          <li><code>.justify-content-end</code></li>
+          <li><code>.justify-content-center</code></li>
+          <li><code>.justify-content-between</code></li>
+          <li><code>.justify-content-around</code></li>
+          <li><code>.justify-content-evenly</code></li>
+          <li><code>.justify-content-sm-start</code></li>
+          <li><code>.justify-content-sm-end</code></li>
+          <li><code>.justify-content-sm-center</code></li>
+          <li><code>.justify-content-sm-between</code></li>
+          <li><code>.justify-content-sm-around</code></li>
+          <li><code>.justify-content-sm-evenly</code></li>
+          <li><code>.justify-content-md-start</code></li>
+          <li><code>.justify-content-md-end</code></li>
+          <li><code>.justify-content-md-center</code></li>
+          <li><code>.justify-content-md-between</code></li>
+          <li><code>.justify-content-md-around</code></li>
+          <li><code>.justify-content-md-evenly</code></li>
+          <li><code>.justify-content-lg-start</code></li>
+          <li><code>.justify-content-lg-end</code></li>
+          <li><code>.justify-content-lg-center</code></li>
+          <li><code>.justify-content-lg-between</code></li>
+          <li><code>.justify-content-lg-around</code></li>
+          <li><code>.justify-content-lg-evenly</code></li>
+          <li><code>.justify-content-xl-start</code></li>
+          <li><code>.justify-content-xl-end</code></li>
+          <li><code>.justify-content-xl-center</code></li>
+          <li><code>.justify-content-xl-between</code></li>
+          <li><code>.justify-content-xl-around</code></li>
+          <li><code>.justify-content-xl-evenly</code></li>
+          <li><code>.justify-content-xxl-start</code></li>
+          <li><code>.justify-content-xxl-end</code></li>
+          <li><code>.justify-content-xxl-center</code></li>
+          <li><code>.justify-content-xxl-between</code></li>
+          <li><code>.justify-content-xxl-around</code></li>
+          <li><code>.justify-content-xxl-evenly</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Align items
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase4" role="button" aria-expanded="false" aria-controls="cardCollpase4"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase4" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>align-items</code> utilities on flexbox containers to change the alignment of flex items on the cross axis (the y-axis to start, x-axis if <code>flex-direction: column</code>). Choose from <code>start</code>, <code>end</code>, <code>center</code>, <code>baseline</code>, or <code>stretch</code> (browser default).</p>
+        </div>
+        <div class="bd-example mb-3 text-white">
+          <div class="d-flex align-items-start bg-highlight-100 mb-3" style="height: 100px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex align-items-end bg-highlight-100 mb-3" style="height: 100px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex align-items-center bg-highlight-100 mb-3" style="height: 100px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex align-items-baseline bg-highlight-100 mb-3" style="height: 100px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex align-items-stretch bg-highlight-100" style="height: 100px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>align-self</code>.</p>
+        <ul>
+          <li><code>.align-self-start</code></li>
+          <li><code>.align-self-end</code></li>
+          <li><code>.align-self-center</code></li>
+          <li><code>.align-self-baseline</code></li>
+          <li><code>.align-self-stretch</code></li>
+          <li><code>.align-self-sm-start</code></li>
+          <li><code>.align-self-sm-end</code></li>
+          <li><code>.align-self-sm-center</code></li>
+          <li><code>.align-self-sm-baseline</code></li>
+          <li><code>.align-self-sm-stretch</code></li>
+          <li><code>.align-self-md-start</code></li>
+          <li><code>.align-self-md-end</code></li>
+          <li><code>.align-self-md-center</code></li>
+          <li><code>.align-self-md-baseline</code></li>
+          <li><code>.align-self-md-stretch</code></li>
+          <li><code>.align-self-lg-start</code></li>
+          <li><code>.align-self-lg-end</code></li>
+          <li><code>.align-self-lg-center</code></li>
+          <li><code>.align-self-lg-baseline</code></li>
+          <li><code>.align-self-lg-stretch</code></li>
+          <li><code>.align-self-xl-start</code></li>
+          <li><code>.align-self-xl-end</code></li>
+          <li><code>.align-self-xl-center</code></li>
+          <li><code>.align-self-xl-baseline</code></li>
+          <li><code>.align-self-xl-stretch</code></li>
+          <li><code>.align-self-xxl-start</code></li>
+          <li><code>.align-self-xxl-end</code></li>
+          <li><code>.align-self-xxl-center</code></li>
+          <li><code>.align-self-xxl-baseline</code></li>
+          <li><code>.align-self-xxl-stretch</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Fill
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase5" role="button" aria-expanded="false" aria-controls="cardCollpase5"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase5" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use the <code>.flex-fill</code> class on a series of sibling elements to force them into widths equal to their content (or equal widths if their content does not surpass their border-boxes) while taking up all available horizontal space.</p>
+        </div>
+        <div class="bd-example mb-3 text-white">
+          <div class="d-flex bg-highlight-100 border">
+            <div class="p-2 flex-fill bg-highlight border">Flex item with a lot of content</div>
+            <div class="p-2 flex-fill bg-highlight border">Flex item</div>
+            <div class="p-2 flex-fill bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>flex-fill</code>.</p>
+        <ul>
+          <li><code>.flex-fill</code></li>
+          <li><code>.flex-sm-fill</code></li>
+          <li><code>.flex-md-fill</code></li>
+          <li><code>.flex-lg-fill</code></li>
+          <li><code>.flex-xl-fill</code></li>
+          <li><code>.flex-xxl-fill</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Grow and shrink
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase6" role="button" aria-expanded="false" aria-controls="cardCollpase6"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase6" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>.flex-grow-*</code> utilities to toggle a flex item’s ability to grow to fill available space. In the example below, the <code>.flex-grow-1</code> elements uses all available space it can, while allowing the remaining two flex items their necessary space.</p>
+        </div>
+        <div class="bd-example mb-3">
+          <div class="d-flex bg-highlight-100 border text-white">
+            <div class="p-2 flex-grow-1 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Third flex item</div>
+          </div>
+        </div>
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>.flex-shrink-*</code> utilities to toggle a flex item’s ability to shrink if necessary. In the example below, the second flex item with <code>.flex-shrink-1</code> is forced to wrap its contents to a new line, “shrinking” to allow more space for the previous flex item with <code>.w-100</code>.</p>
+        </div>
+        <div class="bd-example mb-3">
+          <div class="d-flex bg-highlight-100 border text-white">
+            <div class="p-2 w-100 bg-highlight border">Flex item</div>
+            <div class="p-2 flex-shrink-1 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>flex-grow</code> and <code>flex-shrink</code>.</p>
+        <ul>
+          <li><code>.flex-{grow|shrink}-0</code></li>
+          <li><code>.flex-{grow|shrink}-1</code></li>
+          <li><code>.flex-sm-{grow|shrink}-0</code></li>
+          <li><code>.flex-sm-{grow|shrink}-1</code></li>
+          <li><code>.flex-md-{grow|shrink}-0</code></li>
+          <li><code>.flex-md-{grow|shrink}-1</code></li>
+          <li><code>.flex-lg-{grow|shrink}-0</code></li>
+          <li><code>.flex-lg-{grow|shrink}-1</code></li>
+          <li><code>.flex-xl-{grow|shrink}-0</code></li>
+          <li><code>.flex-xl-{grow|shrink}-1</code></li>
+          <li><code>.flex-xxl-{grow|shrink}-0</code></li>
+          <li><code>.flex-xxl-{grow|shrink}-1</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Auto margins
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase7" role="button" aria-expanded="false" aria-controls="cardCollpase7"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase7" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Flexbox can do some pretty awesome things when you mix flex alignments with auto margins. Shown below are three examples of controlling flex items via auto margins: default (no auto margin), pushing two items to the right (<code>.me-auto</code>), and pushing two items to the left (<code>.ms-auto</code>).</p>
+        </div>
+        <div class="bd-example text-white">
+          <div class="d-flex bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex bg-highlight-100 mb-3">
+            <div class="me-auto p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex bg-highlight-100 mb-3">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="ms-auto p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          With align-items
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase8" role="button" aria-expanded="false" aria-controls="cardCollpase8"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase8" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Vertically move one flex item to the top or bottom of a container by mixing <code>align-items</code>, <code>flex-direction: column</code>, and <code>margin-top: auto</code> or <code>margin-bottom: auto</code>.</p>
+        </div>
+        <div class="bd-example text-white">
+          <div class="d-flex align-items-start flex-column bg-highlight-100 border mb-3" style="height: 200px;">
+            <div class="mb-auto p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+          <div class="d-flex align-items-end flex-column bg-highlight-100 border mb-3" style="height: 200px;">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="mt-auto p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Wrap
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase9" role="button" aria-expanded="false" aria-controls="cardCollpase9"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase9" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Change how flex items wrap in a flex container. Choose from no wrapping at all (the browser default) with <code>.flex-nowrap</code>, wrapping with <code>.flex-wrap</code>, or reverse wrapping with <code>.flex-wrap-reverse</code>.</p>
+        </div>
+        <p><code>.flex-nowrap</code></p>
+        <div class="bd-example mb-3 text-white" style="max-width: 700px;">
+          <div class="d-flex flex-nowrap bg-highlight border" style="width: 8rem;">
+            <div class="p-2 bg-highlight-100 border">Flex item</div>
+            <div class="p-2 bg-highlight-100 border">Flex item</div>
+            <div class="p-2 bg-highlight-100 border">Flex item</div>
+            <div class="p-2 bg-highlight-100 border">Flex item</div>
+            <div class="p-2 bg-highlight-100 border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.flex-wrap</code></p>
+        <div class="bd-example mb-3 text-white" style="max-width: 700px;">
+          <div class="d-flex flex-wrap bg-highlight-100 border">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.flex-wrap-reverse</code></p>
+        <div class="bd-example mb-3 text-white" style="max-width: 700px;">
+          <div class="d-flex flex-wrap-reverse bg-highlight-100 border">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>flex-wrap</code>.</p>
+        <ul>
+          <li><code>.flex-nowrap</code></li>
+          <li><code>.flex-wrap</code></li>
+          <li><code>.flex-wrap-reverse</code></li>
+          <li><code>.flex-sm-nowrap</code></li>
+          <li><code>.flex-sm-wrap</code></li>
+          <li><code>.flex-sm-wrap-reverse</code></li>
+          <li><code>.flex-md-nowrap</code></li>
+          <li><code>.flex-md-wrap</code></li>
+          <li><code>.flex-md-wrap-reverse</code></li>
+          <li><code>.flex-lg-nowrap</code></li>
+          <li><code>.flex-lg-wrap</code></li>
+          <li><code>.flex-lg-wrap-reverse</code></li>
+          <li><code>.flex-xl-nowrap</code></li>
+          <li><code>.flex-xl-wrap</code></li>
+          <li><code>.flex-xl-wrap-reverse</code></li>
+          <li><code>.flex-xxl-nowrap</code></li>
+          <li><code>.flex-xxl-wrap</code></li>
+          <li><code>.flex-xxl-wrap-reverse</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Order
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase10" role="button" aria-expanded="false" aria-controls="cardCollpase10"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase10" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Change the <em>visual</em> order of specific flex items with a handful of <code>order</code> utilities. We only provide options for making an item first or last, as well as a reset to use the DOM order. As <code>order</code> takes any integer value from 0 to 5, add custom CSS for any additional values needed.</p>
+        </div>
+        <div class="bd-example mb-3 text-white">
+          <div class="d-flex flex-nowrap bg-highlight-100">
+            <div class="order-3 p-2 bg-highlight border">First flex item</div>
+            <div class="order-2 p-2 bg-highlight border">Second flex item</div>
+            <div class="order-1 p-2 bg-highlight border">Third flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>order</code>.</p>
+        <ul>
+          <li><code>.order-0</code></li>
+          <li><code>.order-1</code></li>
+          <li><code>.order-2</code></li>
+          <li><code>.order-3</code></li>
+          <li><code>.order-4</code></li>
+          <li><code>.order-5</code></li>
+          <li><code>.order-sm-0</code></li>
+          <li><code>.order-sm-1</code></li>
+          <li><code>.order-sm-2</code></li>
+          <li><code>.order-sm-3</code></li>
+          <li><code>.order-sm-4</code></li>
+          <li><code>.order-sm-5</code></li>
+          <li><code>.order-md-0</code></li>
+          <li><code>.order-md-1</code></li>
+          <li><code>.order-md-2</code></li>
+          <li><code>.order-md-3</code></li>
+          <li><code>.order-md-4</code></li>
+          <li><code>.order-md-5</code></li>
+          <li><code>.order-lg-0</code></li>
+          <li><code>.order-lg-1</code></li>
+          <li><code>.order-lg-2</code></li>
+          <li><code>.order-lg-3</code></li>
+          <li><code>.order-lg-4</code></li>
+          <li><code>.order-lg-5</code></li>
+          <li><code>.order-xl-0</code></li>
+          <li><code>.order-xl-1</code></li>
+          <li><code>.order-xl-2</code></li>
+          <li><code>.order-xl-3</code></li>
+          <li><code>.order-xl-4</code></li>
+          <li><code>.order-xl-5</code></li>
+          <li><code>.order-xxl-0</code></li>
+          <li><code>.order-xxl-1</code></li>
+          <li><code>.order-xxl-2</code></li>
+          <li><code>.order-xxl-3</code></li>
+          <li><code>.order-xxl-4</code></li>
+          <li><code>.order-xxl-5</code></li>
+        </ul>
+        <p>Additionally there are also responsive <code>.order-first</code> and <code>.order-last</code> classes that change the <code>order</code> of an element by applying <code>order: -1</code> and <code>order: 6</code>, respectively.</p>
+        <ul>
+          <li><code>.order-first</code></li>
+          <li><code>.order-last</code></li>
+          <li><code>.order-sm-first</code></li>
+          <li><code>.order-sm-last</code></li>
+          <li><code>.order-md-first</code></li>
+          <li><code>.order-md-last</code></li>
+          <li><code>.order-lg-first</code></li>
+          <li><code>.order-lg-last</code></li>
+          <li><code>.order-xl-first</code></li>
+          <li><code>.order-xl-last</code></li>
+          <li><code>.order-xxl-first</code></li>
+          <li><code>.order-xxl-last</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+    <div class="card">
+      <div class="card-header justify-content-between">
+        <h4 class="fw-700 m-0 fs-base">
+          Align content
+        </h4>
+        <div class="card-widgets">
+          <a class="btn btn-success" href="javascript:;" data-action="fullscreen"><i class="far fa-expand"></i></a>
+          <a class="btn btn-warning" data-bs-toggle="collapse" data-target="#cardCollpase11" role="button" aria-expanded="false" aria-controls="cardCollpase11"><i class="fal fa-minus"></i></a>
+          <a class="btn btn-danger" href="#" data-bs-toggle="remove"><i class="fal fa-times"></i></a>
+        </div>
+      </div>
+      <div id="cardCollpase11" class="card-body show">
+        <div class="bd-callout bd-callout-highlight">
+          <p>Use <code>align-content</code> utilities on flexbox containers to align flex items <em>together</em> on the cross axis. Choose from <code>start</code> (browser default), <code>end</code>, <code>center</code>, <code>between</code>, <code>around</code>, or <code>stretch</code>. To demonstrate these utilities, we’ve enforced <code>flex-wrap: wrap</code> and increased the number of flex items.</p>
+        </div>
+        <p><strong>Heads up!</strong> This property has no effect on single rows of flex items.</p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-start flex-wrap bg-highlight-100 mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.align-content-end</code></p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-end flex-wrap bg-highlight-100 border mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.align-content-center</code></p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-center flex-wrap bg-highlight-100 border mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.align-content-between</code></p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-between flex-wrap bg-highlight-100 border mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.align-content-around</code></p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-around flex-wrap bg-highlight-100 border mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p><code>.align-content-stretch</code></p>
+        <div class="bd-example text-white">
+          <div class="d-flex align-content-stretch flex-wrap bg-highlight-100 border mb-3" style="height: 200px">
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+            <div class="p-2 bg-highlight border">Flex item</div>
+          </div>
+        </div>
+        <p>Responsive variations also exist for <code>align-content</code>.</p>
+        <ul>
+          <li><code>.align-content-start</code></li>
+          <li><code>.align-content-end</code></li>
+          <li><code>.align-content-center</code></li>
+          <li><code>.align-content-around</code></li>
+          <li><code>.align-content-stretch</code></li>
+          <li><code>.align-content-sm-start</code></li>
+          <li><code>.align-content-sm-end</code></li>
+          <li><code>.align-content-sm-center</code></li>
+          <li><code>.align-content-sm-around</code></li>
+          <li><code>.align-content-sm-stretch</code></li>
+          <li><code>.align-content-md-start</code></li>
+          <li><code>.align-content-md-end</code></li>
+          <li><code>.align-content-md-center</code></li>
+          <li><code>.align-content-md-around</code></li>
+          <li><code>.align-content-md-stretch</code></li>
+          <li><code>.align-content-lg-start</code></li>
+          <li><code>.align-content-lg-end</code></li>
+          <li><code>.align-content-lg-center</code></li>
+          <li><code>.align-content-lg-around</code></li>
+          <li><code>.align-content-lg-stretch</code></li>
+          <li><code>.align-content-xl-start</code></li>
+          <li><code>.align-content-xl-end</code></li>
+          <li><code>.align-content-xl-center</code></li>
+          <li><code>.align-content-xl-around</code></li>
+          <li><code>.align-content-xl-stretch</code></li>
+          <li><code>.align-content-xxl-start</code></li>
+          <li><code>.align-content-xxl-end</code></li>
+          <li><code>.align-content-xxl-center</code></li>
+          <li><code>.align-content-xxl-around</code></li>
+          <li><code>.align-content-xxl-stretch</code></li>
+        </ul>
+      </div>
+      <!-- end card-body -->
+    </div>
+    <!-- end card -->
+  </div>
+</div>
+      </div>
+      <!-- end page-content -->
+      <div id="footer" class="d-flex align-items-center">
+        <div class="row w-100">
+          <div class="footer-nav col-md-8 col-sm-6">
+            <a href="#" target="_blank" class="footer-nav-item">About</a>
+            <a href="#" target="_blank" class="footer-nav-item">Support</a>
+            <a href="#" target="_blank" class="footer-nav-item">Contact</a>
+          </div>
+          <div class="copyright text-end col-md-4 col-sm-6">
+            2020&nbsp;©&nbsp;<a href="#" target="_blank">TEachProd</a>
+          </div>
+        </div>
+      </div>    </div>
+    <!-- end page-container -->
+  <div class="modal right fade" id="right-sidebar" tabindex="-1" aria-labelledby="modalSetting" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-scroll" style="max-height: 100%">
+        <div class="align-items-center bg-trans-gradient justify-content-center modal-header rounded-0 w-100">
+          <h4 class="m-0 text-center text-white fw-700">
+            Settings
+            <small class="mb-0 opacity-80">User Interface Settings</small>
+          </h4>
+          <a href="#" class="pos-top-right text-white p-2 m-1 me-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mx-3 mt-2">
+              <p class="text-muted fs-base">Customize layout, left sidebar menu, etc. FlexAdmin stores the preferences in local storage.</p>
+            </div>
+            <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                Layout Options
+              </h5>
+            </div>
+            <div class="ps-3 pe-2">
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-shrinking-left-sidebar" id="app-shrinking-left-sidebar">
+                  <label for="app-shrinking-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-shrinking-left-sidebar">Shrinking Left Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-header" id="app-fixed-header" value=true>
+                  <label for="app-fixed-header"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-header">Fixed Header</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-left-sidebar" id="app-fixed-left-sidebar">
+                  <label for="app-fixed-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-left-sidebar">Fixed Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-footer" id="app-fixed-footer">
+                  <label for="app-fixed-footer"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-footer">Fixed Footer</label></div>
+              </div>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Colors
+              </h5>
+            </div>
+            <div class="theme-colors ps-3 pe-2">
+              <ul class="m-0 p-0">
+                <li>
+                  <a href="#" class="bg-anchor" data-theme-color="app-theme-anchor" data-bs-toggle="tooltip" data-bs-original-title="Anchor"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-maroon" data-theme-color="app-theme-maroon" data-bs-toggle="tooltip" data-bs-original-title="Maroon"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-carrot" data-theme-color="app-theme-carrot" data-bs-toggle="tooltip" data-bs-original-title="Carrot"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-lollipop" data-theme-color="app-theme-lollipop" data-bs-toggle="tooltip" data-bs-original-title="Lollipop"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-gold" data-theme-color="app-theme-gold" data-bs-toggle="tooltip" data-bs-original-title="Gold"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-forest" data-theme-color="app-theme-forest" data-bs-toggle="tooltip" data-bs-original-title="Forest"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-hoki" data-theme-color="app-theme-hoki" data-bs-toggle="tooltip" data-bs-original-title="Hoki"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-facebook" data-theme-color="app-theme-facebook" data-bs-toggle="tooltip" data-bs-original-title="Facebook"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-purple" data-theme-color="app-theme-purple" data-bs-toggle="tooltip" data-bs-original-title="Purple"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-indigo" data-theme-color="app-theme-indigo" data-bs-toggle="tooltip" data-bs-original-title="Indigo"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-cafe" data-theme-color="app-theme-cafe" data-bs-toggle="tooltip" data-bs-original-title="Cafe"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-charcoal" data-theme-color="app-theme-charcoal" data-bs-toggle="tooltip" data-bs-original-title="Charcoal"></a>
+                </li>
+              </ul>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Modes
+              </h5>
+            </div>
+            <div class="theme-modes ps-3 pe-2">
+              <div class="row">
+                <div class="col-6 pe-2 text-center">
+                  <div data-theme-mode="default-mode" class="theme-mode-config d-flex bg-white border border-secondary rounded overflow-hidden text-success" style="height: 100px">
+                    <div class="map-left-sidebar px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="bg-white border-bottom py-1"></div>
+                      <div class="bg-white h-100 flex-1 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100" style="background:url('assets/images/website-layout.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Default
+                </div>
+                <div class="col-6 ps-2 text-center">
+                  <div data-theme-mode="dark-mode" class="theme-mode-config d-flex border border-white rounded overflow-hidden text-success bg-dark" style="height: 100px">
+                    <div class="px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="border-bottom py-1"></div>
+                      <div class="flex-1 h-100 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100 " style="background:url('assets/images/website-layout-dark.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Dark
+                </div>
+              </div>
+            </div>          <div class="d-flex justify-content-center mt-4 pt-4">
+              <button id="reset-setting" type="button" class="btn btn-warning btn-rounded d-block w-75">Reset</button>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <a class="btn btn-rose btn-rounded d-block w-75" href="https://codecanyon.net/item/flexadmin-bootstrap-5-admin-template/29011667" target="_blank">Buy Now</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end right-sidebar -->  <script src="assets/js/vendor~app~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_calendar~demo_datatable~dem~cf3c0e0d.js"></script><script src="assets/js/vendor~app.js"></script><script src="assets/js/app.js"></script>
+</body>
+</html>

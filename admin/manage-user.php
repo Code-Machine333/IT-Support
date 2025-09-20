@@ -1,0 +1,194 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/dbconnection.php');
+if (strlen($_SESSION['adid'] == 0)) {
+    header('location:logout.php');
+} else {
+
+?>
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>CE ERP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- App css -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <script src="assets/js/modernizr.min.js"></script>
+
+    </head>
+
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <?php include_once('includes/sidebar.php'); ?>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+
+                <?php include_once('includes/header.php'); ?>
+
+                <!-- Start Page content -->
+                <div class="content">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box shadow">
+                                    <h4 class="mt-4 header-title d-flex align-items-center justify-content-between">
+                                        <span>Manage Users</span>
+                                        <a href="add-user.php" class="btn-custom-primary">Add User</a>
+                                    </h4>
+                                    <p class="text-muted m-b-30 font-14">
+
+                                    </p>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-20">
+                                                <table class="styled-table" id="dataTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Full Name</th>
+                                                            <th>Discipline</th>
+                                                            <th>Office</th>
+                                                            <th>Email</th>
+                                                            <th>Admin</th>
+															<th>Board</th>
+                                                            <th>Active</th>
+                                                            <!-- <th>Action</th> -->
+                                                        </tr>
+                                                    </thead>
+                                                    <?php
+                                                    $rno = mt_rand(10000, 99999);
+                                                    $ret = mysqli_query($con, "SELECT tbluser.id, tbluser.FullName, tbluser.admin, tbluser.Email, tbluser.active, tbluser.board, tbldiscipline.DisciplineName, tbloffices.OfficeName 
+															FROM ((tbluser
+															LEFT JOIN tbldiscipline ON tbluser.fk_discipline = tbldiscipline.id)
+															LEFT JOIN tbloffices ON tbluser.fk_office = tbloffices.id)
+															where tbluser.Deleted = '1';");
+
+                                                    $cnt = 1;
+                                                    while ($row = mysqli_fetch_array($ret)) {
+
+                                                    ?>
+
+                                                        <tr>
+                                                            <td>
+                                                                <a href="edit-user.php?udid=<?php echo base64_encode($row['id'] . $rno); ?>" title="Edit user details"> <?php echo $row['FullName']; ?></a>
+                                                            </td>
+                                                            <td><?php echo $row['DisciplineName']; ?></td>
+                                                            <td><?php echo $row['OfficeName']; ?></td>
+                                                            <td><?php echo $row['Email']; ?></td>
+                                                            <td><?php if ($row['admin'] == "1") {
+                                                                    echo "Yes";
+                                                                } else {
+                                                                    echo "No";
+                                                                }
+                                                                ?>
+                                                            </td>
+															<td><?php if ($row['board'] == "1") {
+                                                                    echo "Yes";
+                                                                } else {
+                                                                    echo "No";
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <td><?php if ($row['active'] == "1") {
+                                                                    echo "Active";
+                                                                } else {
+                                                                    echo "Not Active";
+                                                                }
+                                                                ?>
+                                                            </td>
+                                                            <!-- <td><a href="edit-user.php?udid=<?php // echo base64_encode($row['ID'].$rno);
+                                                                                                    ?>" title="Edit user details"> Edit Details</a></td> -->
+                                                        </tr>
+                                                    <?php
+                                                        $cnt = $cnt + 1;
+                                                    } ?>
+
+                                                </table>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+
+
+
+
+                        <!-- end row -->
+
+
+
+
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <?php include_once('includes/footer.php'); ?>
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+
+
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/metisMenu.min.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <!-- Page level plugins -->
+        <script src="assets/js/datatables/jquery.dataTables.min.js"></script>
+        <script src="assets/js/datatables/dataTables.bootstrap4.min.js"></script>
+        <script>
+            $('#dataTable').dataTable({
+                "pageLength": 50,
+            });
+        </script>
+    </body>
+
+    </html>
+<?php }  ?>

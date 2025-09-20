@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: FlexAdmin - Bootstrap 5 Admin Template
+Version: 1.0.1
+Author: TEachProd.
+Website: https://teachprod.com
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Checkout - Ecommerce">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <meta property="og:image" content="https://www.teachprod.com/wp-content/uploads/2020/10/carrot.jpg">
+  <title>Checkout - Ecommerce - FlexAdmin</title>
+  <link href="assets/css/vendor~app.css" rel="stylesheet"><link href="assets/css/app.css" rel="stylesheet"><link href="assets/css/ecommerce.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180917586-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-180917586-1');
+  </script>
+</head>
+<!-- Possible Body Attributes
+    * data-theme-header-fixed = 'true'       - For fixed Header
+    * data-theme-header-fixed = 'false'      - For static Header
+    * data-theme-sidebar-fixed = 'true'      - For fixed Left Navigation
+    * data-theme-sidebar-fixed = 'false'     - For static Left Navigation
+    * data-theme-sidebar-shrinked = 'true'   - For shrinking Left Navigation
+    * data-theme-footer-fixed = 'true'       - For fixed Footer
+    * data-theme-footer-fixed = 'false'      - For static Footer
+    * data-theme-mode = 'dark-mode'          - For Dark Mode
+-->
+
+<body>
+    <!-- apply javascript before page content be loaded -->
+    <script>
+      'use strict';
+      var defaultConfig = {
+        fixedLeftSidebar: true,
+        fixedHeader: false,
+        fixedFooter: false,
+        isShrinked: false,
+        themeColor: 'app-theme-facebook',
+        themeMode: 'default-mode'
+      };
+      var globalConfigs = JSON.parse(localStorage.getItem('ABCADMIN_CONFIG')) || defaultConfig;
+      var appThemeMode = globalConfigs.themeMode;
+      var isShrinked = globalConfigs.isShrinked;
+      var body = document.getElementsByTagName("body")[0];
+      body.setAttribute("data-theme-mode", appThemeMode);
+      body.setAttribute("data-theme-sidebar-shrinked", isShrinked)
+    </script>
+    <nav id="left-sidebar" class="left-sidebar">
+      <!-- start sidebar-header -->
+      <div class="sidebar-header">
+        <div class="logo">
+          <h3><a href="/">
+              <span class="fw-700">FlexAdmin</span>
+            </a></h3>
+        </div>
+        <a class="sidebar-toggle-btn">
+          <i class="far fa-bars"></i>
+        </a>
+      </div>
+      <!-- end sidebar-header -->
+      <div class="sidebar-wrapper">
+        <!-- start sidebar-body -->
+        <div class="sidebar-body">
+          <div class="nav-filter align-items-center justify-content-center flex-row mb-4 p-2">
+            <input type="text" placeholder="Quick search" class="w-100 form-control" tabindex="0">
+          </div>
+          <!-- end nav-profile -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">MAIN</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#homeSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-tachometer"></i>
+                  <span>Dashboard</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="homeSubmenu" data-parent="#left-sidebar">
+                  <li>
+                    <a href="dashboard-analytics.html">Analytics</a>
+                  </li>
+                  <li>
+                    <a href="index.html">Ecommerce</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="sidebar-item">
+                <a href="calendar.html">
+                  <i class="fal fa-calendar"></i>
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a href="chat.html">
+                  <i class="fal fa-comments-alt"></i>
+                  <span>Chat</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                 <a href="#pageSubmenuEcommerce" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-dumpster"></i>
+                  <span>Ecommerce</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenuEcommerce" data-parent="#left-sidebar">
+                  <li>
+                    <a href="ecommerce-products.html">All Products</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-product-detail.html">Product Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-add-product.html">Add Product</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-orders.html">Orders</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-order-detail.html">Order Detail</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-customers.html">Customers</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-shopping-card.html">Shopping Card</a>
+                  </li>
+                  <li>
+                    <a href="ecommerce-checkout.html">Checkout</a>
+                  </li>
+                </ul>
+              </li>
+              <li id="sidebar-pages" class="sidebar-item">
+                <a href="#pageSubmenu1" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-file"></i>
+                  <span>Pages</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="pageSubmenu1" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#pageAuthentication" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Authentication</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageAuthentication" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-authentication-login.html">Login</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-register.html">Register</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-forgot-password.html">Forgot Password</a>
+                      </li>
+                      <li>
+                        <a href="pages-authentication-confirm-email.html">Confirm Email</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li authentication -->
+          
+                  <li>
+                    <a href="pages-contact.html">Contact</a>
+                  </li>
+                  <li>
+                    <a href="#pageError" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Error</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="pageError" data-parent="#sidebar-pages">
+                      <li>
+                        <a href="pages-error-404.html">Error 404 </a>
+                      </li>
+                      <li>
+                        <a href="pages-error-500.html">Error 500</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li pageError -->
+                  <li>
+                    <a href="pages-faq.html">FAQ</a>
+                  </li>
+                  <li>
+                    <a href="pages-invoice.html">Invoice</a>
+                  </li>
+                  <li>
+                    <a href="pages-maintenance.html">Maintenance Page</a>
+                  </li>
+                  <li>
+                    <a href="pages-pricing.html">Pricing</a>
+                  </li>
+                  <li>
+                    <a href="pages-profile.html">Profile</a>
+                  </li>
+                  <li>
+                    <a href="pages-starter.html">Starter Page</a>
+                  </li>
+                </ul> <!-- end sidebar-second-level -->
+              </li> <!-- end sidebar-item -->
+            </ul>
+          </div>      <!-- end sidebar-block -->
+          <!-- start sidebar-block -->
+          <div class="sidebar-block">
+            <div class="sidebar-title">COMPONENT</div>
+            <ul class="list-unstyled sidebar-content">
+              <li class="sidebar-item">
+                <a href="#ui-kit" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-layer-group"></i>
+                  <span>UI Kit</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="ui-kit" data-parent="#left-sidebar">
+                   <li>
+                    <a href="ui-kits-avatars.html">Avatars</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-breadcrumbs.html">Breadcrumbs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-buttons.html">Buttons</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-cards.html">Cards</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-dual-listbox.html">Dual Listbox</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-jstree.html">jsTree</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-image-cropper.html">Image cropper</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-modals.html">Modals</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-notifications.html">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-spinners.html">Spinner</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-sweetalert.html">SweetAlert2</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-tabs.html">Tabs</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-toastr.html">Toastr</a>
+                  </li>
+                  <li>
+                    <a href="ui-kits-widgets.html">Widgets</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#utilities" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-shield-alt"></i>
+                  <span>Utilities</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="utilities" data-parent="#left-sidebar">
+                  <li>
+                    <a href="utilities-borders.html">Borders</a>
+                  </li>
+                  <li>
+                    <a href="utilities-colors.html">Colors</a>
+                  </li>
+                  <li>
+                    <a href="utilities-display.html">Display</a>
+                  </li>
+                  <li>
+                    <a href="utilities-flex.html">Flex</a>
+                  </li>
+                  <li>
+                    <a href="utilities-float.html">Float</a>
+                  </li>
+                  <li>
+                    <a href="utilities-interactions.html">Interactions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-overflow.html">Overflow</a>
+                  </li>
+                  <li>
+                    <a href="utilities-positions.html">Positions</a>
+                  </li>
+                  <li>
+                    <a href="utilities-shadows.html">Shadows</a>
+                  </li>
+                  <li>
+                    <a href="utilities-sizing.html">Sizing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-spacing.html">Spacing</a>
+                  </li>
+                  <li>
+                    <a href="utilities-text.html">Text</a>
+                  </li>
+                  <li>
+                    <a href="utilities-typography.html">Typography</a>
+                  </li>
+                  <li>
+                    <a href="utilities-vertical-align.html">Vertical Align</a>
+                  </li>
+                  <li>
+                    <a href="utilities-visibility.html">Visibility</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#forms" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fab fa-wpforms"></i>
+                  <span>Forms </span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="forms" data-parent="#left-sidebar">
+                  <li>
+                    <a href="forms-basic-elements.html">Basic Elements</a>
+                  </li>
+                  <li>
+                    <a href="forms-checkboxs.html">Checkbox</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-editors.html">Editors</a>
+                  </li> -->
+                  <li>
+                    <a href="forms-dropzonejs.html">DropzoneJS</a>
+                  </li>
+                  <li>
+                    <a href="forms-input-groups.html">Input Groups</a>
+                  </li>
+                  <li>
+                    <a href="forms-radios.html">Radio</a>
+                  </li>
+                  <li>
+                    <a href="forms-select2.html">Select2</a>
+                  </li>
+                  <li>
+                    <a href="forms-validations.html">Validations</a>
+                  </li>
+                  <!-- <li>
+                    <a href="forms-wizard.html">Wizard</a>
+                  </li> -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a href="#charts" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="far fa-chart-bar"></i>
+                  <span>Charts</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="charts" data-parent="#left-sidebar">
+                  <li>
+                    <a href="charts-britecharts.html">Britecharts</a>
+                  </li>
+                  <li>
+                    <a href="charts-chartjs.html">Chartjs</a>
+                  </li>
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#tables" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-table"></i>
+                  <span>Tables</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="tables" data-parent="#left-sidebar">
+                  <li>
+                    <a href="tables-basic-table.html">Basic Table</a>
+                  </li>
+                  <li>
+                    <a href="tables-data-table.html">Data Table</a>
+                  </li>
+                </ul>
+              </li>          <li id="sidebar-icons" class="sidebar-item">
+                <a  href="#icons" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-award"></i>
+                  <span>Icons</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="icons" data-parent="#left-sidebar">
+                  <li>
+                    <a href="#font-awesome" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">Font Awesome 5</a>
+                    <ul class="sidebar-third-level collapse list-unstyled" id="font-awesome" data-parent="#sidebar-icons">
+                      <li>
+                        <a href="icon-fontawesome-solid.html">Solid</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-regular.html">Regular</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-light.html">Light</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-duotone.html">Duotone</a>
+                      </li>
+                      <li>
+                        <a href="icon-fontawesome-brands.html">Brands</a>
+                      </li>
+                    </ul>
+                  </li> <!-- end li fontawesome -->
+                </ul>
+              </li>          <li class="sidebar-item">
+                <a  href="#maps" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle collapsed">
+                  <i class="fal fa-map-marked-alt"></i>
+                  <span>Maps</span>
+                </a>
+                <ul class="sidebar-second-level collapse list-unstyled" id="maps" data-parent="#left-sidebar">
+                  <li>
+                    <a href="maps-google-map.html">Google Map</a>
+                  </li>
+                  <li>
+                    <a href="maps-vector-map.html">Vector Map</a>
+                  </li>
+                </ul>
+              </li>        </ul>
+          </div>
+          <!-- end sidebar-block -->
+        </div>
+        <!-- end sidebar-body -->
+        <div class="align-items-center justify-content-center sidebar-footer">
+          <ul class="d-flex justify-content-around list-unstyled">
+            <li>
+              <a href="#">
+                <i class="fal fa-comments" data-bs-original-title="Chat History" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-life-ring" data-bs-original-title="Support" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fal fa-question-circle" data-bs-original-title="Helper" data-bs-toggle="tooltip"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- end sidebar-footer -->
+      </div><!-- end sidebar-wrapper -->
+    </nav>    <div class="page-container">
+      <nav class="navbar topbar">
+        <div class="top-left-menu">
+          <div id="form-global-search" class="rounded">
+            <form>
+              <div class="input-group position-relative">
+                <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                <button type="submit">
+                  <i class="fal fa-search text-highlight"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div><ul class="list-unstyled top-right-menu">
+          <li class="nav-item topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="emailsDropdown">
+              <i class="fal fa-envelope"></i>
+              <span class="badge bg-success rounded-circle">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-animate dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="emailsDropdown">
+              <div class="dropdown-menu-header">
+                6 New Emails
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/avatar.png" class="user-avatar rounded-circle" alt="User">
+                    </div>
+                    <div class="col-10">
+                      <div>Sam Robert</div>
+                      <div class="text-muted small mt-1">Ability to select/create Modules</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Schirsten Vander</div>
+                      <div class="text-muted small mt-1">Add widgets descriptions</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Robert Nordic</div>
+                      <div class="text-muted small mt-1">Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Michael Branson</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Antonym Sladers</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-2">
+                      <img src="assets/images/default-female-avatar.jpg" alt="User" class="user-avatar rounded-circle">
+                    </div>
+                    <div class="col-10">
+                      <div>Marcus</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item task-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="tasksDropdown">
+              <i class="fal fa-tasks"></i>
+              <span class="badge bg-danger rounded-circle">5</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="tasksDropdown">
+              <div class="dropdown-menu-header">
+                4 New Tasks
+              </div>
+              <div class="list-group">
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Design database</span>
+                    <span class="percent">74%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width: 74%">
+                      <span class="sr-only">74% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Testing</span>
+                    <span class="percent">30%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                      <span class="sr-only">30% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Document writting</span>
+                    <span class="percent">50%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                      <span class="sr-only">50% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">Development</span>
+                    <span class="percent">45%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                      <span class="sr-only">45% Complete</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="list-group-item" href="#">
+                  <span class="task small">
+                    <span class="desc">HTML slicing</span>
+                    <span class="percent">66%</span>
+                  </span>
+                  <div class="progress progress-sm m-0">
+                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
+                      <span class="sr-only">66% Complete</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item notification-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false" id="notificationsDropdown">
+              <i class="fal fa-bell"></i>
+              <span class="badge bg-info rounded-circle">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0 dropdown-animate" aria-labelledby="notificationsDropdown">
+              <div class="dropdown-menu-header">
+                4 New Notifications
+              </div>
+              <div class="list-group">
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-primary fas fa-fw fa-user"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>New user registered</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet</div>
+                      <div class="text-muted small mt-1">1h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-warning fas fa-fw fa-bell"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Update completed</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet.</div>
+                      <div class="text-muted small mt-1">2h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-info fas fa-fw fa-envelope-open"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Mark cancelled the event</div>
+                      <div class="text-muted small mt-1">Lorem ipsum dolor sit amet, consectetur adip</div>
+                      <div class="text-muted small mt-1">4h ago</div>
+                    </div>
+                  </div>
+                </a>
+                <a href="#" class="list-group-item">
+                  <div class="row align-items-center">
+                    <div class="col-2">
+                      <i class="ms-1 text-danger fas fa-fw fa-building"></i>
+                    </div>
+                    <div class="col-10">
+                      <div>Login from 192.168.1.1</div>
+                      <div class="text-muted small mt-1">6h ago</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-menu-footer">
+                <a href="#" class="text-primary">View all</a>
+              </div>
+            </div>
+          </li>  <li class="nav-item user-setting-list topbar-dropdown">
+            <a class="nav-link dropdown-toggle nav-profile" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+              <img src="assets/images/avatar.png" alt="user-image" class="rounded-circle">
+              <span class="ms-1 d-none d-lg-inline">
+                <span class="user-name">Hi, Admin</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile-dropdown dropdown-animate">
+              <div class="dropdown-header">
+                <h6 class="text-center">Welcome !</h6>
+              </div>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-user-alt me-1"></i>
+                <span>My Account</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-cog me-1"></i>
+                <span>Settings</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-envelope me-1"></i>
+                <span>Inbox</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-calendar-alt me-1"></i>
+                <span>Calendar</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-tasks me-1"></i>
+                <span>Tasks</span>
+              </a>
+              <a href="javascript:void(0);" class="dropdown-item">
+                <i class="fal fa-sign-out me-1"></i>
+                <span>Sign out</span>
+              </a>
+            </div>
+          </li>  <li class="nav-item">
+            <a href="#right-sidebar" class="nav-link" data-bs-toggle="modal"  id="modalSetting">
+              <i class="fal fa-cog rotate"></i>
+            </a>
+          </li></ul>      </nav>
+      <!-- end navbar -->
+      <div class="page-content">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb ps-0 fs-base">
+    <li class="breadcrumb-item"><a href="#">FlexAdmin</a></li>
+    <li class="breadcrumb-item"><span>Ecommerce</span></li>
+    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+  </ol>
+</nav>
+<div class="header justify-content-between mb-4">
+  <h1 class="header-title h3">
+    <i class="fad fa-star-half-alt text-highlight"></i>
+    Checkout
+  </h1>
+</div>
+<ul class="nav nav-pills nav-bg nav-justified mb-4">
+  <li class="nav-item">
+    <a href="#order-information" data-bs-toggle="tab" aria-expanded="false" class="nav-link rounded-0 w-100 active">
+      <i class="fad fa-id-card"></i>
+      <span class="d-none d-lg-block">Infomation</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="#shipping-information" data-bs-toggle="tab" aria-expanded="true" class="nav-link rounded-0 w-100">
+      <i class="fal fa-truck-moving"></i>
+      <span class="d-none d-lg-block">Shipping</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="#payment-information" data-bs-toggle="tab" aria-expanded="false" class="nav-link rounded-0 w-100">
+      <i class="fad fa-credit-card"></i>
+      <span class="d-none d-lg-block">Payment</span>
+    </a>
+  </li>
+</ul>
+<div class="tab-content shadow-none px-0">
+  <div class="tab-pane show active" id="order-information">
+    <div class="row flex-lg-row-reverse">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="header-title mb-3">Order Summary</h4>
+            <div class="table-responsive">
+              <table class="table table-borderless mb-0 align-middle">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">2</span>
+                      </div>
+                    </td>
+                    <td>
+                      Light Blue Shirt
+                      <br>
+                      <span>Black / XL</span>
+                    </td>
+                    <td>$39.98</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">1</span>
+                      </div>
+                    </td>
+                    <td>
+                      Woman Full Sliv Dress
+                      <br>
+                      <span>Black / S</span>
+                    </td>
+                    <td>$21.99</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">3</span>
+                      </div>
+                    </td>
+                    <td>
+                      Blue Dress For Woman
+                      <br>
+                      <span>Black / M</span>
+                    </td>
+                    <td>$80.97</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end table-responsive -->
+            <hr>
+            <form>
+              <div class="d-flex my-4">
+                <input type="text" class="form-control me-2" placeholder="Gift card or discount code">
+                <button class="btn btn-highlight" type="button">Apply</button>
+              </div>
+            </form>
+            <hr>
+            <div class="table-responsive">
+              <table class="table table-borderless text-end mb-0">
+                <tbody>
+                  <tr>
+                    <td>Sub Total:</td>
+                    <td>$142.94</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping:</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <th>Total:</th>
+                    <th>$162.94</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <form>
+              <div class="d-flex mt-2 mb-3 justify-content-between">
+                <h4>Contact Information</h4>
+                <div>
+                  <span aria-hidden="true">Already have an account?</span>
+                  <a class="text-highlight" href="#">Login</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="billing-first-name">First Name <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" id="billing-first-name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="billing-last-name">Last Name <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" id="billing-last-name">
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="billing-phone">Phone number <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" id="billing-phone">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group mb-3">
+                    <label for="billing-email-address">Email Address <span class="text-danger">*</span></label>
+                    <input class="form-control" type="email" id="billing-email-address">
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <h4 class="mt-2 mb-3">Shipping Address</h4>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group mb-3">
+                    <label>Country</label>
+                    <select class="select2" data-placeholder="Please select a country">
+                      <option></option>
+                      <option value="AF" data-select2-id="11">Afghanistan</option>
+                      <option value="AL" data-select2-id="12">Albania</option>
+                      <option value="DZ" data-select2-id="13">Algeria</option>
+                      <option value="AS" data-select2-id="14">American Samoa</option>
+                      <option value="AD" data-select2-id="15">Andorra</option>
+                      <option value="AO" data-select2-id="16">Angola</option>
+                      <option value="AI" data-select2-id="17">Anguilla</option>
+                      <option value="AQ" data-select2-id="18">Antarctica</option>
+                      <option value="AR" data-select2-id="19">Argentina</option>
+                      <option value="AM" data-select2-id="20">Armenia</option>
+                      <option value="AW" data-select2-id="21">Aruba</option>
+                      <option value="AU" data-select2-id="22">Australia</option>
+                      <option value="AT" data-select2-id="23">Austria</option>
+                      <option value="AZ" data-select2-id="24">Azerbaijan</option>
+                      <option value="BS" data-select2-id="25">Bahamas</option>
+                      <option value="BH" data-select2-id="26">Bahrain</option>
+                      <option value="BD" data-select2-id="27">Bangladesh</option>
+                      <option value="BB" data-select2-id="28">Barbados</option>
+                      <option value="BY" data-select2-id="29">Belarus</option>
+                      <option value="BE" data-select2-id="30">Belgium</option>
+                      <option value="BZ" data-select2-id="31">Belize</option>
+                      <option value="BJ" data-select2-id="32">Benin</option>
+                      <option value="BM" data-select2-id="33">Bermuda</option>
+                      <option value="BT" data-select2-id="34">Bhutan</option>
+                      <option value="BO" data-select2-id="35">Bolivia</option>
+                      <option value="BW" data-select2-id="36">Botswana</option>
+                      <option value="BV" data-select2-id="37">Bouvet Island</option>
+                      <option value="BR" data-select2-id="38">Brazil</option>
+                      <option value="BN" data-select2-id="39">Brunei Darussalam</option>
+                      <option value="BG" data-select2-id="40">Bulgaria</option>
+                      <option value="BF" data-select2-id="41">Burkina Faso</option>
+                      <option value="BI" data-select2-id="42">Burundi</option>
+                      <option value="KH" data-select2-id="43">Cambodia</option>
+                      <option value="CM" data-select2-id="44">Cameroon</option>
+                      <option value="CA" data-select2-id="45">Canada</option>
+                      <option value="CV" data-select2-id="46">Cape Verde</option>
+                      <option value="KY" data-select2-id="47">Cayman Islands</option>
+                      <option value="CF" data-select2-id="48">Central African Republic</option>
+                      <option value="TD" data-select2-id="49">Chad</option>
+                      <option value="CL" data-select2-id="50">Chile</option>
+                      <option value="CN" data-select2-id="51">China</option>
+                      <option value="CX" data-select2-id="52">Christmas Island</option>
+                      <option value="CC" data-select2-id="53">Cocos (Keeling) Islands</option>
+                      <option value="CO" data-select2-id="54">Colombia</option>
+                      <option value="KM" data-select2-id="55">Comoros</option>
+                      <option value="CG" data-select2-id="56">Congo</option>
+                      <option value="CK" data-select2-id="57">Cook Islands</option>
+                      <option value="CR" data-select2-id="58">Costa Rica</option>
+                      <option value="CI" data-select2-id="59">Cote d'Ivoire</option>
+                      <option value="HR" data-select2-id="60">Croatia (Hrvatska)</option>
+                      <option value="CU" data-select2-id="61">Cuba</option>
+                      <option value="CY" data-select2-id="62">Cyprus</option>
+                      <option value="CZ" data-select2-id="63">Czech Republic</option>
+                      <option value="DK" data-select2-id="64">Denmark</option>
+                      <option value="DJ" data-select2-id="65">Djibouti</option>
+                      <option value="DM" data-select2-id="66">Dominica</option>
+                      <option value="DO" data-select2-id="67">Dominican Republic</option>
+                      <option value="EC" data-select2-id="68">Ecuador</option>
+                      <option value="EG" data-select2-id="69">Egypt</option>
+                      <option value="SV" data-select2-id="70">El Salvador</option>
+                      <option value="GQ" data-select2-id="71">Equatorial Guinea</option>
+                      <option value="ER" data-select2-id="72">Eritrea</option>
+                      <option value="EE" data-select2-id="73">Estonia</option>
+                      <option value="ET" data-select2-id="74">Ethiopia</option>
+                      <option value="FK" data-select2-id="75">Falkland Islands (Malvinas)</option>
+                      <option value="FO" data-select2-id="76">Faroe Islands</option>
+                      <option value="FJ" data-select2-id="77">Fiji</option>
+                      <option value="FI" data-select2-id="78">Finland</option>
+                      <option value="FR" data-select2-id="79">France</option>
+                      <option value="GF" data-select2-id="80">French Guiana</option>
+                      <option value="PF" data-select2-id="81">French Polynesia</option>
+                      <option value="GA" data-select2-id="82">Gabon</option>
+                      <option value="GM" data-select2-id="83">Gambia</option>
+                      <option value="GE" data-select2-id="84">Georgia</option>
+                      <option value="DE" data-select2-id="85">Germany</option>
+                      <option value="GH" data-select2-id="86">Ghana</option>
+                      <option value="GI" data-select2-id="87">Gibraltar</option>
+                      <option value="GR" data-select2-id="88">Greece</option>
+                      <option value="GL" data-select2-id="89">Greenland</option>
+                      <option value="GD" data-select2-id="90">Grenada</option>
+                      <option value="GP" data-select2-id="91">Guadeloupe</option>
+                      <option value="GU" data-select2-id="92">Guam</option>
+                      <option value="GT" data-select2-id="93">Guatemala</option>
+                      <option value="GN" data-select2-id="94">Guinea</option>
+                      <option value="GW" data-select2-id="95">Guinea-Bissau</option>
+                      <option value="GY" data-select2-id="96">Guyana</option>
+                      <option value="HT" data-select2-id="97">Haiti</option>
+                      <option value="HN" data-select2-id="98">Honduras</option>
+                      <option value="HK" data-select2-id="99">Hong Kong</option>
+                      <option value="HU" data-select2-id="100">Hungary</option>
+                      <option value="IS" data-select2-id="101">Iceland</option>
+                      <option value="IN" data-select2-id="102">India</option>
+                      <option value="ID" data-select2-id="103">Indonesia</option>
+                      <option value="IQ" data-select2-id="104">Iraq</option>
+                      <option value="IE" data-select2-id="105">Ireland</option>
+                      <option value="IL" data-select2-id="106">Israel</option>
+                      <option value="IT" data-select2-id="107">Italy</option>
+                      <option value="JM" data-select2-id="108">Jamaica</option>
+                      <option value="JP" data-select2-id="109">Japan</option>
+                      <option value="JO" data-select2-id="110">Jordan</option>
+                      <option value="KZ" data-select2-id="111">Kazakhstan</option>
+                      <option value="KE" data-select2-id="112">Kenya</option>
+                      <option value="KI" data-select2-id="113">Kiribati</option>
+                      <option value="KR" data-select2-id="114">Korea, Republic of</option>
+                      <option value="KW" data-select2-id="115">Kuwait</option>
+                      <option value="KG" data-select2-id="116">Kyrgyzstan</option>
+                      <option value="LV" data-select2-id="117">Latvia</option>
+                      <option value="LB" data-select2-id="118">Lebanon</option>
+                      <option value="LS" data-select2-id="119">Lesotho</option>
+                      <option value="LR" data-select2-id="120">Liberia</option>
+                      <option value="LY" data-select2-id="121">Libyan Arab Jamahiriya</option>
+                      <option value="LI" data-select2-id="122">Liechtenstein</option>
+                      <option value="LT" data-select2-id="123">Lithuania</option>
+                      <option value="LU" data-select2-id="124">Luxembourg</option>
+                      <option value="MO" data-select2-id="125">Macau</option>
+                      <option value="MG" data-select2-id="126">Madagascar</option>
+                      <option value="MW" data-select2-id="127">Malawi</option>
+                      <option value="MY" data-select2-id="128">Malaysia</option>
+                      <option value="MV" data-select2-id="129">Maldives</option>
+                      <option value="ML" data-select2-id="130">Mali</option>
+                      <option value="MT" data-select2-id="131">Malta</option>
+                      <option value="MH" data-select2-id="132">Marshall Islands</option>
+                      <option value="MQ" data-select2-id="133">Martinique</option>
+                      <option value="MR" data-select2-id="134">Mauritania</option>
+                      <option value="MU" data-select2-id="135">Mauritius</option>
+                      <option value="YT" data-select2-id="136">Mayotte</option>
+                      <option value="MX" data-select2-id="137">Mexico</option>
+                      <option value="MD" data-select2-id="138">Moldova, Republic of</option>
+                      <option value="MC" data-select2-id="139">Monaco</option>
+                      <option value="MN" data-select2-id="140">Mongolia</option>
+                      <option value="MS" data-select2-id="141">Montserrat</option>
+                      <option value="MA" data-select2-id="142">Morocco</option>
+                      <option value="MZ" data-select2-id="143">Mozambique</option>
+                      <option value="MM" data-select2-id="144">Myanmar</option>
+                      <option value="NA" data-select2-id="145">Namibia</option>
+                      <option value="NR" data-select2-id="146">Nauru</option>
+                      <option value="NP" data-select2-id="147">Nepal</option>
+                      <option value="NL" data-select2-id="148">Netherlands</option>
+                      <option value="AN" data-select2-id="149">Netherlands Antilles</option>
+                      <option value="NC" data-select2-id="150">New Caledonia</option>
+                      <option value="NZ" data-select2-id="151">New Zealand</option>
+                      <option value="NI" data-select2-id="152">Nicaragua</option>
+                      <option value="NE" data-select2-id="153">Niger</option>
+                      <option value="NG" data-select2-id="154">Nigeria</option>
+                      <option value="NU" data-select2-id="155">Niue</option>
+                      <option value="NF" data-select2-id="156">Norfolk Island</option>
+                      <option value="MP" data-select2-id="157">Northern Mariana Islands</option>
+                      <option value="NO" data-select2-id="158">Norway</option>
+                      <option value="OM" data-select2-id="159">Oman</option>
+                      <option value="PW" data-select2-id="160">Palau</option>
+                      <option value="PA" data-select2-id="161">Panama</option>
+                      <option value="PG" data-select2-id="162">Papua New Guinea</option>
+                      <option value="PY" data-select2-id="163">Paraguay</option>
+                      <option value="PE" data-select2-id="164">Peru</option>
+                      <option value="PH" data-select2-id="165">Philippines</option>
+                      <option value="PN" data-select2-id="166">Pitcairn</option>
+                      <option value="PL" data-select2-id="167">Poland</option>
+                      <option value="PT" data-select2-id="168">Portugal</option>
+                      <option value="PR" data-select2-id="169">Puerto Rico</option>
+                      <option value="QA" data-select2-id="170">Qatar</option>
+                      <option value="RE" data-select2-id="171">Reunion</option>
+                      <option value="RO" data-select2-id="172">Romania</option>
+                      <option value="RU" data-select2-id="173">Russian Federation</option>
+                      <option value="RW" data-select2-id="174">Rwanda</option>
+                      <option value="KN" data-select2-id="175">Saint Kitts and Nevis</option>
+                      <option value="LC" data-select2-id="176">Saint LUCIA</option>
+                      <option value="WS" data-select2-id="177">Samoa</option>
+                      <option value="SM" data-select2-id="178">San Marino</option>
+                      <option value="ST" data-select2-id="179">Sao Tome and Principe</option>
+                      <option value="SA" data-select2-id="180">Saudi Arabia</option>
+                      <option value="SN" data-select2-id="181">Senegal</option>
+                      <option value="SC" data-select2-id="182">Seychelles</option>
+                      <option value="SL" data-select2-id="183">Sierra Leone</option>
+                      <option value="SG" data-select2-id="184">Singapore</option>
+                      <option value="SK" data-select2-id="185">Slovakia (Slovak Republic)</option>
+                      <option value="SI" data-select2-id="186">Slovenia</option>
+                      <option value="SB" data-select2-id="187">Solomon Islands</option>
+                      <option value="SO" data-select2-id="188">Somalia</option>
+                      <option value="ZA" data-select2-id="189">South Africa</option>
+                      <option value="ES" data-select2-id="190">Spain</option>
+                      <option value="LK" data-select2-id="191">Sri Lanka</option>
+                      <option value="SH" data-select2-id="192">St. Helena</option>
+                      <option value="PM" data-select2-id="193">St. Pierre and Miquelon</option>
+                      <option value="SD" data-select2-id="194">Sudan</option>
+                      <option value="SR" data-select2-id="195">Suriname</option>
+                      <option value="SZ" data-select2-id="196">Swaziland</option>
+                      <option value="SE" data-select2-id="197">Sweden</option>
+                      <option value="CH" data-select2-id="198">Switzerland</option>
+                      <option value="SY" data-select2-id="199">Syrian Arab Republic</option>
+                      <option value="TW" data-select2-id="200">Taiwan, Province of China</option>
+                      <option value="TJ" data-select2-id="201">Tajikistan</option>
+                      <option value="TZ" data-select2-id="202">Tanzania, United Republic of</option>
+                      <option value="TH" data-select2-id="203">Thailand</option>
+                      <option value="TG" data-select2-id="204">Togo</option>
+                      <option value="TK" data-select2-id="205">Tokelau</option>
+                      <option value="TO" data-select2-id="206">Tonga</option>
+                      <option value="TT" data-select2-id="207">Trinidad and Tobago</option>
+                      <option value="TN" data-select2-id="208">Tunisia</option>
+                      <option value="TR" data-select2-id="209">Turkey</option>
+                      <option value="TM" data-select2-id="210">Turkmenistan</option>
+                      <option value="TC" data-select2-id="211">Turks and Caicos Islands</option>
+                      <option value="TV" data-select2-id="212">Tuvalu</option>
+                      <option value="UG" data-select2-id="213">Uganda</option>
+                      <option value="UA" data-select2-id="214">Ukraine</option>
+                      <option value="AE" data-select2-id="215">United Arab Emirates</option>
+                      <option value="GB" data-select2-id="216">United Kingdom</option>
+                      <option value="US" data-select2-id="217">United States</option>
+                      <option value="UY" data-select2-id="218">Uruguay</option>
+                      <option value="UZ" data-select2-id="219">Uzbekistan</option>
+                      <option value="VU" data-select2-id="220">Vanuatu</option>
+                      <option value="VE" data-select2-id="221">Venezuela</option>
+                      <option value="VN" data-select2-id="222">Viet Nam</option>
+                      <option value="VG" data-select2-id="223">Virgin Islands (British)</option>
+                      <option value="VI" data-select2-id="224">Virgin Islands (U.S.)</option>
+                      <option value="WF" data-select2-id="225">Wallis and Futuna Islands</option>
+                      <option value="EH" data-select2-id="226">Western Sahara</option>
+                      <option value="YE" data-select2-id="227">Yemen</option>
+                      <option value="ZM" data-select2-id="228">Zambia</option>
+                      <option value="ZW" data-select2-id="229">Zimbabwe</option>
+                    </select>
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group mb-3">
+                    <label for="shipping-address-1">Address line 1</label>
+                    <input class="form-control" type="text" placeholder="Street address, P.O. box, company name, c/o" id="shipping-address-1">
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group mb-3">
+                    <label for="shipping-address-2">Address line 2</label>
+                    <input class="form-control" type="text" placeholder="Apartment, suite, unit, building, floor, etc." id="shipping-address-2">
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group mb-3">
+                    <label for="shipping-town-city">Town / City</label>
+                    <input class="form-control" type="text" id="shipping-town-city">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group mb-3">
+                    <label for="shipping-state">State / Province / Region</label>
+                    <input class="form-control" type="text" id="shipping-state">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group mb-3">
+                    <label for="shipping-zip-postal">Zip Code</label>
+                    <input class="form-control" type="text" id="shipping-zip-postal">
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="row">
+              </div> <!-- end row -->
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group mb-3">
+                    <label for="example-textarea">Order Notes:</label>
+                    <textarea class="form-control" id="example-textarea" rows="3" placeholder="Write some note.."></textarea>
+                  </div>
+                </div>
+              </div> <!-- end row -->
+              <div class="mt-2">
+                <label class="custom-checkbox d-inline-block me-3">
+                  <input id="checkout-remember-me" type="checkbox"> Save this information for next time
+                  <span></span>
+                </label>
+              </div>
+              <div class="row mt-4">
+                <div class="col-6">
+                  <a href="shopping-card.html" class="btn btn-warning">
+                    <i class="fal fa-angle-double-left"></i>
+                    Return to cart
+                  </a>
+                </div> <!-- end col -->
+                <div class="col-6">
+                  <div class="text-end">
+                    <a href="#" class="btn btn-danger">
+                      <i class="mdi mdi-truck-fast me-1"></i> Continue to Shipping </a>
+                  </div>
+                </div> <!-- end col -->
+              </div> <!-- end row -->
+            </form>
+          </div>
+          <!-- end card-body -->
+        </div>
+        <!-- end card -->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row-->
+  </div>
+  <!-- end tab-pane -->  <div class="tab-pane" id="shipping-information">
+    <div class="row flex-lg-row-reverse">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="header-title mb-3">Order Summary</h4>
+            <div class="table-responsive">
+              <table class="table table-borderless mb-0 align-middle">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">2</span>
+                      </div>
+                    </td>
+                    <td>
+                      Light Blue Shirt
+                      <br>
+                      <span>Black / XL</span>
+                    </td>
+                    <td>$39.98</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">1</span>
+                      </div>
+                    </td>
+                    <td>
+                      Woman Full Sliv Dress
+                      <br>
+                      <span>Black / S</span>
+                    </td>
+                    <td>$21.99</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">3</span>
+                      </div>
+                    </td>
+                    <td>
+                      Blue Dress For Woman
+                      <br>
+                      <span>Black / M</span>
+                    </td>
+                    <td>$80.97</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end table-responsive -->
+            <hr>
+            <form>
+              <div class="d-flex my-4">
+                <input type="text" class="form-control me-2" placeholder="Gift card or discount code">
+                <button class="btn btn-highlight" type="button">Apply</button>
+              </div>
+            </form>
+            <hr>
+            <div class="table-responsive">
+              <table class="table table-borderless text-end mb-0">
+                <tbody>
+                  <tr>
+                    <td>Sub Total:</td>
+                    <td>$142.94</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping:</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <th>Total:</th>
+                    <th>$162.94</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="border p-3 mb-3 rounded">
+              <table class="table table-borderless">
+                <tr class="border-bottom">
+                  <td>Contact</td>
+                  <td>donnie1973@hotmail.com</td>
+                  <td><a href="#" class="text-highlight">Change</a></td>
+                </tr>
+                <tr>
+                  <td>Ship to</td>
+                  <td>3363 Cook Hill Road, Wallingford, Connecticut(CT), 06492, Wallingford CT 06492, United States</td>
+                  <td><a href="#" class="text-highlight">Change</a></td>
+                </tr>
+              </table>
+            </div>
+            <h2 class="h4">
+              Shipping method
+            </h2>
+            <div class="border mb-3 rounded">
+              <div class="border-bottom p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-1">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-1">
+                    FedEx Ground
+                    <br>
+                    <span class="fs-sm">Estimated delivery: four days</span>
+                  </label>
+                </div>
+                $8.73
+              </div>
+              <div class="border-bottom p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-2">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-2">
+                    USPS Priority Mail 2-Day
+                    <br>
+                    <span class="fs-sm">1-Day or 2-Day expedited service by 3 p.m</span>
+                  </label>
+                </div>
+                $11.19
+              </div>
+              <div class="border-bottom p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-3">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-3">
+                    FedEx Express Saver
+                    <br>
+                    <span class="fs-sm">3 business days</span>
+                  </label>
+                </div>
+                $16.22
+              </div>
+              <div class="border-bottom p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-4">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-4">
+                    FedEx 2 Day
+                    <br>
+                    <span class="fs-sm">2 business days</span>
+                  </label>
+                </div>
+                $20.85
+              </div>
+              <div class="border-bottom p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-5">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-5">
+                    FedEx Standard Overnight
+                    <br>
+                    <span class="fs-sm">1 business days</span>
+                  </label>
+                </div>
+                $39.68
+              </div>
+              <div class="p-3 d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <label class="custom-radio">
+                    <input type="radio" name="checkout[shipping-rate][id]" id="checkout-shipping-rate-id-6">
+                    <span></span>
+                  </label>
+                  <label for="checkout-shipping-rate-id-6">
+                    FedEx First Overnight
+                    <br>
+                    <span class="fs-sm">1 business days</span>
+                  </label>
+                </div>
+                $132.41
+              </div>
+            </div>
+            <!-- end border -->
+            <div class="row mt-4">
+              <div class="col-6">
+                <a href="shopping-card.html" class="btn btn-warning">
+                  <i class="fal fa-angle-double-left"></i>
+                  Return to Information
+                </a>
+              </div>
+              <!-- end col -->
+              <div class="col-6">
+                <div class="text-end">
+                  <a href="#" class="btn btn-danger">
+                    <i class="mdi mdi-truck-fast me-1"></i> Continue to Payment </a>
+                </div>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end card-body -->
+        </div>
+        <!-- end card -->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row-->
+  </div>  <div class="tab-pane" id="payment-information">
+    <div class="row flex-lg-row-reverse">
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="header-title mb-3">Order Summary</h4>
+            <div class="table-responsive">
+              <table class="table table-borderless mb-0 align-middle">
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">2</span>
+                      </div>
+                    </td>
+                    <td>
+                      Light Blue Shirt
+                      <br>
+                      <span>Black / XL</span>
+                    </td>
+                    <td>$39.98</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">1</span>
+                      </div>
+                    </td>
+                    <td>
+                      Woman Full Sliv Dress
+                      <br>
+                      <span>Black / S</span>
+                    </td>
+                    <td>$21.99</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="product-thumbnail-wrapper mt-2">
+                        <img alt="Product" src="assets/images/products/product-80x80.jpg" class="img-thumbnail" width="48">
+                        <span class="product-thumbnail-quantity">3</span>
+                      </div>
+                    </td>
+                    <td>
+                      Blue Dress For Woman
+                      <br>
+                      <span>Black / M</span>
+                    </td>
+                    <td>$80.97</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- end table-responsive -->
+            <hr>
+            <form>
+              <div class="d-flex my-4">
+                <input type="text" class="form-control me-2" placeholder="Gift card or discount code">
+                <button class="btn btn-highlight" type="button">Apply</button>
+              </div>
+            </form>
+            <hr>
+            <div class="table-responsive">
+              <table class="table table-borderless text-end mb-0">
+                <tbody>
+                  <tr>
+                    <td>Sub Total:</td>
+                    <td>$142.94</td>
+                  </tr>
+                  <tr>
+                    <td>Shipping:</td>
+                    <td>$20</td>
+                  </tr>
+                  <tr>
+                    <th>Total:</th>
+                    <th>$162.94</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- end card-body-->
+        </div>
+        <!-- end card-->
+      </div>
+      <!-- end col -->
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="border p-3 mb-3 rounded">
+              <table class="table table-borderless">
+                <tr class="border-bottom">
+                  <td>Contact</td>
+                  <td>donnie1973@hotmail.com</td>
+                  <td><a href="#" class="text-highlight">Change</a></td>
+                </tr>
+                <tr class="border-bottom">
+                  <td>Ship to</td>
+                  <td>3363 Cook Hill Road, Wallingford, Connecticut(CT), 06492, Wallingford CT 06492, United States</td>
+                  <td><a href="#" class="text-highlight">Change</a></td>
+                </tr>
+                <tr>
+                  <td>Method</td>
+                  <td>FedEx Ground · $8.73</td>
+                  <td><a href="#" class="text-highlight">Change</a></td>
+                </tr>
+              </table>
+            </div>
+            <h2 class="h4">
+              Payment
+            </h2>
+            <p>All transactions are secure and encrypted.</p>
+            <div id="order-payment" class="border mb-3 rounded">
+              <div class="payment-gateway">
+                <div class="payment-gateway-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[payment-rate][id]" id="checkout-payment-rate-id-1">
+                      <span></span>
+                    </label>
+                    <label for="checkout-payment-rate-id-1">
+                      <span class="fw-700">Credit Card</span>
+                    </label>
+                  </div>
+                  <div class="brand-icons">
+                    <span class="payment-icon payment-icon-visa">
+                    </span>
+                    <span class="payment-icon payment-icon-master">
+                    </span>
+                    <span class="payment-icon payment-icon-american-express">
+                    </span>
+                    <span class="payment-icon payment-icon-discover">
+                    </span>
+                  </div>
+                </div>
+                <!-- end payment-gateway-header -->
+                <div class="payment-gateway-content  border-bottom payment-gateway-content-credit-card p-3">
+                  <form>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="payment-card-number">Card number</label>
+                          <input class="form-control" type="text" id="payment-card-number">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="payment-name-on-card">Name on card</label>
+                          <input class="form-control" type="text" id="payment-name-on-card">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="payment-expiration-date">Expiration date (MM / YY)</label>
+                          <input class="form-control" type="text" id="payment-expiration-date">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group mb-3">
+                          <label for="payment-security-code">Security code</label>
+                          <input class="form-control" type="text" id="payment-security-code">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <!-- end payment-gateway-content -->
+              </div>
+              <!-- end payment-gateway -->
+              <div class="payment-gateway">
+                <div class="payment-gateway-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[payment-rate][id]" id="checkout-payment-rate-id-2">
+                      <span></span>
+                    </label>
+                    <label for="checkout-payment-rate-id-2">
+                      <span class="fw-700">Paypal</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- end payment-gateway-header -->
+                <div class="payment-gateway-content p-5 border-bottom flex-column justify-content-center align-items-center">
+                  <span class="payment-gateway-outsite"></span>
+                  <p class="mt-3">After clicking “Complete order”, you will be redirected to PayPal to complete your purchase securely.</p>
+                </div>
+                <!-- end payment-gateway-content -->
+              </div>
+              <!-- end payment-gateway -->
+              <div class="payment-gateway">
+                <div class="payment-gateway-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[payment-rate][id]" id="checkout-payment-rate-id-3">
+                      <span></span>
+                    </label>
+                    <label for="checkout-payment-rate-id-3">
+                      <span class="fw-700">Amazon pay</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- end payment-gateway-header -->
+                <div class="payment-gateway-content p-5 border-bottom flex-column justify-content-center align-items-center">
+                  <span class="payment-gateway-outsite"></span>
+                  <p class="mt-3">You will be asked to login with Amazon.</p>
+                </div>
+                <!-- end payment-gateway-content -->
+              </div>
+              <!-- end payment-gateway -->
+              <div class="payment-gateway">
+                <div class="payment-gateway-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[payment-rate][id]" id="checkout-payment-rate-id-4">
+                      <span></span>
+                    </label>
+                    <label for="checkout-payment-rate-id-4">
+                      <span class="fw-700">Pay over time with Klarna</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- end payment-gateway-header -->
+                <div class="payment-gateway-content p-5 flex-column justify-content-center align-items-center">
+                  <span class="payment-gateway-outsite"></span>
+                  <p class="mt-3">After clicking "Complete order", you will be redirected to Pay over time with Klarna to complete your purchase securely.</p>
+                </div>
+                <!-- end payment-gateway-content -->
+              </div>
+              <!-- end payment-gateway -->
+            </div>
+            <!-- end order-payment -->
+            <h2 class="h4 mt-3">
+              Billing address
+            </h2>
+            <p>Select the address that matches your card or payment method.</p>
+            <div id="order-billing-address" class="border mb-3 rounded">
+              <div class="billing-address">
+                <div class="billing-address-header border-bottom p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[billing-address][id]" id="checkout-billing-address-id-1">
+                      <span></span>
+                    </label>
+                    <label for="checkout-billing-address-id-1">
+                      <span class="fw-700">Same as shipping address</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- end billing-address-header -->
+              </div>
+              <!-- end billing-address -->
+              <div class="billing-address">
+                <div class="billing-address-header border-bottom p-3">
+                  <div class="d-flex">
+                    <label class="custom-radio">
+                      <input type="radio" name="checkout[billing-address][id]" id="checkout-billing-address-id-2">
+                      <span></span>
+                    </label>
+                    <label for="checkout-billing-address-id-2">
+                      <span class="fw-700"> Use a different billing address</span>
+                    </label>
+                  </div>
+                </div>
+                <!-- end billing-address-header -->
+                <div class="billing-address-content p-3">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="other-billing-first-name">First Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="other-billing-first-name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="other-billing-last-name">Last Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="other-billing-last-name">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end row -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="other-billing-phone">Phone number <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" id="other-billing-phone">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group mb-3">
+                        <label for="other-billing-email-address">Email Address <span class="text-danger">*</span></label>
+                        <input class="form-control" type="email" id="other-billing-email-address">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end row -->
+                  <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group mb-3">
+                    <label>Country</label>
+                    <select class="select2" data-placeholder="Please select a country">
+                      <option></option>
+                      <option value="AF" data-select2-id="11">Afghanistan</option>
+                      <option value="AL" data-select2-id="12">Albania</option>
+                      <option value="DZ" data-select2-id="13">Algeria</option>
+                      <option value="AS" data-select2-id="14">American Samoa</option>
+                      <option value="AD" data-select2-id="15">Andorra</option>
+                      <option value="AO" data-select2-id="16">Angola</option>
+                      <option value="AI" data-select2-id="17">Anguilla</option>
+                      <option value="AQ" data-select2-id="18">Antarctica</option>
+                      <option value="AR" data-select2-id="19">Argentina</option>
+                      <option value="AM" data-select2-id="20">Armenia</option>
+                      <option value="AW" data-select2-id="21">Aruba</option>
+                      <option value="AU" data-select2-id="22">Australia</option>
+                      <option value="AT" data-select2-id="23">Austria</option>
+                      <option value="AZ" data-select2-id="24">Azerbaijan</option>
+                      <option value="BS" data-select2-id="25">Bahamas</option>
+                      <option value="BH" data-select2-id="26">Bahrain</option>
+                      <option value="BD" data-select2-id="27">Bangladesh</option>
+                      <option value="BB" data-select2-id="28">Barbados</option>
+                      <option value="BY" data-select2-id="29">Belarus</option>
+                      <option value="BE" data-select2-id="30">Belgium</option>
+                      <option value="BZ" data-select2-id="31">Belize</option>
+                      <option value="BJ" data-select2-id="32">Benin</option>
+                      <option value="BM" data-select2-id="33">Bermuda</option>
+                      <option value="BT" data-select2-id="34">Bhutan</option>
+                      <option value="BO" data-select2-id="35">Bolivia</option>
+                      <option value="BW" data-select2-id="36">Botswana</option>
+                      <option value="BV" data-select2-id="37">Bouvet Island</option>
+                      <option value="BR" data-select2-id="38">Brazil</option>
+                      <option value="BN" data-select2-id="39">Brunei Darussalam</option>
+                      <option value="BG" data-select2-id="40">Bulgaria</option>
+                      <option value="BF" data-select2-id="41">Burkina Faso</option>
+                      <option value="BI" data-select2-id="42">Burundi</option>
+                      <option value="KH" data-select2-id="43">Cambodia</option>
+                      <option value="CM" data-select2-id="44">Cameroon</option>
+                      <option value="CA" data-select2-id="45">Canada</option>
+                      <option value="CV" data-select2-id="46">Cape Verde</option>
+                      <option value="KY" data-select2-id="47">Cayman Islands</option>
+                      <option value="CF" data-select2-id="48">Central African Republic</option>
+                      <option value="TD" data-select2-id="49">Chad</option>
+                      <option value="CL" data-select2-id="50">Chile</option>
+                      <option value="CN" data-select2-id="51">China</option>
+                      <option value="CX" data-select2-id="52">Christmas Island</option>
+                      <option value="CC" data-select2-id="53">Cocos (Keeling) Islands</option>
+                      <option value="CO" data-select2-id="54">Colombia</option>
+                      <option value="KM" data-select2-id="55">Comoros</option>
+                      <option value="CG" data-select2-id="56">Congo</option>
+                      <option value="CK" data-select2-id="57">Cook Islands</option>
+                      <option value="CR" data-select2-id="58">Costa Rica</option>
+                      <option value="CI" data-select2-id="59">Cote d'Ivoire</option>
+                      <option value="HR" data-select2-id="60">Croatia (Hrvatska)</option>
+                      <option value="CU" data-select2-id="61">Cuba</option>
+                      <option value="CY" data-select2-id="62">Cyprus</option>
+                      <option value="CZ" data-select2-id="63">Czech Republic</option>
+                      <option value="DK" data-select2-id="64">Denmark</option>
+                      <option value="DJ" data-select2-id="65">Djibouti</option>
+                      <option value="DM" data-select2-id="66">Dominica</option>
+                      <option value="DO" data-select2-id="67">Dominican Republic</option>
+                      <option value="EC" data-select2-id="68">Ecuador</option>
+                      <option value="EG" data-select2-id="69">Egypt</option>
+                      <option value="SV" data-select2-id="70">El Salvador</option>
+                      <option value="GQ" data-select2-id="71">Equatorial Guinea</option>
+                      <option value="ER" data-select2-id="72">Eritrea</option>
+                      <option value="EE" data-select2-id="73">Estonia</option>
+                      <option value="ET" data-select2-id="74">Ethiopia</option>
+                      <option value="FK" data-select2-id="75">Falkland Islands (Malvinas)</option>
+                      <option value="FO" data-select2-id="76">Faroe Islands</option>
+                      <option value="FJ" data-select2-id="77">Fiji</option>
+                      <option value="FI" data-select2-id="78">Finland</option>
+                      <option value="FR" data-select2-id="79">France</option>
+                      <option value="GF" data-select2-id="80">French Guiana</option>
+                      <option value="PF" data-select2-id="81">French Polynesia</option>
+                      <option value="GA" data-select2-id="82">Gabon</option>
+                      <option value="GM" data-select2-id="83">Gambia</option>
+                      <option value="GE" data-select2-id="84">Georgia</option>
+                      <option value="DE" data-select2-id="85">Germany</option>
+                      <option value="GH" data-select2-id="86">Ghana</option>
+                      <option value="GI" data-select2-id="87">Gibraltar</option>
+                      <option value="GR" data-select2-id="88">Greece</option>
+                      <option value="GL" data-select2-id="89">Greenland</option>
+                      <option value="GD" data-select2-id="90">Grenada</option>
+                      <option value="GP" data-select2-id="91">Guadeloupe</option>
+                      <option value="GU" data-select2-id="92">Guam</option>
+                      <option value="GT" data-select2-id="93">Guatemala</option>
+                      <option value="GN" data-select2-id="94">Guinea</option>
+                      <option value="GW" data-select2-id="95">Guinea-Bissau</option>
+                      <option value="GY" data-select2-id="96">Guyana</option>
+                      <option value="HT" data-select2-id="97">Haiti</option>
+                      <option value="HN" data-select2-id="98">Honduras</option>
+                      <option value="HK" data-select2-id="99">Hong Kong</option>
+                      <option value="HU" data-select2-id="100">Hungary</option>
+                      <option value="IS" data-select2-id="101">Iceland</option>
+                      <option value="IN" data-select2-id="102">India</option>
+                      <option value="ID" data-select2-id="103">Indonesia</option>
+                      <option value="IQ" data-select2-id="104">Iraq</option>
+                      <option value="IE" data-select2-id="105">Ireland</option>
+                      <option value="IL" data-select2-id="106">Israel</option>
+                      <option value="IT" data-select2-id="107">Italy</option>
+                      <option value="JM" data-select2-id="108">Jamaica</option>
+                      <option value="JP" data-select2-id="109">Japan</option>
+                      <option value="JO" data-select2-id="110">Jordan</option>
+                      <option value="KZ" data-select2-id="111">Kazakhstan</option>
+                      <option value="KE" data-select2-id="112">Kenya</option>
+                      <option value="KI" data-select2-id="113">Kiribati</option>
+                      <option value="KR" data-select2-id="114">Korea, Republic of</option>
+                      <option value="KW" data-select2-id="115">Kuwait</option>
+                      <option value="KG" data-select2-id="116">Kyrgyzstan</option>
+                      <option value="LV" data-select2-id="117">Latvia</option>
+                      <option value="LB" data-select2-id="118">Lebanon</option>
+                      <option value="LS" data-select2-id="119">Lesotho</option>
+                      <option value="LR" data-select2-id="120">Liberia</option>
+                      <option value="LY" data-select2-id="121">Libyan Arab Jamahiriya</option>
+                      <option value="LI" data-select2-id="122">Liechtenstein</option>
+                      <option value="LT" data-select2-id="123">Lithuania</option>
+                      <option value="LU" data-select2-id="124">Luxembourg</option>
+                      <option value="MO" data-select2-id="125">Macau</option>
+                      <option value="MG" data-select2-id="126">Madagascar</option>
+                      <option value="MW" data-select2-id="127">Malawi</option>
+                      <option value="MY" data-select2-id="128">Malaysia</option>
+                      <option value="MV" data-select2-id="129">Maldives</option>
+                      <option value="ML" data-select2-id="130">Mali</option>
+                      <option value="MT" data-select2-id="131">Malta</option>
+                      <option value="MH" data-select2-id="132">Marshall Islands</option>
+                      <option value="MQ" data-select2-id="133">Martinique</option>
+                      <option value="MR" data-select2-id="134">Mauritania</option>
+                      <option value="MU" data-select2-id="135">Mauritius</option>
+                      <option value="YT" data-select2-id="136">Mayotte</option>
+                      <option value="MX" data-select2-id="137">Mexico</option>
+                      <option value="MD" data-select2-id="138">Moldova, Republic of</option>
+                      <option value="MC" data-select2-id="139">Monaco</option>
+                      <option value="MN" data-select2-id="140">Mongolia</option>
+                      <option value="MS" data-select2-id="141">Montserrat</option>
+                      <option value="MA" data-select2-id="142">Morocco</option>
+                      <option value="MZ" data-select2-id="143">Mozambique</option>
+                      <option value="MM" data-select2-id="144">Myanmar</option>
+                      <option value="NA" data-select2-id="145">Namibia</option>
+                      <option value="NR" data-select2-id="146">Nauru</option>
+                      <option value="NP" data-select2-id="147">Nepal</option>
+                      <option value="NL" data-select2-id="148">Netherlands</option>
+                      <option value="AN" data-select2-id="149">Netherlands Antilles</option>
+                      <option value="NC" data-select2-id="150">New Caledonia</option>
+                      <option value="NZ" data-select2-id="151">New Zealand</option>
+                      <option value="NI" data-select2-id="152">Nicaragua</option>
+                      <option value="NE" data-select2-id="153">Niger</option>
+                      <option value="NG" data-select2-id="154">Nigeria</option>
+                      <option value="NU" data-select2-id="155">Niue</option>
+                      <option value="NF" data-select2-id="156">Norfolk Island</option>
+                      <option value="MP" data-select2-id="157">Northern Mariana Islands</option>
+                      <option value="NO" data-select2-id="158">Norway</option>
+                      <option value="OM" data-select2-id="159">Oman</option>
+                      <option value="PW" data-select2-id="160">Palau</option>
+                      <option value="PA" data-select2-id="161">Panama</option>
+                      <option value="PG" data-select2-id="162">Papua New Guinea</option>
+                      <option value="PY" data-select2-id="163">Paraguay</option>
+                      <option value="PE" data-select2-id="164">Peru</option>
+                      <option value="PH" data-select2-id="165">Philippines</option>
+                      <option value="PN" data-select2-id="166">Pitcairn</option>
+                      <option value="PL" data-select2-id="167">Poland</option>
+                      <option value="PT" data-select2-id="168">Portugal</option>
+                      <option value="PR" data-select2-id="169">Puerto Rico</option>
+                      <option value="QA" data-select2-id="170">Qatar</option>
+                      <option value="RE" data-select2-id="171">Reunion</option>
+                      <option value="RO" data-select2-id="172">Romania</option>
+                      <option value="RU" data-select2-id="173">Russian Federation</option>
+                      <option value="RW" data-select2-id="174">Rwanda</option>
+                      <option value="KN" data-select2-id="175">Saint Kitts and Nevis</option>
+                      <option value="LC" data-select2-id="176">Saint LUCIA</option>
+                      <option value="WS" data-select2-id="177">Samoa</option>
+                      <option value="SM" data-select2-id="178">San Marino</option>
+                      <option value="ST" data-select2-id="179">Sao Tome and Principe</option>
+                      <option value="SA" data-select2-id="180">Saudi Arabia</option>
+                      <option value="SN" data-select2-id="181">Senegal</option>
+                      <option value="SC" data-select2-id="182">Seychelles</option>
+                      <option value="SL" data-select2-id="183">Sierra Leone</option>
+                      <option value="SG" data-select2-id="184">Singapore</option>
+                      <option value="SK" data-select2-id="185">Slovakia (Slovak Republic)</option>
+                      <option value="SI" data-select2-id="186">Slovenia</option>
+                      <option value="SB" data-select2-id="187">Solomon Islands</option>
+                      <option value="SO" data-select2-id="188">Somalia</option>
+                      <option value="ZA" data-select2-id="189">South Africa</option>
+                      <option value="ES" data-select2-id="190">Spain</option>
+                      <option value="LK" data-select2-id="191">Sri Lanka</option>
+                      <option value="SH" data-select2-id="192">St. Helena</option>
+                      <option value="PM" data-select2-id="193">St. Pierre and Miquelon</option>
+                      <option value="SD" data-select2-id="194">Sudan</option>
+                      <option value="SR" data-select2-id="195">Suriname</option>
+                      <option value="SZ" data-select2-id="196">Swaziland</option>
+                      <option value="SE" data-select2-id="197">Sweden</option>
+                      <option value="CH" data-select2-id="198">Switzerland</option>
+                      <option value="SY" data-select2-id="199">Syrian Arab Republic</option>
+                      <option value="TW" data-select2-id="200">Taiwan, Province of China</option>
+                      <option value="TJ" data-select2-id="201">Tajikistan</option>
+                      <option value="TZ" data-select2-id="202">Tanzania, United Republic of</option>
+                      <option value="TH" data-select2-id="203">Thailand</option>
+                      <option value="TG" data-select2-id="204">Togo</option>
+                      <option value="TK" data-select2-id="205">Tokelau</option>
+                      <option value="TO" data-select2-id="206">Tonga</option>
+                      <option value="TT" data-select2-id="207">Trinidad and Tobago</option>
+                      <option value="TN" data-select2-id="208">Tunisia</option>
+                      <option value="TR" data-select2-id="209">Turkey</option>
+                      <option value="TM" data-select2-id="210">Turkmenistan</option>
+                      <option value="TC" data-select2-id="211">Turks and Caicos Islands</option>
+                      <option value="TV" data-select2-id="212">Tuvalu</option>
+                      <option value="UG" data-select2-id="213">Uganda</option>
+                      <option value="UA" data-select2-id="214">Ukraine</option>
+                      <option value="AE" data-select2-id="215">United Arab Emirates</option>
+                      <option value="GB" data-select2-id="216">United Kingdom</option>
+                      <option value="US" data-select2-id="217">United States</option>
+                      <option value="UY" data-select2-id="218">Uruguay</option>
+                      <option value="UZ" data-select2-id="219">Uzbekistan</option>
+                      <option value="VU" data-select2-id="220">Vanuatu</option>
+                      <option value="VE" data-select2-id="221">Venezuela</option>
+                      <option value="VN" data-select2-id="222">Viet Nam</option>
+                      <option value="VG" data-select2-id="223">Virgin Islands (British)</option>
+                      <option value="VI" data-select2-id="224">Virgin Islands (U.S.)</option>
+                      <option value="WF" data-select2-id="225">Wallis and Futuna Islands</option>
+                      <option value="EH" data-select2-id="226">Western Sahara</option>
+                      <option value="YE" data-select2-id="227">Yemen</option>
+                      <option value="ZM" data-select2-id="228">Zambia</option>
+                      <option value="ZW" data-select2-id="229">Zimbabwe</option>
+                    </select>
+                  </div>
+                </div>
+              </div> <!-- end row -->
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group mb-3">
+                        <label for="billing-address-1">Address</label>
+                        <input class="form-control" type="text" placeholder="Street address, P.O. box, company name, c/o" id="billing-address-1">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end row -->
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group mb-3">
+                        <label for="billing-town-city">Town / City</label>
+                        <input class="form-control" type="text" id="billing-town-city">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group mb-3">
+                        <label for="billing-state">State / Province / Region</label>
+                        <input class="form-control" type="text" id="billing-state">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group mb-3">
+                        <label for="billing-zip-postal">Zip Code</label>
+                        <input class="form-control" type="text" id="billing-zip-postal">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end row -->
+                </div>
+                <!-- end billing-address-content -->
+              </div>
+              <!-- end billing-address -->
+            </div>
+            <!-- end billing-address -->
+            <div class="row mt-4">
+              <div class="col-6">
+                <a href="shopping-card.html" class="btn btn-warning">
+                  <i class="fal fa-angle-double-left"></i>
+                  Return to shipping
+                </a>
+              </div>
+              <!-- end col -->
+              <div class="col-6">
+                <div class="text-end">
+                  <a href="#" class="btn btn-danger">
+                    <i class="mdi mdi-truck-fast me-1"></i> Complete order </a>
+                </div>
+              </div>
+              <!-- end col -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end card-body -->
+        </div>
+        <!-- end card -->
+      </div>
+      <!-- end col -->
+    </div>
+    <!-- end row-->
+  </div></div>
+      </div>
+      <!-- end page-content -->
+      <div id="footer" class="d-flex align-items-center">
+        <div class="row w-100">
+          <div class="footer-nav col-md-8 col-sm-6">
+            <a href="#" target="_blank" class="footer-nav-item">About</a>
+            <a href="#" target="_blank" class="footer-nav-item">Support</a>
+            <a href="#" target="_blank" class="footer-nav-item">Contact</a>
+          </div>
+          <div class="copyright text-end col-md-4 col-sm-6">
+            2020&nbsp;©&nbsp;<a href="#" target="_blank">TEachProd</a>
+          </div>
+        </div>
+      </div>    </div>
+    <!-- end page-container -->
+  <div class="modal right fade" id="right-sidebar" tabindex="-1" aria-labelledby="modalSetting" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content custom-scroll" style="max-height: 100%">
+        <div class="align-items-center bg-trans-gradient justify-content-center modal-header rounded-0 w-100">
+          <h4 class="m-0 text-center text-white fw-700">
+            Settings
+            <small class="mb-0 opacity-80">User Interface Settings</small>
+          </h4>
+          <a href="#" class="pos-top-right text-white p-2 m-1 me-2 fs-md" data-dismiss="modal" aria-label="Close"><i class="fal fa-times"></i></a>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mx-3 mt-2">
+              <p class="text-muted fs-base">Customize layout, left sidebar menu, etc. FlexAdmin stores the preferences in local storage.</p>
+            </div>
+            <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                Layout Options
+              </h5>
+            </div>
+            <div class="ps-3 pe-2">
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-shrinking-left-sidebar" id="app-shrinking-left-sidebar">
+                  <label for="app-shrinking-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-shrinking-left-sidebar">Shrinking Left Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-header" id="app-fixed-header" value=true>
+                  <label for="app-fixed-header"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-header">Fixed Header</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-left-sidebar" id="app-fixed-left-sidebar">
+                  <label for="app-fixed-left-sidebar"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-left-sidebar">Fixed Navigation</label></div>
+              </div>
+              <div class="d-flex mb-2">
+                <div class="custom-switcher custom-switcher-info">
+                  <input type="checkbox" name="app-fixed-footer" id="app-fixed-footer">
+                  <label for="app-fixed-footer"></label>
+                </div>
+                <div class="ms-3"><label for="app-fixed-footer">Fixed Footer</label></div>
+              </div>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Colors
+              </h5>
+            </div>
+            <div class="theme-colors ps-3 pe-2">
+              <ul class="m-0 p-0">
+                <li>
+                  <a href="#" class="bg-anchor" data-theme-color="app-theme-anchor" data-bs-toggle="tooltip" data-bs-original-title="Anchor"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-maroon" data-theme-color="app-theme-maroon" data-bs-toggle="tooltip" data-bs-original-title="Maroon"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-carrot" data-theme-color="app-theme-carrot" data-bs-toggle="tooltip" data-bs-original-title="Carrot"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-lollipop" data-theme-color="app-theme-lollipop" data-bs-toggle="tooltip" data-bs-original-title="Lollipop"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-gold" data-theme-color="app-theme-gold" data-bs-toggle="tooltip" data-bs-original-title="Gold"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-forest" data-theme-color="app-theme-forest" data-bs-toggle="tooltip" data-bs-original-title="Forest"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-hoki" data-theme-color="app-theme-hoki" data-bs-toggle="tooltip" data-bs-original-title="Hoki"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-facebook" data-theme-color="app-theme-facebook" data-bs-toggle="tooltip" data-bs-original-title="Facebook"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-purple" data-theme-color="app-theme-purple" data-bs-toggle="tooltip" data-bs-original-title="Purple"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-indigo" data-theme-color="app-theme-indigo" data-bs-toggle="tooltip" data-bs-original-title="Indigo"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-cafe" data-theme-color="app-theme-cafe" data-bs-toggle="tooltip" data-bs-original-title="Cafe"></a>
+                </li>
+                <li>
+                  <a href="#" class="bg-charcoal" data-theme-color="app-theme-charcoal" data-bs-toggle="tooltip" data-bs-original-title="Charcoal"></a>
+                </li>
+              </ul>
+            </div>          <div class="mt-4 ps-3 pe-2">
+              <h5 class="p-0 fw-700">
+                  Theme Modes
+              </h5>
+            </div>
+            <div class="theme-modes ps-3 pe-2">
+              <div class="row">
+                <div class="col-6 pe-2 text-center">
+                  <div data-theme-mode="default-mode" class="theme-mode-config d-flex bg-white border border-secondary rounded overflow-hidden text-success" style="height: 100px">
+                    <div class="map-left-sidebar px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="bg-white border-bottom py-1"></div>
+                      <div class="bg-white h-100 flex-1 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100" style="background:url('assets/images/website-layout.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Default
+                </div>
+                <div class="col-6 ps-2 text-center">
+                  <div data-theme-mode="dark-mode" class="theme-mode-config d-flex border border-white rounded overflow-hidden text-success bg-dark" style="height: 100px">
+                    <div class="px-2 pt-0 border-right"></div>
+                    <div class="d-flex w-100 flex-column flex-1">
+                      <div class="border-bottom py-1"></div>
+                      <div class="flex-1 h-100 pt-3 pb-3 px-2">
+                        <div class="py-3 h-100 " style="background:url('assets/images/website-layout-dark.jpg') top left no-repeat;background-size: 100%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  Dark
+                </div>
+              </div>
+            </div>          <div class="d-flex justify-content-center mt-4 pt-4">
+              <button id="reset-setting" type="button" class="btn btn-warning btn-rounded d-block w-75">Reset</button>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+              <a class="btn btn-rose btn-rounded d-block w-75" href="https://codecanyon.net/item/flexadmin-bootstrap-5-admin-template/29011667" target="_blank">Buy Now</a>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end right-sidebar -->  <script src="assets/js/vendor~app~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_calendar~demo_datatable~dem~cf3c0e0d.js"></script><script src="assets/js/vendor~app.js"></script><script src="assets/js/app.js"></script><script src="assets/js/vendor~dashboard_analytics~dashboard_ecommerce~demo_add_product~demo_chartjs~demo_dropzone~demo_widg~79dfae0c.js"></script><script src="assets/js/ecommerce.js"></script>
+</body>
+</html>
